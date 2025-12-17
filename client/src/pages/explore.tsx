@@ -491,7 +491,6 @@ export default function ExplorePage() {
 
   const { data: hackathons, isLoading } = useQuery<Hackathon[]>({
     queryKey: ["/api/hackathons"],
-    queryFn: () => Promise.resolve(mockHackathons), // Will be replaced with real API
   });
 
   const filteredHackathons = (hackathons || []).filter((h) => {
