@@ -1,0 +1,387 @@
+BUILD A NATIONAL-LEVEL HACKATHON PLATFORM FRONTEND (ZERO AI TRACE, ZERO DEMO FEEL)
+🔴 ABSOLUTE CONTEXT (NON-NEGOTIABLE)
+
+You are NOT building:
+
+a portfolio website
+
+a landing page demo
+
+a UI showcase
+
+a template-based platform
+
+an AI-styled design
+
+You ARE building:
+
+a full-scale national & state-level hackathon platform
+
+for government bodies, Tier-1 universities, enterprises, recruiters
+
+capable of hosting Smart India Hackathon–level events
+
+intended to scale to India + Asia
+
+comparable to SIH, Hack2Skill, Devfolio, HackerEarth, Devpost
+
+If the output looks like a portfolio, demo, AI template, or generic SaaS UI, the task has FAILED.
+
+🧠 ROLE YOU MUST ASSUME
+
+You are simultaneously acting as:
+
+Principal Frontend Engineer
+
+Product Architect
+
+Enterprise UX Designer
+
+You must design systems and workflows, not marketing sections.
+
+🎯 CORE PLATFORM PURPOSE (MANDATORY)
+
+Build a complete hackathon ecosystem integrated with:
+
+Training
+
+Internships
+
+Projects
+
+Hiring & placements
+
+Industry partnerships
+
+The platform must support:
+
+National hackathons
+
+State-level hackathons
+
+University-hosted hackathons
+
+Corporate recruitment hackathons
+
+👥 USER ROLES (STRICT ROLE-BASED UX)
+
+Design distinct, realistic UI flows for:
+
+Participants
+
+Team Members
+
+Mentors
+
+Judges
+
+Recruiters
+
+Universities
+
+Admins
+
+Each role must have:
+
+its own navigation
+
+its own dashboard
+
+its own workflows
+
+its own permissions
+
+📄 REQUIRED PAGES (ALL MUST EXIST — NO EXCEPTIONS)
+🌐 Public / Entry
+
+Landing / Home (platform-centric, not marketing-centric)
+
+Explore Hackathons (full marketplace)
+
+Hackathon Details (operational depth)
+
+Authentication (role-aware login/signup)
+
+🧑‍💻 Participant
+
+Participant Dashboard
+
+Team Management
+
+Problem Statements
+
+Submission Portal
+
+Leaderboard
+
+Certificates Page
+
+Portfolio Page
+
+🧑‍⚖️ Judge / Mentor
+
+Judge Dashboard
+
+Mentor Dashboard
+
+Submission Review Panel
+
+Scoring & Feedback Interface
+
+🏢 Organization
+
+Recruiter Dashboard
+
+University Dashboard
+
+🛠 Admin
+
+Admin Panel
+
+Hackathon Creation & Management
+
+Participant Analytics
+
+Judge/Mentor Assignment
+
+Announcements System
+
+Certificate Generator
+
+Reports & Analytics
+
+No page may be skipped, merged, or reduced to static text.
+
+✅ PARTICIPANT FEATURES (FULL UI REQUIRED)
+
+Email / phone / Google authentication
+
+Team creation, joining, auto-matching
+
+Hackathon discovery & filtering
+
+Problem statement browsing
+
+Submissions:
+
+GitHub repositories
+
+Figma designs
+
+Documents / PDFs
+
+Video demos
+
+Deadline tracking
+
+Announcements feed
+
+Chat / support interface
+
+Resume upload
+
+Auto-generated portfolio
+
+Hackathon badges & certificates
+
+Live leaderboard
+
+🧑‍⚖️ JUDGE & MENTOR FEATURES
+
+Secure judge login
+
+Submission review list
+
+Criteria-based scoring UI:
+
+UI/UX
+
+Innovation
+
+Feasibility
+
+Technical depth
+
+Presentation
+
+Feedback system
+
+Mentor assignment
+
+Team progress tracking
+
+AI scoring suggestions (UI-level)
+
+🛠 ADMIN FEATURES (FULLY DESIGNED UI)
+
+Create & manage hackathons
+
+Add/edit problem statements
+
+Track participants
+
+Assign judges & mentors
+
+Send announcements
+
+Generate certificates
+
+Export reports (CSV / Excel)
+
+Payment handling for paid events
+
+AI plagiarism check toggle
+
+AI scoring toggle
+
+🤖 AI-POWERED DIFFERENTIATORS (REAL UI SYSTEMS)
+
+AI must be embedded into workflows, not described as text.
+
+Design UI systems for:
+
+AI Mentor Assistant (chat-based)
+
+AI Code Reviewer
+
+AI Project Evaluator
+
+AI Submission Quality Score
+
+AI Feedback Generator
+
+Auto Team Matching
+
+Resume Screening for Recruiters
+
+🔁 HACKATHON LIFECYCLE (VISUALLY REPRESENTED)
+
+Every hackathon must clearly show:
+
+Promotion
+
+Registration
+
+Problem Statement Release
+
+Hackathon Execution
+
+Judging (AI + Human)
+
+Results & Leaderboard
+
+Certificates
+
+Post-event Hiring & Analytics
+
+This lifecycle must be visible and navigable in UI, not just text.
+
+💰 MONETIZATION (UI-LEVEL SUPPORT)
+
+Design UI for:
+
+University-paid hackathons
+
+Corporate-sponsored hackathons
+
+Premium hackathons
+
+Recruiter access plans
+
+Platform subscriptions
+
+Paid certificate upgrades
+
+🎨 UI / UX DESIGN REQUIREMENTS (EXTREMELY STRICT)
+
+Clean, modern, enterprise-grade design
+
+Marketplace-style listings (not cards)
+
+Dashboard-style layouts
+
+Dense but readable information hierarchy
+
+Professional typography
+
+Strong visual hierarchy
+
+Dark + Light mode
+
+🖼 IMAGE USAGE (MANDATORY)
+
+Use real, contextual images:
+
+Hackathon banner covers
+
+University & company logos
+
+Partner brand visuals
+
+Event-style illustrations
+
+Images must feel intentional, realistic, and credible, not decorative.
+
+❌ STRICTLY FORBIDDEN
+
+Portfolio layouts
+
+AI template sections
+
+Symmetric AI grids
+
+Shiny neon cards
+
+Glassmorphism abuse
+
+Fake counters (“50k+ users”)
+
+Dummy / lorem / random data
+
+📊 DATA & CONTENT RULE (CRITICAL)
+
+Do NOT use:
+
+fake statistics
+
+demo hackathons
+
+placeholder text
+
+Instead:
+
+Use realistic, believable, grounded content
+
+Authentic hackathon naming styles
+
+Credible timelines
+
+Real-world university & company naming conventions
+
+The platform must look alive, operational, and trustworthy.
+
+🧪 FINAL QUALITY BAR
+
+After generation, the platform must feel like:
+
+“This could confidently host a Smart India Hackathon-level event tomorrow.”
+
+If it feels like:
+
+a demo
+
+a portfolio
+
+an AI experiment
+
+→ FAILURE
+
+🧨 FINAL EXECUTION COMMAND
+
+Generate the entire frontend of the Zidio Hackathon Platform in one complete run, satisfying every page, every feature, every role, and every requirement from the official Building Hackathon document .
+
+Do not simplify.
+Do not reuse AI templates.
+Do not leave traces of AI design patterns.
+
+Build a fully customized, human-designed, national-level hackathon platform frontend that outperforms existing portals.
