@@ -184,37 +184,47 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative border-b bg-background">
-        <div className="container mx-auto px-4 py-20 lg:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-full border bg-muted px-4 py-1.5 text-sm font-medium">
-                <Building2 className="h-3.5 w-3.5" />
-                National Innovation Infrastructure
-              </div>
-              
-              <div className="space-y-4">
-                <h1 className="text-4xl font-bold leading-tight tracking-tight lg:text-5xl xl:text-6xl">
-                  India's Unified Platform for
-                  <span className="block text-primary">National Hackathons</span>
+      <section className="relative border-b">
+        <div className="container mx-auto px-4 py-16 lg:py-24">
+          <div className="grid items-start gap-16 lg:grid-cols-[1.2fr,1fr]">
+            <div className="space-y-12">
+              <div className="space-y-6">
+                <div className="inline-block">
+                  <Badge variant="outline" className="px-3 py-1 text-sm font-medium">
+                    Powered by Ministry of Education & AICTE
+                  </Badge>
+                </div>
+                
+                <h1 className="text-5xl font-bold leading-[1.1] tracking-tight lg:text-6xl xl:text-7xl">
+                  Build Solutions.
+                  <br />
+                  <span className="text-primary">Transform India.</span>
                 </h1>
                 
-                <p className="text-lg leading-relaxed text-muted-foreground lg:text-xl">
-                  Connecting government ministries, premier institutions, and enterprise innovation teams 
-                  with India's brightest student developers and problem solvers.
-                </p>
+                <div className="max-w-xl space-y-4">
+                  <p className="text-xl leading-relaxed text-muted-foreground">
+                    A unified platform connecting <span className="font-semibold text-foreground">government ministries</span>, <span className="font-semibold text-foreground">premier universities</span>, and <span className="font-semibold text-foreground">enterprise partners</span> with India's brightest innovators.
+                  </p>
+                  <p className="text-base text-muted-foreground">
+                    Participate in national-level hackathons, collaborate with industry leaders, and solve real-world challenges that shape the future.
+                  </p>
+                </div>
               </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 {!isAuthenticated ? (
                   <>
-                    <Button size="lg" className="text-base" onClick={() => {}} data-testid="button-get-started">
-                      Sign Up
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                    <Button size="lg" variant="outline" className="text-base" onClick={() => {}}>
-                      Login
-                    </Button>
+                    <Link href="/signup">
+                      <Button size="lg" className="w-full text-base sm:w-auto" data-testid="button-get-started">
+                        Sign Up
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                    <Link href="/login">
+                      <Button size="lg" variant="outline" className="w-full text-base sm:w-auto">
+                        Login
+                      </Button>
+                    </Link>
                   </>
                 ) : (
                   <Link href="/dashboard">
@@ -225,54 +235,76 @@ export default function LandingPage() {
                   </Link>
                 )}
                 <Link href="/explore">
-                  <Button size="lg" variant="ghost" className="text-base" data-testid="button-explore">
+                  <Button size="lg" variant="ghost" className="w-full text-base sm:w-auto" data-testid="button-explore">
                     Browse Hackathons
                     <Search className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center gap-6 pt-4 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-green-500"></div>
-                  <span>Ministry Approved</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                  <span>AICTE Recognized</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-purple-500"></div>
-                  <span>Industry Partnered</span>
+              <div className="border-l-4 border-primary bg-primary/5 p-6">
+                <div className="grid gap-4 sm:grid-cols-3">
+                  <div>
+                    <div className="text-3xl font-bold">50+</div>
+                    <div className="text-sm text-muted-foreground">Active Events</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold">10,000+</div>
+                    <div className="text-sm text-muted-foreground">Student Participants</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold">100+</div>
+                    <div className="text-sm text-muted-foreground">Partner Organizations</div>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="relative hidden lg:block">
-              <div className="relative aspect-square rounded-2xl border bg-gradient-to-br from-primary/5 to-primary/20">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="grid grid-cols-2 gap-4 p-8">
-                    <div className="rounded-lg border bg-background p-6 shadow-sm">
-                      <Trophy className="mb-3 h-8 w-8 text-primary" />
-                      <div className="text-2xl font-bold">50+</div>
-                      <div className="text-xs text-muted-foreground">Active Events</div>
+              <div className="space-y-6">
+                <div className="rounded-xl border bg-card p-8">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                      <Building2 className="h-6 w-6 text-primary" />
                     </div>
-                    <div className="rounded-lg border bg-background p-6 shadow-sm">
-                      <Users className="mb-3 h-8 w-8 text-primary" />
-                      <div className="text-2xl font-bold">10k+</div>
-                      <div className="text-xs text-muted-foreground">Participants</div>
-                    </div>
-                    <div className="rounded-lg border bg-background p-6 shadow-sm">
-                      <GraduationCap className="mb-3 h-8 w-8 text-primary" />
-                      <div className="text-2xl font-bold">50+</div>
-                      <div className="text-xs text-muted-foreground">Universities</div>
-                    </div>
-                    <div className="rounded-lg border bg-background p-6 shadow-sm">
-                      <Building2 className="mb-3 h-8 w-8 text-primary" />
-                      <div className="text-2xl font-bold">100+</div>
-                      <div className="text-xs text-muted-foreground">Partners</div>
+                    <div>
+                      <div className="font-semibold">Government Bodies</div>
+                      <div className="text-sm text-muted-foreground">Ministry partnerships</div>
                     </div>
                   </div>
+                  <p className="text-sm text-muted-foreground">
+                    Direct collaboration with central and state government initiatives driving digital transformation.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border bg-card p-8">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                      <GraduationCap className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-semibold">Premier Institutions</div>
+                      <div className="text-sm text-muted-foreground">IITs, NITs, IIITs</div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Partnering with top engineering colleges across India to foster innovation and research.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border bg-card p-8">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                      <Briefcase className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-semibold">Enterprise Partners</div>
+                      <div className="text-sm text-muted-foreground">Industry leaders</div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Technology giants and startups offering real-world problem statements and mentorship.
+                  </p>
                 </div>
               </div>
             </div>
@@ -483,28 +515,24 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold">Our Esteemed Partners</h2>
-            <p className="text-muted-foreground">Collaborating with leading organizations across India</p>
+            <p className="text-muted-foreground">Trusted by leading institutions and enterprises across India</p>
           </div>
-          <div className="relative overflow-hidden">
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
-              {partners.map((partner, index) => (
-                <div
-                  key={partner}
-                  className="flex items-center justify-center rounded-lg border bg-background p-6 transition-transform hover:scale-105"
-                  style={{
-                    animation: `float ${3 + (index % 3)}s ease-in-out infinite`,
-                    animationDelay: `${index * 0.2}s`,
-                  }}
-                >
-                  <span className="text-center text-sm font-medium">{partner}</span>
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
+            {partners.map((partner) => (
+              <div
+                key={partner}
+                className="flex aspect-square items-center justify-center rounded-xl border-2 bg-background p-4 transition-all hover:border-primary hover:shadow-md"
+              >
+                <div className="flex h-full w-full items-center justify-center">
+                  <span className="text-center text-xs font-semibold leading-tight">{partner}</span>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
           <div className="mt-12 text-center">
             <Link href="/clientele">
               <Button variant="outline" size="lg">
-                Explore more…
+                View All Partners
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>

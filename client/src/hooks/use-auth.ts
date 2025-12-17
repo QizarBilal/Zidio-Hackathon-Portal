@@ -4,26 +4,19 @@ interface User {
   id: number;
   username: string;
   email: string;
-  role: "participant" | "judge" | "admin";
+  role: "participant" | "judge" | "admin" | "mentor";
 }
-
-const mockUser: User = {
-  id: 1,
-  username: "demo_user",
-  email: "demo@hackathon.com",
-  role: "participant"
-};
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const login = (role: "participant" | "judge" | "admin" | "mentor" | "recruiter" | "university") => {
+  const login = (role: "participant" | "judge" | "admin" | "mentor", email?: string, name?: string) => {
     setUser({
       id: 1,
-      username: "demo_user",
-      email: "demo@hackathon.com",
-      role: role as "participant" | "judge" | "admin"
+      username: name || "demo_user",
+      email: email || "demo@hackathon.com",
+      role: role as "participant" | "judge" | "admin" | "mentor"
     });
   };
 
