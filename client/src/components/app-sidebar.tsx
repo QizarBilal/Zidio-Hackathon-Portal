@@ -179,18 +179,18 @@ export function AppSidebar() {
                 {user.email}
               </p>
             </div>
-            <a href="/api/logout" data-testid="button-logout">
+            <button onClick={() => {}} data-testid="button-logout">
               <LogOut className="h-4 w-4 text-muted-foreground" />
-            </a>
+            </button>
           </div>
         ) : (
-          <a
-            href="/api/login"
+          <button
+            onClick={() => {}}
             className="flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
             data-testid="button-login"
           >
             Sign In
-          </a>
+          </button>
         )}
       </SidebarFooter>
     </Sidebar>

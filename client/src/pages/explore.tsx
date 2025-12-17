@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -28,7 +27,52 @@ import {
   X,
 } from "lucide-react";
 import { formatDate, formatCurrency, getTimeRemaining, getStatusColor, getStatusLabel } from "@/lib/utils";
-import type { Hackathon } from "@shared/schema";
+
+interface Hackathon {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  shortDescription: string;
+  bannerImageUrl: string | null;
+  organizerName: string;
+  organizerLogoUrl: string | null;
+  organizerType: string;
+  category: string;
+  mode: string;
+  venue: string | null;
+  city: string | null;
+  state: string | null;
+  country: string;
+  level: string;
+  prizePool: number | null;
+  currency: string;
+  maxTeamSize: number;
+  minTeamSize: number;
+  maxParticipants: number | null;
+  registrationStartDate: Date;
+  registrationEndDate: Date;
+  hackathonStartDate: Date;
+  hackathonEndDate: Date;
+  submissionDeadline: Date;
+  judgingStartDate: Date | null;
+  judgingEndDate: Date | null;
+  resultsDate: Date | null;
+  status: string;
+  tags: string[];
+  eligibility: string[];
+  isPaid: boolean;
+  registrationFee: number | null;
+  website: string | null;
+  rulesUrl: string | null;
+  faqUrl: string | null;
+  supportEmail: string | null;
+  discordUrl: string | null;
+  slackUrl: string | null;
+  featured: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 const categories = [
   "All Categories",
@@ -489,9 +533,8 @@ export default function ExplorePage() {
   const [onlyFree, setOnlyFree] = useState(false);
   const [onlyOpen, setOnlyOpen] = useState(false);
 
-  const { data: hackathons, isLoading } = useQuery<Hackathon[]>({
-    queryKey: ["/api/hackathons"],
-  });
+  const hackathons = mockHackathons;
+  const isLoading = false;
 
   const filteredHackathons = (hackathons || []).filter((h) => {
     if (searchQuery && !h.title.toLowerCase().includes(searchQuery.toLowerCase())) {

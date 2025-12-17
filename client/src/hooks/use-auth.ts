@@ -1,29 +1,29 @@
-import { useQuery } from "@tanstack/react-query";
-import type { User } from "@shared/models/auth";
+import { useState, useEffect } from "react";
 
-async function fetchUser(): Promise<User | null> {
-  const response = await fetch("/api/auth/user", {
-    credentials: "include",
-  });
-
-  if (response.status === 401) {
-    return null;
-  }
-
-  if (!response.ok) {
-    throw new Error(`${response.status}: ${response.statusText}`);
-  }
-
-  return response.json();
+interface User {
+  id: number;
+  username: string;
+  email: string;
+  role: "participant" | "judge" | "admin";
 }
 
+const mockUser: User = {
+  id: 1,
+  username: "demo_user",
+  email: "demo@hackathon.com",
+  role: "participant"
+};
+
 export function useAuth() {
-  const { data: user, isLoading } = useQuery<User | null>({
-    queryKey: ["/api/auth/user"],
-    queryFn: fetchUser,
-    retry: false,
-    staleTime: 1000 * 60 * 5, // 5 minutes
-  });
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setUser(mockUser);
+      setIsLoading(false);
+    }, 500);
+  }, []);
 
   return {
     user,
