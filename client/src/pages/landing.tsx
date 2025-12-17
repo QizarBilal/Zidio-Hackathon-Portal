@@ -21,6 +21,7 @@ import {
   Mail,
   Phone,
   MapPin,
+  Search,
 } from "lucide-react";
 
 const featuredHackathons = [
