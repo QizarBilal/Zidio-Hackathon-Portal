@@ -86,29 +86,23 @@ export function AppSidebar() {
   const [location] = useLocation();
   const { user, isAuthenticated } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const userRole = "participant";
+  const userRole = user?.role || "participant";
 
   const getNavItems = () => {
     const items: { label: string; items: NavItem[] }[] = [
       { label: "Discover", items: publicNavItems },
     ];
 
-    if (isAuthenticated) {
+    if (isAuthenticated && user) {
       items.push({ label: "Participant", items: participantNavItems });
 
       if (userRole === "judge" || userRole === "admin") {
         items.push({ label: "Judging", items: judgeNavItems });
       }
-      if (userRole === "mentor" || userRole === "admin") {
-        items.push({ label: "Mentoring", items: mentorNavItems });
-      }
-      if (userRole === "recruiter" || userRole === "admin") {
-        items.push({ label: "Recruiting", items: recruiterNavItems });
-      }
-      if (userRole === "university" || userRole === "admin") {
-        items.push({ label: "University", items: universityNavItems });
-      }
       if (userRole === "admin") {
+        items.push({ label: "Mentoring", items: mentorNavItems });
+        items.push({ label: "Recruiting", items: recruiterNavItems });
+        items.push({ label: "University", items: universityNavItems });
         items.push({ label: "Administration", items: adminNavItems });
       }
     }

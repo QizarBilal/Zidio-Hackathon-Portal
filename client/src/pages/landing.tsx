@@ -183,37 +183,97 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/10 py-16 lg:py-24">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              Build. Compete.{" "}
-              <span className="text-primary">Innovate.</span>
-            </h1>
-            <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-              Join the national-level hackathon ecosystem connecting students, developers, and innovators 
-              with government bodies, enterprises, and top universities across India.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              {!isLoading && !isAuthenticated ? (
-                <Button size="lg" onClick={() => {}} data-testid="button-get-started">
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              ) : (
-                <Link href="/dashboard">
-                  <Button size="lg" data-testid="button-go-to-dashboard">
-                    Go to Dashboard
-                    <ArrowRight className="ml-2 h-4 w-4" />
+      <section className="relative border-b bg-background">
+        <div className="container mx-auto px-4 py-20 lg:py-28">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="space-y-8">
+              <div className="inline-flex items-center gap-2 rounded-full border bg-muted px-4 py-1.5 text-sm font-medium">
+                <Building2 className="h-3.5 w-3.5" />
+                National Innovation Infrastructure
+              </div>
+              
+              <div className="space-y-4">
+                <h1 className="text-4xl font-bold leading-tight tracking-tight lg:text-5xl xl:text-6xl">
+                  India's Unified Platform for
+                  <span className="block text-primary">National Hackathons</span>
+                </h1>
+                
+                <p className="text-lg leading-relaxed text-muted-foreground lg:text-xl">
+                  Connecting government ministries, premier institutions, and enterprise innovation teams 
+                  with India's brightest student developers and problem solvers.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+                {!isAuthenticated ? (
+                  <>
+                    <Button size="lg" className="text-base" onClick={() => {}} data-testid="button-get-started">
+                      Sign Up
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                    <Button size="lg" variant="outline" className="text-base" onClick={() => {}}>
+                      Login
+                    </Button>
+                  </>
+                ) : (
+                  <Link href="/dashboard">
+                    <Button size="lg" className="text-base" data-testid="button-go-to-dashboard">
+                      Go to Dashboard
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                )}
+                <Link href="/explore">
+                  <Button size="lg" variant="ghost" className="text-base" data-testid="button-explore">
+                    Browse Hackathons
+                    <Search className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
-              )}
-              <Link href="/explore">
-                <Button variant="outline" size="lg" data-testid="button-explore">
-                  Explore Hackathons
-                </Button>
-              </Link>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-6 pt-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                  <span>Ministry Approved</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                  <span>AICTE Recognized</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-purple-500"></div>
+                  <span>Industry Partnered</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative hidden lg:block">
+              <div className="relative aspect-square rounded-2xl border bg-gradient-to-br from-primary/5 to-primary/20">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="grid grid-cols-2 gap-4 p-8">
+                    <div className="rounded-lg border bg-background p-6 shadow-sm">
+                      <Trophy className="mb-3 h-8 w-8 text-primary" />
+                      <div className="text-2xl font-bold">50+</div>
+                      <div className="text-xs text-muted-foreground">Active Events</div>
+                    </div>
+                    <div className="rounded-lg border bg-background p-6 shadow-sm">
+                      <Users className="mb-3 h-8 w-8 text-primary" />
+                      <div className="text-2xl font-bold">10k+</div>
+                      <div className="text-xs text-muted-foreground">Participants</div>
+                    </div>
+                    <div className="rounded-lg border bg-background p-6 shadow-sm">
+                      <GraduationCap className="mb-3 h-8 w-8 text-primary" />
+                      <div className="text-2xl font-bold">50+</div>
+                      <div className="text-xs text-muted-foreground">Universities</div>
+                    </div>
+                    <div className="rounded-lg border bg-background p-6 shadow-sm">
+                      <Building2 className="mb-3 h-8 w-8 text-primary" />
+                      <div className="text-2xl font-bold">100+</div>
+                      <div className="text-xs text-muted-foreground">Partners</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
