@@ -457,7 +457,7 @@ export default function LandingPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
             <div className="lg:col-span-1">
               <div className="mb-4 flex items-center gap-2">
-                <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
+                <img src="/logo.png" alt="Logo" className="h-8 w-8" />
                 <span className="text-lg font-bold">Hackathon Portal</span>
               </div>
               <p className="text-sm text-slate-400">

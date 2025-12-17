@@ -123,7 +123,7 @@ export function AppSidebar() {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-8">
               <Link href="/" className="flex items-center gap-2">
-                <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
+                <img src="/logo.png" alt="Logo" className="h-8 w-8" />
                 <span className="text-lg font-bold">Hackathon Portal</span>
               </Link>
 
