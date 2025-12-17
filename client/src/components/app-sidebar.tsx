@@ -1,19 +1,16 @@
 import { Link, useLocation } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
+import { useState } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
 import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Home,
   Search,
@@ -32,8 +29,9 @@ import {
   BarChart3,
   Megaphone,
   GraduationCap,
-  LogOut,
-  Zap,
+  ChevronDown,
+  Menu,
+  X,
 } from "lucide-react";
 
 type NavItem = {
@@ -87,8 +85,8 @@ const adminNavItems: NavItem[] = [
 export function AppSidebar() {
   const [location] = useLocation();
   const { user, isAuthenticated } = useAuth();
-
-  const userRole = "participant"; // This would come from user profile in real app
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const userRole = "participant";
 
   const getNavItems = () => {
     const items: { label: string; items: NavItem[] }[] = [
@@ -119,80 +117,105 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar>
-      <SidebarHeader className="p-4">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-primary">
-            <Zap className="h-5 w-5 text-primary-foreground" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-semibold">Zidio</span>
-            <span className="text-xs text-muted-foreground">Hackathon Platform</span>
-          </div>
-        </Link>
-      </SidebarHeader>
+    <>
+      <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container mx-auto px-4">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center gap-8">
+              <Link href="/" className="flex items-center gap-2">
+                <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
+                <span className="text-lg font-bold">Hackathon Portal</span>
+              </Link>
 
-      <SidebarContent>
-        {getNavItems().map((group) => (
-          <SidebarGroup key={group.label}>
-            <SidebarGroupLabel>{group.label}</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {group.items.map((item) => (
-                  <SidebarMenuItem key={item.url}>
-                    <SidebarMenuButton
-                      asChild
-                      isActive={location === item.url}
-                    >
-                      <Link href={item.url} data-testid={`nav-${item.title.toLowerCase().replace(/\s+/g, '-')}`}>
+              <div className="hidden items-center gap-1 lg:flex">
+                {getNavItems().map((group) => (
+                  <DropdownMenu key={group.label}>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" className="gap-1">
+                        {group.label}
+                        <ChevronDown className="h-3 w-3" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start" className="w-48">
+                      <DropdownMenuLabel>{group.label}</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      {group.items.map((item) => (
+                        <DropdownMenuItem key={item.url} asChild>
+                          <Link href={item.url} className="flex items-center gap-2">
+                            <item.icon className="h-4 w-4" />
+                            <span>{item.title}</span>
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+              {isAuthenticated && user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="gap-2">
+                      <User className="h-4 w-4" />
+                      <span className="hidden md:inline">{user.username}</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuLabel>{user.email}</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link href="/dashboard">Dashboard</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/portfolio">Portfolio</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={() => {}}>Sign Out</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Button onClick={() => {}}>Sign In</Button>
+              )}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {mobileMenuOpen && (
+          <div className="border-t lg:hidden">
+            <div className="container mx-auto px-4 py-4">
+              {getNavItems().map((group) => (
+                <div key={group.label} className="mb-4">
+                  <div className="mb-2 text-sm font-semibold text-muted-foreground">{group.label}</div>
+                  <div className="space-y-1">
+                    {group.items.map((item) => (
+                      <Link
+                        key={item.url}
+                        href={item.url}
+                        className="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
                         <item.icon className="h-4 w-4" />
                         <span>{item.title}</span>
-                        {item.badge && (
-                          <Badge variant="secondary" className="ml-auto">
-                            {item.badge}
-                          </Badge>
-                        )}
                       </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        ))}
-      </SidebarContent>
-
-      <SidebarFooter className="p-4">
-        {isAuthenticated && user ? (
-          <div className="flex items-center gap-3">
-            <Avatar className="h-9 w-9">
-              <AvatarImage src={user.profileImageUrl || undefined} />
-              <AvatarFallback>
-                {user.firstName?.[0] || user.email?.[0]?.toUpperCase() || "U"}
-              </AvatarFallback>
-            </Avatar>
-            <div className="flex-1 overflow-hidden">
-              <p className="truncate text-sm font-medium">
-                {user.firstName} {user.lastName}
-              </p>
-              <p className="truncate text-xs text-muted-foreground">
-                {user.email}
-              </p>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-            <button onClick={() => {}} data-testid="button-logout">
-              <LogOut className="h-4 w-4 text-muted-foreground" />
-            </button>
           </div>
-        ) : (
-          <button
-            onClick={() => {}}
-            className="flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
-            data-testid="button-login"
-          >
-            Sign In
-          </button>
         )}
-      </SidebarFooter>
-    </Sidebar>
+      </nav>
+    </>
   );
 }

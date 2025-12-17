@@ -1,11 +1,9 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Link } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import NotFound from "@/pages/not-found";
 import LandingPage from "@/pages/landing";
@@ -19,6 +17,69 @@ import CertificatesPage from "@/pages/certificates";
 import PortfolioPage from "@/pages/portfolio";
 import JudgeDashboard from "@/pages/judge-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
+
+function ClientelePage() {
+  const partners = [
+    "Ministry of Education",
+    "NASSCOM",
+    "IIT Bombay",
+    "IIT Delhi",
+    "IIIT Hyderabad",
+    "IIT Madras",
+    "IIT Kanpur",
+    "IIT Kharagpur",
+    "NIT Trichy",
+    "BITS Pilani",
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Tech Mahindra",
+    "HCL Technologies",
+    "Cognizant",
+    "Microsoft",
+    "Google",
+    "Amazon",
+    "IBM",
+    "Flipkart",
+    "Paytm",
+    "Zomato",
+    "Ola",
+    "ISRO",
+    "DRDO",
+    "Bharat Electronics",
+    "HAL",
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-16">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 text-4xl font-bold">Our Clientele</h1>
+          <p className="text-lg text-muted-foreground">
+            Partnering with leading organizations, institutions, and enterprises across India
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {partners.map((partner) => (
+            <div
+              key={partner}
+              className="flex items-center justify-center rounded-lg border bg-card p-8 text-center transition-all hover:border-primary hover:shadow-lg"
+            >
+              <span className="font-medium">{partner}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link href="/">
+            <a className="text-primary hover:underline">Back to Home</a>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Router() {
   return (
@@ -34,35 +95,23 @@ function Router() {
       <Route path="/portfolio" component={PortfolioPage} />
       <Route path="/judge" component={JudgeDashboard} />
       <Route path="/admin" component={AdminDashboard} />
+      <Route path="/clientele" component={ClientelePage} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
 function App() {
-  const style = {
-    "--sidebar-width": "16rem",
-    "--sidebar-width-icon": "3rem",
-  };
-
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="system" storageKey="zidio-theme">
         <TooltipProvider>
-          <SidebarProvider style={style as React.CSSProperties}>
-            <div className="flex min-h-screen w-full">
-              <AppSidebar />
-              <SidebarInset className="flex flex-1 flex-col">
-                <header className="sticky top-0 z-50 flex h-14 items-center justify-between gap-4 border-b bg-background/95 px-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-                  <SidebarTrigger data-testid="button-sidebar-toggle" />
-                  <ThemeToggle />
-                </header>
-                <main className="flex-1">
-                  <Router />
-                </main>
-              </SidebarInset>
-            </div>
-          </SidebarProvider>
+          <div className="min-h-screen">
+            <AppSidebar />
+            <main>
+              <Router />
+            </main>
+          </div>
           <Toaster />
         </TooltipProvider>
       </ThemeProvider>

@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,6 +18,9 @@ import {
   TrendingUp,
   Globe,
   CheckCircle2,
+  Mail,
+  Phone,
+  MapPin,
 } from "lucide-react";
 
 const featuredHackathons = [
@@ -56,10 +60,10 @@ const featuredHackathons = [
 ];
 
 const stats = [
-  { label: "Active Hackathons", value: "150+", icon: Trophy },
-  { label: "Registered Participants", value: "2.5L+", icon: Users },
-  { label: "Partner Organizations", value: "500+", icon: Building2 },
-  { label: "Universities", value: "1200+", icon: GraduationCap },
+  { label: "Active Hackathons", value: 50, icon: Trophy },
+  { label: "Registered Participants", value: 10000, icon: Users },
+  { label: "Partner Organizations", value: 100, icon: Building2 },
+  { label: "Universities", value: 50, icon: GraduationCap },
 ];
 
 const features = [
@@ -110,20 +114,79 @@ const partners = [
   "Flipkart",
 ];
 
+function StatCounter({ stat }: { stat: { label: string; value: number; icon: any } }) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const duration = 2000;
+    const steps = 60;
+    const increment = stat.value / steps;
+    const stepDuration = duration / steps;
+
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= stat.value) {
+        setCount(stat.value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, stepDuration);
+
+    return () => clearInterval(timer);
+  }, [isVisible, stat.value]);
+
+  return (
+    <div ref={ref} className="text-center">
+      <div className="mb-2 flex justify-center">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+          <stat.icon className="h-6 w-6 text-primary" />
+        </div>
+      </div>
+      <div className="text-2xl font-bold sm:text-3xl">
+        {count.toLocaleString()}
+        {stat.label.includes("Participants") ? "+" : "+"}
+      </div>
+      <div className="text-sm text-muted-foreground">{stat.label}</div>
+    </div>
+  );
+}
+
 export default function LandingPage() {
   const { isAuthenticated, isLoading } = useAuth();
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/10 py-16 lg:py-24">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <Badge variant="secondary" className="mb-6">
-              <Globe className="mr-1 h-3 w-3" />
-              India's Largest Hackathon Platform
-            </Badge>
             <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
               Build. Compete.{" "}
               <span className="text-primary">Innovate.</span>
@@ -134,12 +197,10 @@ export default function LandingPage() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               {!isLoading && !isAuthenticated ? (
-                <a href="/api/login">
-                  <Button size="lg" data-testid="button-get-started">
-                    Get Started
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
+                <Button size="lg" onClick={() => {}} data-testid="button-get-started">
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
               ) : (
                 <Link href="/dashboard">
                   <Button size="lg" data-testid="button-go-to-dashboard">
@@ -163,15 +224,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="mb-2 flex justify-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <stat.icon className="h-6 w-6 text-primary" />
-                  </div>
-                </div>
-                <div className="text-2xl font-bold sm:text-3xl">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
+              <StatCounter key={stat.label} stat={stat} />
             ))}
           </div>
         </div>
@@ -365,80 +418,125 @@ export default function LandingPage() {
       </section>
 
       {/* Partners Section */}
-      <section className="border-t bg-card py-12">
+      <section className="border-t bg-card py-16">
         <div className="container mx-auto px-4">
-          <div className="mb-8 text-center">
-            <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
-              Trusted by Leading Organizations
-            </p>
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold">Our Esteemed Partners</h2>
+            <p className="text-muted-foreground">Collaborating with leading organizations across India</p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {partners.map((partner) => (
-              <span
-                key={partner}
-                className="text-sm font-medium text-muted-foreground"
-              >
-                {partner}
-              </span>
-            ))}
+          <div className="relative overflow-hidden">
+            <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
+              {partners.map((partner, index) => (
+                <div
+                  key={partner}
+                  className="flex items-center justify-center rounded-lg border bg-background p-6 transition-transform hover:scale-105"
+                  style={{
+                    animation: `float ${3 + (index % 3)}s ease-in-out infinite`,
+                    animationDelay: `${index * 0.2}s`,
+                  }}
+                >
+                  <span className="text-center text-sm font-medium">{partner}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl rounded-xl bg-primary p-8 text-center text-primary-foreground sm:p-12">
-            <Zap className="mx-auto mb-4 h-12 w-12" />
-            <h2 className="mb-4 text-2xl font-bold sm:text-3xl">
-              Ready to Start Your Hackathon Journey?
-            </h2>
-            <p className="mb-6 opacity-90">
-              Join thousands of innovators building solutions for real-world problems.
-            </p>
-            {!isLoading && !isAuthenticated ? (
-              <a href="/api/login">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  data-testid="button-cta-signup"
-                >
-                  Create Free Account
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-            ) : (
-              <Link href="/explore">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  data-testid="button-cta-explore"
-                >
-                  Find Hackathons
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            )}
+          <div className="mt-12 text-center">
+            <Link href="/clientele">
+              <Button variant="outline" size="lg">
+                Explore more…
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
-                <Zap className="h-4 w-4 text-primary-foreground" />
+      <footer className="border-t bg-slate-900 text-slate-100">
+        <div className="container mx-auto px-4 py-12">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+            <div className="lg:col-span-1">
+              <div className="mb-4 flex items-center gap-2">
+                <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
+                <span className="text-lg font-bold">Hackathon Portal</span>
               </div>
-              <span className="font-semibold">Zidio</span>
+              <p className="text-sm text-slate-400">
+                Building India's largest hackathon ecosystem for students, innovators, and organizations.
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground">
-              National Hackathon Platform for India
-            </p>
+
+            <div>
+              <h3 className="mb-4 font-semibold">Hackathons</h3>
+              <ul className="space-y-2 text-sm text-slate-400">
+                <li><Link href="/explore" className="hover:text-slate-100">Browse All</Link></li>
+                <li><Link href="/explore" className="hover:text-slate-100">National Level</Link></li>
+                <li><Link href="/explore" className="hover:text-slate-100">University</Link></li>
+                <li><Link href="/explore" className="hover:text-slate-100">Corporate</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-semibold">Company</h3>
+              <ul className="space-y-2 text-sm text-slate-400">
+                <li><Link href="/" className="hover:text-slate-100">About Us</Link></li>
+                <li><Link href="/clientele" className="hover:text-slate-100">Our Clientele</Link></li>
+                <li><Link href="/" className="hover:text-slate-100">Careers</Link></li>
+                <li><Link href="/" className="hover:text-slate-100">Contact</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-semibold">Star Events</h3>
+              <ul className="space-y-2 text-sm text-slate-400">
+                <li><Link href="/explore" className="hover:text-slate-100">Smart India Hackathon</Link></li>
+                <li><Link href="/explore" className="hover:text-slate-100">TechnoVerse</Link></li>
+                <li><Link href="/explore" className="hover:text-slate-100">Innovation Challenge</Link></li>
+                <li><Link href="/explore" className="hover:text-slate-100">Featured Events</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-semibold">Connect</h3>
+              <ul className="space-y-3 text-sm text-slate-400">
+                <li className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  <span>contact@hackathon.com</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <span>+91 1234567890</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <MapPin className="h-4 w-4 mt-1" />
+                  <span>Innovation Hub, Tech Park<br />Bangalore, India</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 border-t border-slate-800 pt-8">
+            <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-slate-400">
+              <p>&copy; 2025 Hackathon Portal. All rights reserved.</p>
+              <div className="flex gap-6">
+                <a href="#" className="hover:text-slate-100">Privacy Policy</a>
+                <a href="#" className="hover:text-slate-100">Terms of Service</a>
+                <a href="#" className="hover:text-slate-100">Cookie Policy</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+      `}</style>
     </div>
   );
 }
