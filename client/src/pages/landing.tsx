@@ -220,7 +220,7 @@ export default function LandingPage() {
     
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 7000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [isPaused, slides.length]);
@@ -239,7 +239,7 @@ export default function LandingPage() {
           <div className="relative py-12 lg:py-14 min-h-[500px] flex items-center">
             
             {currentSlide === 0 && (
-              <div className="w-full transition-all duration-1000 opacity-100">
+              <div className="w-full animate-in fade-in slide-in-from-bottom-4 duration-700 opacity-100">
                 <div className="grid items-center gap-10 lg:grid-cols-[1.2fr,0.8fr]">
                   <div className="space-y-6 max-w-3xl">
                     <div className="space-y-4">
@@ -273,9 +273,9 @@ export default function LandingPage() {
 
                   <div className="relative">
                     <div className="relative h-[380px] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
-                      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80" alt="Students collaborating" className="h-full w-full object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent dark:from-background/90 dark:via-background/20"></div>
-                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/40 bg-background/95 dark:bg-background/80 backdrop-blur-xl p-4">
+                      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80" alt="Students collaborating" className="h-full w-full object-cover brightness-100 dark:brightness-100" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent dark:from-background/90 dark:via-background/20"></div>
+                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/40 bg-white/95 dark:bg-background/80 backdrop-blur-xl p-4 shadow-lg">
                         <div className="flex items-center gap-3">
                           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                             <Trophy className="h-5 w-5 text-primary" />
@@ -293,7 +293,7 @@ export default function LandingPage() {
             )}
 
             {currentSlide === 1 && (
-              <div className="w-full transition-all duration-1000 opacity-100">
+              <div className="w-full animate-in fade-in slide-in-from-left-4 duration-700 opacity-100">
                 <div className="grid items-center gap-8 lg:grid-cols-[1.3fr,0.7fr]">
                   <div className="space-y-5">
                     <div className="space-y-4">
@@ -341,9 +341,9 @@ export default function LandingPage() {
                   </div>
 
                   <div className="relative h-[380px] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=80" alt="University innovation lab" className="h-full w-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent dark:from-background/80"></div>
-                    <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/40 bg-background/95 dark:bg-background/90 backdrop-blur-xl p-4">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=80" alt="University innovation lab" className="h-full w-full object-cover brightness-100 dark:brightness-100" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent dark:from-background/80"></div>
+                    <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/40 bg-white/95 dark:bg-background/90 backdrop-blur-xl p-4 shadow-lg">
                       <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                           <GraduationCap className="h-5 w-5 text-primary" />
@@ -360,13 +360,13 @@ export default function LandingPage() {
             )}
 
             {currentSlide === 2 && (
-              <div className="w-full transition-all duration-1000 opacity-100">
+              <div className="w-full animate-in fade-in slide-in-from-right-4 duration-700 opacity-100">
                 <div className="grid items-center gap-6 lg:grid-cols-[0.7fr,1.3fr]">
                   <div className="relative h-[400px] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&auto=format&fit=crop&q=80" alt="Enterprise" className="h-full w-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent dark:from-background/80"></div>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&auto=format&fit=crop&q=80" alt="Enterprise" className="h-full w-full object-cover brightness-100 dark:brightness-100" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent dark:from-background/80"></div>
                     <div className="absolute inset-0 flex items-end p-6">
-                      <div className="rounded-xl border border-border/40 bg-background/95 dark:bg-background/90 backdrop-blur-xl p-4 w-full">
+                      <div className="rounded-xl border border-border/40 bg-white/95 dark:bg-background/90 backdrop-blur-xl p-4 w-full shadow-lg">
                         <div className="flex items-center gap-3">
                           <Building2 className="h-8 w-8 text-primary" />
                           <div>
@@ -412,7 +412,7 @@ export default function LandingPage() {
             )}
 
             {currentSlide === 3 && (
-              <div className="w-full transition-all duration-1000 opacity-100">
+              <div className="w-full animate-in fade-in zoom-in-95 duration-700 opacity-100">
                 <div className="grid items-center gap-10 lg:grid-cols-2">
                   <div className="space-y-6">
                     <div className="space-y-4">
@@ -447,8 +447,8 @@ export default function LandingPage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-4">
                       <div className="relative h-[180px] overflow-hidden rounded-xl border border-border/50 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80" alt="Mentors" className="h-full w-full object-cover" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent dark:from-background/70"></div>
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80" alt="Mentors" className="h-full w-full object-cover brightness-100 dark:brightness-100" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent dark:from-background/70"></div>
                       </div>
                       <div className="rounded-xl border bg-card p-4">
                         <div className="text-2xl font-bold text-primary">500+</div>
@@ -461,8 +461,8 @@ export default function LandingPage() {
                         <div className="text-xs text-muted-foreground">Reviews Completed</div>
                       </div>
                       <div className="relative h-[180px] overflow-hidden rounded-xl border border-border/50 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80" alt="Judging" className="h-full w-full object-cover" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent dark:from-background/70"></div>
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80" alt="Judging" className="h-full w-full object-cover brightness-100 dark:brightness-100" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent dark:from-background/70"></div>
                       </div>
                     </div>
                   </div>
