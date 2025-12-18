@@ -189,24 +189,24 @@ export default function LandingPage() {
         <div className="container relative mx-auto px-4 py-28 lg:py-48">
           <div className="grid items-center gap-20 lg:grid-cols-[1.4fr,1fr] lg:gap-28">
             <div className="space-y-14">
-              <div className="space-y-11">
+              <div className="space-y-8">
                 <div className="inline-block">
-                  <span className="text-[0.75rem] font-medium tracking-[0.15em] text-primary/90 uppercase">
+                  <span className="text-sm font-medium tracking-wider text-primary uppercase">
                     National Innovation Infrastructure
                   </span>
                 </div>
                 
                 <h1>
-                  <span className="block text-[3.5rem] font-bold leading-[1.02] tracking-[-0.025em] sm:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.25rem]">
+                  <span className="block text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
                     The Institutional Platform
                   </span>
-                  <span className="mt-2 block text-[2.75rem] font-bold leading-[1.05] tracking-[-0.02em] text-primary sm:text-[3.5rem] lg:text-[4.25rem] xl:text-[4.875rem]">
+                  <span className="mt-3 block text-3xl font-bold leading-tight tracking-tight text-primary sm:text-4xl lg:text-5xl xl:text-6xl">
                     for Universities & Enterprises
                   </span>
                 </h1>
                 
-                <div className="max-w-[42rem]">
-                  <p className="text-[1.125rem] font-normal leading-[1.65] text-foreground/75">
+                <div className="max-w-2xl">
+                  <p className="text-lg leading-relaxed text-muted-foreground">
                     Connecting research institutions, government bodies, and enterprise organizations with verified student innovators through structured evaluation, recognized credentials, and direct hiring pathways—operating at national scale.
                   </p>
                 </div>
@@ -224,36 +224,6 @@ export default function LandingPage() {
                     Explore Hackathons
                   </Button>
                 </Link>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-12 border-l-[2.5px] border-primary/50 bg-card/30 py-8 pl-8 pr-6">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/[0.06]">
-                    <Trophy className="h-8 w-8 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-[2.125rem] font-bold leading-none tracking-tight">50+</div>
-                    <div className="mt-2 text-[0.8125rem] font-medium tracking-wide text-muted-foreground">Active Programs</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/[0.06]">
-                    <Users className="h-8 w-8 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-[2.125rem] font-bold leading-none tracking-tight">10,000+</div>
-                    <div className="mt-2 text-[0.8125rem] font-medium tracking-wide text-muted-foreground">Verified Participants</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/[0.06]">
-                    <Building2 className="h-8 w-8 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-[2.125rem] font-bold leading-none tracking-tight">100+</div>
-                    <div className="mt-2 text-[0.8125rem] font-medium tracking-wide text-muted-foreground">Institutional Partners</div>
-                  </div>
-                </div>
               </div>
             </div>
 
