@@ -184,99 +184,103 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative overflow-hidden border-b bg-gradient-to-br from-background via-background to-primary/5">
-        <div className="container mx-auto px-4 py-20 lg:py-32">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.3fr,1fr] lg:gap-20">
-            <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 space-y-10">
-              <div className="space-y-8">
-                <div className="inline-block">
-                  <span className="text-sm font-semibold tracking-wide text-primary uppercase">
-                    India's Collaborative Hackathon Ecosystem
+      <section className="relative overflow-hidden border-b">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/[0.02]"></div>
+        <div className="container relative mx-auto px-4 py-24 lg:py-40">
+          <div className="grid items-center gap-16 lg:grid-cols-[1.35fr,1fr] lg:gap-24">
+            <div className="space-y-12">
+              <div className="space-y-10">
+                <div className="inline-block opacity-0 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                  <span className="text-[0.8125rem] font-semibold tracking-[0.1em] text-primary uppercase">
+                    National Hackathon Infrastructure
                   </span>
                 </div>
                 
-                <h1 className="text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
-                  Empowering Innovation
+                <h1 className="text-5xl font-bold leading-[1.05] tracking-[-0.02em] opacity-0 animate-in fade-in slide-in-from-bottom-3 duration-700 delay-100 sm:text-6xl lg:text-[5rem] xl:text-[5.75rem]">
+                  India's Institutional Platform
                   <br />
-                  <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                    Across Universities & Enterprises
+                  <span className="text-primary">
+                    for Innovation Ecosystems
                   </span>
                 </h1>
                 
-                <div className="max-w-2xl space-y-5">
-                  <p className="text-lg leading-relaxed text-muted-foreground sm:text-xl">
-                    Zidio connects <strong className="font-semibold text-foreground">students</strong>, <strong className="font-semibold text-foreground">universities</strong>, <strong className="font-semibold text-foreground">enterprises</strong>, and <strong className="font-semibold text-foreground">recruiters</strong> in a trusted national platform for problem-driven hackathons—delivering real outcomes, verified credentials, and career pathways.
+                <div className="max-w-[38rem] space-y-6 opacity-0 animate-in fade-in slide-in-from-bottom-3 duration-700 delay-200">
+                  <p className="text-[1.0625rem] font-normal leading-[1.7] text-foreground/80">
+                    A verified infrastructure connecting research institutions, government bodies, and enterprise organizations with student innovators through structured problem statements, transparent evaluation frameworks, and recognized credentials.
+                  </p>
+                  <p className="text-[0.9375rem] leading-[1.65] text-muted-foreground">
+                    From university participation to enterprise mentorship and recruitment—Zidio provides the complete lifecycle for national-scale innovation programs.
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4 opacity-0 animate-in fade-in slide-in-from-bottom-2 duration-600 delay-300">
                 <Link href="/signup">
-                  <Button size="lg" className="group h-12 px-8 text-base font-semibold transition-all hover:scale-105 hover:shadow-lg" data-testid="button-get-started">
+                  <Button size="lg" className="h-12 px-9 text-[0.9375rem] font-semibold shadow-md transition-all duration-300 hover:shadow-xl" data-testid="button-get-started">
                     Sign Up
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="ml-2 h-[1.125rem] w-[1.125rem]" />
                   </Button>
                 </Link>
                 <Link href="/explore">
-                  <Button size="lg" variant="outline" className="h-12 px-8 text-base font-semibold transition-all hover:scale-105 hover:border-primary hover:bg-primary/5" data-testid="button-explore">
+                  <Button size="lg" variant="outline" className="h-12 border-2 px-9 text-[0.9375rem] font-semibold transition-all duration-300 hover:border-primary/80 hover:bg-primary/[0.03]" data-testid="button-explore">
                     Explore Hackathons
                   </Button>
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center gap-8 border-l-4 border-primary bg-card/50 py-6 pl-6 pr-4 backdrop-blur-sm">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                    <Trophy className="h-7 w-7 text-primary" />
+              <div className="flex flex-wrap items-center gap-10 border-l-[3px] border-primary/60 bg-card/40 py-7 pl-7 pr-5 opacity-0 animate-in fade-in slide-in-from-bottom-2 duration-600 delay-400 backdrop-blur-[2px]">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-[3.75rem] w-[3.75rem] items-center justify-center rounded-full bg-primary/[0.08]">
+                    <Trophy className="h-[1.875rem] w-[1.875rem] text-primary" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold">50+</div>
-                    <div className="text-sm text-muted-foreground">Active Hackathons</div>
+                    <div className="text-[2rem] font-bold leading-none">50+</div>
+                    <div className="mt-1.5 text-[0.8125rem] font-medium text-muted-foreground">Active Programs</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                    <Users className="h-7 w-7 text-primary" />
+                <div className="flex items-center gap-4">
+                  <div className="flex h-[3.75rem] w-[3.75rem] items-center justify-center rounded-full bg-primary/[0.08]">
+                    <Users className="h-[1.875rem] w-[1.875rem] text-primary" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold">10,000+</div>
-                    <div className="text-sm text-muted-foreground">Participants</div>
+                    <div className="text-[2rem] font-bold leading-none">10,000+</div>
+                    <div className="mt-1.5 text-[0.8125rem] font-medium text-muted-foreground">Verified Participants</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                    <Building2 className="h-7 w-7 text-primary" />
+                <div className="flex items-center gap-4">
+                  <div className="flex h-[3.75rem] w-[3.75rem] items-center justify-center rounded-full bg-primary/[0.08]">
+                    <Building2 className="h-[1.875rem] w-[1.875rem] text-primary" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold">100+</div>
-                    <div className="text-sm text-muted-foreground">Partners</div>
+                    <div className="text-[2rem] font-bold leading-none">100+</div>
+                    <div className="mt-1.5 text-[0.8125rem] font-medium text-muted-foreground">Institutional Partners</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="relative hidden lg:block animate-in fade-in slide-in-from-right-8 duration-1000">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-background shadow-2xl">
+            <div className="relative hidden lg:block opacity-0 animate-in fade-in slide-in-from-right-6 duration-1000 delay-150">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
                 <img 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80" 
                   alt="Students collaborating on hackathon project" 
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-[8000ms] ease-out hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary">
-                      <GraduationCap className="h-6 w-6 text-primary-foreground" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-background/5"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-9">
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-primary shadow-lg">
+                      <GraduationCap className="h-7 w-7 text-primary-foreground" />
                     </div>
-                    <div>
-                      <div className="text-lg font-bold text-foreground">Campus Innovation</div>
-                      <div className="text-sm text-muted-foreground">IITs, NITs, IIITs & 50+ Universities</div>
+                    <div className="space-y-1.5">
+                      <div className="text-[1.0625rem] font-bold leading-tight text-foreground">Academic Collaboration</div>
+                      <div className="text-[0.8125rem] leading-relaxed text-muted-foreground">IITs, NITs, IIITs & 50+ Research Institutions</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-primary/20 blur-3xl"></div>
-              <div className="absolute -bottom-6 -left-6 h-40 w-40 rounded-full bg-primary/10 blur-3xl"></div>
+              <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-primary/[0.08] blur-[80px]"></div>
+              <div className="absolute -bottom-8 -left-8 h-48 w-48 rounded-full bg-primary/[0.05] blur-[100px]"></div>
             </div>
           </div>
         </div>
