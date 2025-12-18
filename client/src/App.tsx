@@ -131,13 +131,13 @@ function SignupPage() {
   return (
     <div className="flex h-screen overflow-hidden">
       <div className="hidden w-1/2 lg:flex relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10"></div>
         <img 
-          src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&auto=format&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80"
           alt="Hackathon ecosystem"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-40 dark:opacity-20"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 dark:from-primary/60 dark:via-primary/40 dark:to-primary/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent dark:from-background/95 dark:via-background/50 dark:to-transparent"></div>
         <div className="relative z-10 flex flex-col justify-end p-8 pb-12">
           <div className="space-y-4">
             <div className="inline-block">
@@ -152,7 +152,7 @@ function SignupPage() {
             <div className="flex items-center gap-6 pt-2">
               <div>
                 <div className="text-2xl font-bold">10,000+</div>
-                <div className="text-xs text-muted-foreground">Active Innovators</div>
+                <div className="text-xs text-muted-foreground">Participants</div>
               </div>
               <div>
                 <div className="text-2xl font-bold">50+</div>
@@ -451,39 +451,39 @@ function LoginPage() {
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&auto=format&fit=crop&q=80"
             alt="Professional team collaboration"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/65 to-primary/55" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 dark:from-primary/70 dark:via-primary/50 dark:to-primary/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent dark:from-background/95 dark:via-background/50 dark:to-transparent" />
         </div>
 
         <div className="relative z-10 flex flex-col justify-end p-8 pb-12">
           <div className="space-y-3 animate-in slide-in-from-bottom-8 duration-700">
-            <Badge variant="secondary" className="w-fit bg-background/20 backdrop-blur-sm border-background/40 text-white text-xs px-3 py-1">
+            <Badge className="w-fit px-3 py-1 text-xs font-semibold bg-primary/10 text-primary border-primary/20">
               Secure Access
             </Badge>
-            <h1 className="text-3xl font-bold text-white leading-tight">
+            <h1 className="text-3xl font-bold leading-tight">
               Welcome Back to the Ecosystem
             </h1>
-            <p className="text-sm text-white/90 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Continue your journey of innovation, collaboration, and excellence
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 pt-4 mt-4 border-t border-white/20 animate-in slide-in-from-bottom-4 duration-700 delay-200">
+          <div className="grid grid-cols-3 gap-4 pt-4 mt-4 border-t border-foreground/20 animate-in slide-in-from-bottom-4 duration-700 delay-200">
             <div className="space-y-0.5">
-              <div className="text-2xl font-bold text-white">24/7</div>
-              <div className="text-xs text-white/80">Platform Access</div>
+              <div className="text-2xl font-bold">10,000+</div>
+              <div className="text-xs text-muted-foreground">Participants</div>
             </div>
             <div className="space-y-0.5">
-              <div className="text-2xl font-bold text-white">Secure</div>
-              <div className="text-xs text-white/80">Authentication</div>
+              <div className="text-2xl font-bold">50+</div>
+              <div className="text-xs text-muted-foreground">Universities</div>
             </div>
             <div className="space-y-0.5">
-              <div className="text-2xl font-bold text-white">Real-time</div>
-              <div className="text-xs text-white/80">Updates</div>
+              <div className="text-2xl font-bold">100+</div>
+              <div className="text-xs text-muted-foreground">Partners</div>
             </div>
           </div>
         </div>
