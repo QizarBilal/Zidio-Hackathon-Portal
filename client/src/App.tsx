@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Mail, Lock, User, AlertCircle, CheckCircle2, ArrowLeft, ArrowRight, Trophy, GraduationCap, Code } from "lucide-react";
+import { Shield, Mail, Lock, User, Users, AlertCircle, CheckCircle2, ArrowLeft, ArrowRight, Trophy, GraduationCap, Code } from "lucide-react";
 import NotFound from "@/pages/not-found";
 import LandingPage from "@/pages/landing";
 import ExplorePage from "@/pages/explore";
@@ -129,63 +129,46 @@ function SignupPage() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden relative">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/5 animate-gradient"></div>
+    <div className="flex h-screen overflow-hidden relative animate-in fade-in duration-700">
+      {/* Premium animated background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-background to-primary/5 animate-gradient" />
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       
-      <div className="hidden lg:flex lg:w-[40%] relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10"></div>
-        <img 
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80"
-          alt="Hackathon ecosystem"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-90 dark:opacity-60 transition-transform duration-700 hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/40 via-background/20 to-transparent dark:from-background/60 dark:via-background/30 dark:to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20 dark:from-background dark:via-background/80 dark:to-background/30"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(120,119,198,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_50%,rgba(120,119,198,0.2),transparent_50%)]"></div>
-        <div className="relative z-10 flex flex-col justify-end p-8 pb-12">
-          <div className="space-y-4">
-            <div className="inline-block animate-in fade-in slide-in-from-left-4 duration-700">
-              <Badge className="px-3 py-1.5 text-xs font-semibold bg-primary/10 text-primary border-primary/20 backdrop-blur-sm shadow-lg">Join the Ecosystem</Badge>
-            </div>
-            <h1 className="text-3xl font-bold leading-tight animate-in fade-in slide-in-from-left-6 duration-700 delay-100">
-              Build. Compete.<br/>Shape the Future.
-            </h1>
-            <p className="text-sm text-muted-foreground max-w-md leading-relaxed animate-in fade-in slide-in-from-left-6 duration-700 delay-200">
-              Connect with government bodies, premier institutions, and enterprise partners in India's largest innovation platform.
-            </p>
-            <div className="flex items-center gap-6 pt-2">
-              <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 hover:scale-110 transition-transform cursor-default">
-                <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">10,000+</div>
-                <div className="text-xs text-muted-foreground">Participants</div>
-              </div>
-              <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400 hover:scale-110 transition-transform cursor-default">
-                <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">50+</div>
-                <div className="text-xs text-muted-foreground">Universities</div>
-              </div>
-              <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 hover:scale-110 transition-transform cursor-default">
-                <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">100+</div>
-                <div className="text-xs text-muted-foreground">Partners</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex w-full lg:w-[60%] items-center justify-center p-4 lg:p-8 overflow-hidden bg-background/95 backdrop-blur-sm relative z-10">
-        <div className="w-full max-w-lg">
-          <div className="mb-6 animate-in fade-in slide-in-from-top-4 duration-500">
+      {/* LEFT: Form Section - 55% */}
+      <div className="flex w-full lg:w-[55%] items-center justify-center p-6 lg:p-12 overflow-hidden relative z-10 animate-in slide-in-from-left duration-700">
+        <div className="w-full max-w-xl">
+          <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-500">
             <Link href="/">
-              <Button variant="ghost" size="sm" className="gap-2 -ml-2 hover:gap-3 transition-all hover:bg-primary/5">
-                <ArrowLeft className="h-4 w-4" />
-                Back
+              <Button variant="ghost" size="sm" className="gap-2 hover:gap-3 transition-all hover:bg-primary/10 group">
+                <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+                Back to Home
               </Button>
             </Link>
           </div>
           
-          <div className="space-y-6 bg-card/50 dark:bg-card/30 rounded-2xl p-6 shadow-2xl border border-border/50 backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
-            <div className="space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
-              <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">Create Account</h2>
+          <div className="space-y-8">
+            <div className="space-y-3 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
+              <div className="flex items-center gap-3">
+                <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded-full" />
+                <Badge className="px-3 py-1 text-xs font-bold bg-primary text-primary-foreground shadow-lg">GET STARTED</Badge>
+              </div>
+              <h1 className="text-4xl lg:text-5xl font-black tracking-tight">
+                <span className="bg-gradient-to-br from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
+                  Join India's Largest
+                </span>
+                <br/>
+                <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+                  Innovation Network
+                </span>
+              </h1>
+              <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
+                Where brilliant minds converge, groundbreaking ideas flourish, and tomorrow's technology leaders emerge. Start your journey today.
+              </p>
+            </div>
+          
+          <div className="bg-card border-2 border-border/50 rounded-3xl p-8 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 hover:border-primary/30 transition-all">
+            <div className="space-y-2 mb-6">
+              <h2 className="text-2xl font-bold text-foreground">Create Your Account</h2>
               <p className="text-sm text-muted-foreground">
                 {step === "role" && "Choose your role to get started"}
                 {step === "details" && "Complete your registration"}
@@ -428,6 +411,73 @@ function SignupPage() {
           </div>
         </div>
       </div>
+      </div>
+      
+      {/* RIGHT: Stunning Visual Section - 45% */}
+      <div className="hidden lg:flex lg:w-[45%] relative overflow-hidden animate-in slide-in-from-right duration-700 delay-200">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=90"
+            alt="Team collaboration"
+            className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-125 saturate-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.2),transparent_70%)]" />
+        </div>
+
+        <div className="relative z-10 flex flex-col justify-between p-12 text-white">
+          {/* Top Badge */}
+          <div className="animate-in fade-in duration-1000 delay-500">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-2xl hover:bg-white/20 transition-all group">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="text-sm font-semibold">10,000+ Active Innovators</span>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-700">
+            <div className="space-y-4">
+              <h2 className="text-5xl font-black leading-tight tracking-tight">
+                Your Ideas.<br/>
+                <span className="bg-gradient-to-r from-blue-300 via-cyan-300 to-teal-300 bg-clip-text text-transparent animate-shimmer">Our Platform.</span><br/>
+                <span className="text-white/90">Limitless Innovation.</span>
+              </h2>
+              <p className="text-lg text-white/95 leading-relaxed max-w-md font-medium">
+                Join a thriving ecosystem of innovators, access cutting-edge resources, and transform ideas into reality with India's premier hackathon platform.
+              </p>
+            </div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-3 gap-4">
+              <div className="space-y-2 group hover:scale-110 transition-all duration-300 cursor-default">
+                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">50+</div>
+                <div className="text-xs text-white/80 font-medium leading-tight">Top Universities</div>
+              </div>
+              <div className="space-y-2 group hover:scale-110 transition-all duration-300 cursor-default">
+                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">100+</div>
+                <div className="text-xs text-white/80 font-medium leading-tight">Industry Partners</div>
+              </div>
+              <div className="space-y-2 group hover:scale-110 transition-all duration-300 cursor-default">
+                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">24/7</div>
+                <div className="text-xs text-white/80 font-medium leading-tight">Expert Support</div>
+              </div>
+            </div>
+
+            {/* Avatar Stack */}
+            <div className="flex items-center gap-3 animate-in fade-in duration-1000 delay-1000">
+              <div className="flex -space-x-2">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-white/20"></div>
+                ))}
+              </div>
+              <p className="text-sm text-white/90 font-medium">
+                Join <span className="font-bold">thousands</span> of innovators
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -451,73 +501,124 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden w-full relative">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/5 animate-gradient"></div>
+    <div className="flex h-screen overflow-hidden w-full relative animate-in fade-in duration-700">
+      {/* Dynamic animated background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-primary/10 via-background to-accent/5 animate-gradient" />
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       
-      {/* Left Visual Column - Trust & Authority */}
-      <div className="hidden lg:flex lg:w-[40%] relative overflow-hidden">
+      {/* LEFT: Stunning Visual Section - 45% */}
+      <div className="hidden lg:flex lg:w-[45%] relative overflow-hidden animate-in slide-in-from-left duration-700">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10"></div>
           <img
-            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80"
-            alt="Professional team collaboration"
-            className="w-full h-full object-cover object-center opacity-90 dark:opacity-60 transition-transform duration-700 hover:scale-105"
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&auto=format&fit=crop&q=90"
+            alt="Innovation ecosystem"
+            className="absolute inset-0 w-full h-full object-cover brightness-110 contrast-125 saturate-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/40 via-background/20 to-transparent dark:from-background/60 dark:via-background/30 dark:to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20 dark:from-background dark:via-background/80 dark:to-background/30" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(120,119,198,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_70%_50%,rgba(120,119,198,0.2),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(59,130,246,0.2),transparent_70%)]" />
         </div>
 
-        <div className="relative z-10 flex flex-col justify-end p-8 pb-12">
-          <div className="space-y-3">
-            <div className="animate-in fade-in slide-in-from-left-4 duration-700">
-              <Badge className="w-fit px-3 py-1 text-xs font-semibold bg-primary/10 text-primary border-primary/20 backdrop-blur-sm shadow-lg">
-                Secure Access
-              </Badge>
+        <div className="relative z-10 flex flex-col justify-between p-12 text-white">
+          {/* Top Badge */}
+          <div className="animate-in fade-in duration-1000 delay-300">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-2xl hover:bg-white/20 transition-all group">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <Shield className="w-4 h-4 text-green-400 group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-semibold">Secure Access Portal</span>
             </div>
-            <h1 className="text-3xl font-bold leading-tight animate-in fade-in slide-in-from-left-6 duration-700 delay-100">
-              Welcome Back to the Ecosystem
-            </h1>
-            <p className="text-sm text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-left-6 duration-700 delay-200">
-              Continue your journey of innovation, collaboration, and excellence
-            </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 pt-4 mt-4 border-t border-foreground/20">
-            <div className="space-y-0.5 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 hover:scale-110 transition-transform cursor-default">
-              <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">10,000+</div>
-              <div className="text-xs text-muted-foreground">Participants</div>
+          {/* Main Content */}
+          <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
+            <div className="space-y-4">
+              <h2 className="text-5xl font-black leading-tight tracking-tight">
+                Welcome Back,<br/>
+                <span className="bg-gradient-to-r from-blue-300 via-cyan-300 to-teal-300 bg-clip-text text-transparent animate-shimmer">Innovator</span>
+              </h2>
+              <p className="text-lg text-white/95 leading-relaxed max-w-md font-medium">
+                Your innovation dashboard awaits. Continue building the future, tracking progress, and connecting with visionaries across India.
+              </p>
             </div>
-            <div className="space-y-0.5 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400 hover:scale-110 transition-transform cursor-default">
-              <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">50+</div>
-              <div className="text-xs text-muted-foreground">Universities</div>
+
+            {/* Feature Cards */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 hover:bg-white/15 hover:scale-[1.02] transition-all duration-300 group cursor-default">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all">
+                  <Trophy className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">Live Progress Tracking</div>
+                  <div className="text-xs text-white/75">Real-time rankings & analytics</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 hover:bg-white/15 hover:scale-[1.02] transition-all duration-300 group cursor-default">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">Global Collaboration</div>
+                  <div className="text-xs text-white/75">Connect with elite talent</div>
+                </div>
+              </div>
             </div>
-            <div className="space-y-0.5 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 hover:scale-110 transition-transform cursor-default">
-              <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">100+</div>
-              <div className="text-xs text-muted-foreground">Partners</div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/20">
+              <div className="space-y-1 group hover:scale-110 transition-all duration-300 cursor-default">
+                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">10K+</div>
+                <div className="text-xs text-white/80 font-medium">Active Users</div>
+              </div>
+              <div className="space-y-1 group hover:scale-110 transition-all duration-300 cursor-default">
+                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">50+</div>
+                <div className="text-xs text-white/80 font-medium">Institutions</div>
+              </div>
+              <div className="space-y-1 group hover:scale-110 transition-all duration-300 cursor-default">
+                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">24/7</div>
+                <div className="text-xs text-white/80 font-medium">Support</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Right Form Column */}
-      <div className="flex w-full lg:w-[60%] items-center justify-center p-4 lg:p-8 overflow-hidden bg-background/95 backdrop-blur-sm relative z-10">
-        <div className="w-full max-w-lg">
-          <div className="mb-6 animate-in fade-in slide-in-from-top-4 duration-500">
+      {/* RIGHT: Premium Form Section - 55% */}
+      <div className="flex w-full lg:w-[55%] items-center justify-center p-6 lg:p-12 overflow-hidden relative z-10 animate-in slide-in-from-right duration-700 delay-200">
+        <div className="w-full max-w-xl">
+          <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-500">
             <Link href="/">
-              <Button variant="ghost" size="sm" className="gap-2 -ml-2 hover:gap-3 transition-all hover:bg-primary/5">
-                <ArrowLeft className="h-4 w-4" />
-                Back
+              <Button variant="ghost" size="sm" className="gap-2 hover:gap-3 transition-all hover:bg-primary/10 group">
+                <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+                Back to Home
               </Button>
             </Link>
           </div>
 
-          <div className="space-y-6 bg-card/50 dark:bg-card/30 rounded-2xl p-6 shadow-2xl border border-border/50 backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
-            <div className="space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
-              <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">Sign In</h2>
-              <p className="text-sm text-muted-foreground">Access your dashboard and continue your work</p>
+          <div className="space-y-8">
+            <div className="space-y-3 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
+              <div className="flex items-center gap-3">
+                <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded-full" />
+                <Badge className="px-3 py-1 text-xs font-bold bg-primary text-primary-foreground shadow-lg">SIGN IN</Badge>
+              </div>
+              <h1 className="text-4xl lg:text-5xl font-black tracking-tight">
+                <span className="bg-gradient-to-br from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
+                  Continue Your
+                </span>
+                <br/>
+                <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+                  Innovation Journey
+                </span>
+              </h1>
+              <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
+                Access your personalized dashboard, track submissions, and connect with the innovation ecosystem.
+              </p>
             </div>
+
+            <div className="bg-card border-2 border-border/50 rounded-3xl p-8 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 hover:border-primary/30 transition-all">
+              <div className="space-y-1.5 mb-6">
+                <h2 className="text-xl font-bold text-foreground">Sign In to Your Account</h2>
+                <p className="text-sm text-muted-foreground">Enter your credentials to access your workspace</p>
+              </div>
 
             <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }} className="space-y-4 animate-in fade-in duration-500 delay-300">
               <div className="space-y-2 group">
