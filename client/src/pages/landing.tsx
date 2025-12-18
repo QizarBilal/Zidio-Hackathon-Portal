@@ -236,7 +236,7 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80"></div>
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative py-16 lg:py-20">
+          <div className="relative py-12 lg:py-14">
             {slides.map((slide, index) => (
               <div
                 key={index}
@@ -246,44 +246,44 @@ export default function LandingPage() {
                     : 'opacity-0 absolute inset-0 pointer-events-none translate-y-4'
                 }`}
               >
-                <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-                  <div className="space-y-8 max-w-3xl">
-                    <div className="space-y-5">
-                      <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 backdrop-blur-sm">
+                <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
+                  <div className="space-y-6 max-w-3xl">
+                    <div className="space-y-4">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 backdrop-blur-sm">
                         <div className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></div>
                         <span className="text-xs font-semibold tracking-wide text-primary uppercase">
                           {slide.eyebrow}
                         </span>
                       </div>
                       
-                      <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight">
+                      <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold leading-[1.1] tracking-tight">
                         <span className="bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
                           {slide.headline}
                         </span>
                       </h1>
                       
                       <div className="max-w-2xl">
-                        <p className="text-lg leading-relaxed text-muted-foreground font-light">
+                        <p className="text-base lg:text-lg leading-relaxed text-muted-foreground font-light">
                           {slide.description}
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-3 pt-1">
+                    <div className="flex flex-wrap items-center gap-3">
                       <Link href={slide.cta1.href}>
                         <Button 
                           size="lg" 
-                          className="h-12 px-7 text-base font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
+                          className="h-11 px-6 text-sm font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
                         >
                           {slide.cta1.text}
-                          <ArrowRight className="ml-2 h-5 w-5" />
+                          <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </Link>
                       <Link href={slide.cta2.href}>
                         <Button 
                           size="lg" 
                           variant="outline" 
-                          className="h-12 px-7 text-base font-semibold rounded-xl border-2 hover:bg-primary/5 hover:border-primary/50 hover:scale-105 transition-all duration-300"
+                          className="h-11 px-6 text-sm font-semibold rounded-xl border-2 hover:bg-primary/5 hover:border-primary/50 hover:scale-105 transition-all duration-300"
                         >
                           {slide.cta2.text}
                         </Button>
@@ -291,8 +291,8 @@ export default function LandingPage() {
                     </div>
                   </div>
 
-                  <div className="relative">
-                    <div className="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden rounded-3xl border border-border/50 shadow-2xl">
+                  <div className="relative max-w-lg mx-auto lg:mx-0">
+                    <div className="relative aspect-[4/5] lg:aspect-[1/1] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background/20 z-10"></div>
                       <img 
                         src={slide.image}
@@ -302,15 +302,15 @@ export default function LandingPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60"></div>
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
                       
-                      <div className="absolute inset-x-0 bottom-0 p-6 z-20">
-                        <div className="rounded-2xl border border-border/40 bg-background/80 backdrop-blur-xl p-5 shadow-xl">
+                      <div className="absolute inset-x-0 bottom-0 p-4 z-20">
+                        <div className="rounded-xl border border-border/40 bg-background/80 backdrop-blur-xl p-4 shadow-xl">
                           <div className="flex items-start gap-3">
-                            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 backdrop-blur-sm">
-                              <Zap className="h-5 w-5 text-primary" />
+                            <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 backdrop-blur-sm">
+                              <Zap className="h-4 w-4 text-primary" />
                             </div>
                             <div className="space-y-0.5">
-                              <div className="text-sm font-semibold text-foreground">Live Innovation Hub</div>
-                              <div className="text-xs text-muted-foreground leading-relaxed">
+                              <div className="text-xs font-semibold text-foreground">Live Innovation Hub</div>
+                              <div className="text-[0.7rem] text-muted-foreground leading-relaxed">
                                 {index === 0 && "10,000+ Active Participants"}
                                 {index === 1 && "50+ Partner Universities"}
                                 {index === 2 && "100+ Enterprise Sponsors"}
@@ -322,8 +322,8 @@ export default function LandingPage() {
                       </div>
                     </div>
                     
-                    <div className="absolute -right-8 -top-8 h-48 w-48 rounded-full bg-primary/10 blur-3xl"></div>
-                    <div className="absolute -bottom-8 -left-8 h-48 w-48 rounded-full bg-primary/5 blur-3xl"></div>
+                    <div className="absolute -right-6 -top-6 h-40 w-40 rounded-full bg-primary/10 blur-3xl"></div>
+                    <div className="absolute -bottom-6 -left-6 h-40 w-40 rounded-full bg-primary/5 blur-3xl"></div>
                   </div>
                 </div>
               </div>
