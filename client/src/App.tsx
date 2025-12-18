@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppSidebar } from "@/components/app-sidebar";
 import { useAuth } from "@/hooks/use-auth";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -28,60 +28,68 @@ import JudgeDashboard from "@/pages/judge-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
 
 function ClientelePage() {
-  const partners = [
-    "Ministry of Education",
-    "NASSCOM",
-    "IIT Bombay",
-    "IIT Delhi",
-    "IIIT Hyderabad",
-    "IIT Madras",
-    "IIT Kanpur",
-    "IIT Kharagpur",
-    "NIT Trichy",
-    "BITS Pilani",
-    "Infosys",
-    "TCS",
-    "Wipro",
-    "Tech Mahindra",
-    "HCL Technologies",
-    "Cognizant",
-    "Microsoft",
-    "Google",
-    "Amazon",
-    "IBM",
-    "Flipkart",
-    "Paytm",
-    "Zomato",
-    "Ola",
-    "ISRO",
-    "DRDO",
-    "Bharat Electronics",
-    "HAL",
+  const clientLogos = [
+    { name: "Ministry of Education", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/Ministry_of_Education.svg/200px-Ministry_of_Education.svg.png" },
+    { name: "NASSCOM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nasscom_logo.svg/200px-Nasscom_logo.svg.png" },
+    { name: "IIT Bombay", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Bombay_Logo.svg/150px-Indian_Institute_of_Technology_Bombay_Logo.svg.png" },
+    { name: "IIT Delhi", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Delhi_Logo.svg/150px-Indian_Institute_of_Technology_Delhi_Logo.svg.png" },
+    { name: "IIIT Hyderabad", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/IIIT_Hyderabad_Logo.svg/150px-IIIT_Hyderabad_Logo.svg.png" },
+    { name: "IIT Madras", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/150px-IIT_Madras_Logo.svg.png" },
+    { name: "IIT Kanpur", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/IIT_Kanpur_Logo.svg/150px-IIT_Kanpur_Logo.svg.png" },
+    { name: "IIT Kharagpur", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/IIT_Kharagpur_Logo.svg/150px-IIT_Kharagpur_Logo.svg.png" },
+    { name: "NIT Trichy", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/NIT_Trichy_Logo.svg/150px-NIT_Trichy_Logo.svg.png" },
+    { name: "BITS Pilani", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/BITS_Pilani-Logo.svg/150px-BITS_Pilani-Logo.svg.png" },
+    { name: "Infosys", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/200px-Infosys_logo.svg.png" },
+    { name: "TCS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/200px-Tata_Consultancy_Services_Logo.svg.png" },
+    { name: "Wipro", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Primary_Logo_Color_RGB.svg/200px-Wipro_Primary_Logo_Color_RGB.svg.png" },
+    { name: "Tech Mahindra", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Tech_Mahindra_New_Logo.svg/200px-Tech_Mahindra_New_Logo.svg.png" },
+    { name: "HCL Technologies", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/HCL_Technologies_logo.svg/200px-HCL_Technologies_logo.svg.png" },
+    { name: "Cognizant", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Cognizant_logo_2022.svg/200px-Cognizant_logo_2022.svg.png" },
+    { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/200px-Microsoft_logo_%282012%29.svg.png" },
+    { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png" },
+    { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.png" },
+    { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.png" },
+    { name: "Flipkart", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flipkart-logo.svg/200px-Flipkart-logo.svg.png" },
+    { name: "Paytm", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Paytm_Logo_%28standalone%29.svg/200px-Paytm_Logo_%28standalone%29.svg.png" },
+    { name: "Zomato", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Zomato_logo.png/200px-Zomato_logo.png" },
+    { name: "Ola", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ola_Cabs_logo.svg/200px-Ola_Cabs_logo.svg.png" },
+    { name: "ISRO", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Indian_Space_Research_Organisation_Logo.svg/150px-Indian_Space_Research_Organisation_Logo.svg.png" },
+    { name: "DRDO", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/DRDO_logo.svg/150px-DRDO_logo.svg.png" },
+    { name: "Bharat Electronics", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bharat_Electronics_Logo.svg/200px-Bharat_Electronics_Logo.svg.png" },
+    { name: "HAL", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Hindustan_Aeronautics_Limited_Logo.svg/200px-Hindustan_Aeronautics_Limited_Logo.svg.png" },
+    { name: "Adobe", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Adobe_Corporate_Logo.svg/200px-Adobe_Corporate_Logo.svg.png" },
+    { name: "Intel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Intel_logo_%282006-2020%29.svg/200px-Intel_logo.svg.png" },
+    { name: "NVIDIA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nvidia_logo.svg/200px-Nvidia_logo.svg.png" },
+    { name: "Oracle", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/200px-Oracle_logo.svg.png" },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-16">
-        <div className="mb-12 space-y-4 text-center">
-          <Badge variant="outline" className="px-3 py-1">Trusted Partners</Badge>
-          <h1 className="text-4xl font-bold lg:text-5xl">Our Esteemed Clientele</h1>
+        <div className="mb-16 space-y-4 text-center">
+          <h1 className="text-4xl font-bold lg:text-5xl">Our Clientele</h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Collaborating with India's leading government ministries, premier educational institutions, and enterprise technology partners
+            Collaborating with leading government ministries, premier educational institutions, and enterprise technology partners
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {partners.map((partner) => (
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mb-16">
+          {clientLogos.map((client) => (
             <div
-              key={partner}
-              className="flex aspect-square items-center justify-center rounded-xl border-2 bg-card p-6 text-center transition-all hover:border-primary hover:shadow-lg"
+              key={client.name}
+              className="flex h-32 items-center justify-center p-6 opacity-90 hover:opacity-100 transition-opacity duration-300"
             >
-              <span className="text-sm font-semibold leading-tight">{partner}</span>
+              <img
+                src={client.logo}
+                alt={client.name}
+                className="max-h-full max-w-full object-contain brightness-110 contrast-125 saturate-110"
+                style={{ filter: 'brightness(1.1) contrast(1.25) saturate(1.1)' }}
+              />
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="text-center">
           <Link href="/">
             <Button variant="ghost" size="lg" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
@@ -707,25 +715,38 @@ function LoginPage() {
   );
 }
 
+function ScrollToTop() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  return null;
+}
+
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={LandingPage} />
-      <Route path="/signup" component={SignupPage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/explore" component={ExplorePage} />
-      <Route path="/hackathon/:id" component={HackathonDetailsPage} />
-      <Route path="/dashboard" component={ParticipantDashboard} />
-      <Route path="/teams" component={TeamsPage} />
-      <Route path="/submissions" component={SubmissionsPage} />
-      <Route path="/leaderboard" component={LeaderboardPage} />
-      <Route path="/certificates" component={CertificatesPage} />
-      <Route path="/portfolio" component={PortfolioPage} />
-      <Route path="/judge" component={JudgeDashboard} />
-      <Route path="/admin" component={AdminDashboard} />
-      <Route path="/clientele" component={ClientelePage} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={LandingPage} />
+        <Route path="/signup" component={SignupPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/explore" component={ExplorePage} />
+        <Route path="/hackathon/:id" component={HackathonDetailsPage} />
+        <Route path="/dashboard" component={ParticipantDashboard} />
+        <Route path="/teams" component={TeamsPage} />
+        <Route path="/submissions" component={SubmissionsPage} />
+        <Route path="/leaderboard" component={LeaderboardPage} />
+        <Route path="/certificates" component={CertificatesPage} />
+        <Route path="/portfolio" component={PortfolioPage} />
+        <Route path="/judge" component={JudgeDashboard} />
+        <Route path="/admin" component={AdminDashboard} />
+        <Route path="/clientele" component={ClientelePage} />
+        <Route component={NotFound} />
+      </Switch>
+    </>
   );
 }
 

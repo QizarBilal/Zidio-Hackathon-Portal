@@ -100,19 +100,23 @@ const features = [
   },
 ];
 
-const partners = [
-  "Ministry of Education",
-  "NASSCOM",
-  "IIT Bombay",
-  "IIT Delhi",
-  "IIIT Hyderabad",
-  "Infosys",
-  "TCS",
-  "Wipro",
-  "Microsoft",
-  "Google",
-  "Amazon",
-  "Flipkart",
+const partnerLogos = [
+  { name: "Ministry of Education", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/Ministry_of_Education.svg/200px-Ministry_of_Education.svg.png" },
+  { name: "NASSCOM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nasscom_logo.svg/200px-Nasscom_logo.svg.png" },
+  { name: "IIT Bombay", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Bombay_Logo.svg/150px-Indian_Institute_of_Technology_Bombay_Logo.svg.png" },
+  { name: "IIT Delhi", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Delhi_Logo.svg/150px-Indian_Institute_of_Technology_Delhi_Logo.svg.png" },
+  { name: "IIIT Hyderabad", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/IIIT_Hyderabad_Logo.svg/150px-IIIT_Hyderabad_Logo.svg.png" },
+  { name: "Infosys", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/200px-Infosys_logo.svg.png" },
+  { name: "TCS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/200px-Tata_Consultancy_Services_Logo.svg.png" },
+  { name: "Wipro", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Primary_Logo_Color_RGB.svg/200px-Wipro_Primary_Logo_Color_RGB.svg.png" },
+  { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/200px-Microsoft_logo_%282012%29.svg.png" },
+  { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png" },
+  { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.png" },
+  { name: "Flipkart", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flipkart-logo.svg/200px-Flipkart-logo.svg.png" },
+  { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.png" },
+  { name: "Adobe", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Adobe_Corporate_Logo.svg/200px-Adobe_Corporate_Logo.svg.png" },
+  { name: "Intel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Intel_logo_%282006-2020%29.svg/200px-Intel_logo_%282006-2020%29.svg.png" },
+  { name: "NVIDIA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nvidia_logo.svg/200px-Nvidia_logo.svg.png" },
 ];
 
 function StatCounter({ stat }: { stat: { label: string; value: number; icon: any } }) {
@@ -688,30 +692,49 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Partners Section */}
-      <section className="border-t bg-card py-16">
+      <section className="border-t bg-background py-20 overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold">Our Esteemed Partners</h2>
-            <p className="text-muted-foreground">Trusted by leading institutions and enterprises across India</p>
+          <div className="mb-16 text-center">
+            <h2 className="text-2xl font-semibold text-foreground">
+              Identified 5000+ solutions for over 200+ organisations worldwide
+            </h2>
           </div>
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
-            {partners.map((partner) => (
-              <div
-                key={partner}
-                className="flex aspect-square items-center justify-center rounded-xl border-2 bg-background p-4 transition-all hover:border-primary hover:shadow-md"
-              >
-                <div className="flex h-full w-full items-center justify-center">
-                  <span className="text-center text-xs font-semibold leading-tight">{partner}</span>
+          
+          <div className="relative mb-12">
+            <style>{`
+              @keyframes scroll-left {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+              .animate-scroll {
+                animation: scroll-left 40s linear infinite;
+              }
+              .animate-scroll:hover {
+                animation-play-state: paused;
+              }
+            `}</style>
+            
+            <div className="flex items-center gap-12 animate-scroll">
+              {[...partnerLogos, ...partnerLogos].map((partner, index) => (
+                <div
+                  key={`${partner.name}-${index}`}
+                  className="flex-shrink-0 h-16 w-40 flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-h-full max-w-full object-contain brightness-110 contrast-125 saturate-110"
+                    style={{ filter: 'brightness(1.1) contrast(1.25) saturate(1.1)' }}
+                  />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-          <div className="mt-12 text-center">
+
+          <div className="text-center">
             <Link href="/clientele">
-              <Button variant="outline" size="lg">
-                View All Partners
-                <ArrowRight className="ml-2 h-4 w-4" />
+              <Button variant="ghost" className="text-sm hover:text-primary">
+                Explore more
               </Button>
             </Link>
           </div>
