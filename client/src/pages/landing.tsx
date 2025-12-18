@@ -184,132 +184,103 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative border-b">
-        <div className="container mx-auto px-4 py-16 lg:py-24">
-          <div className="grid items-start gap-16 lg:grid-cols-[1.2fr,1fr]">
-            <div className="space-y-12">
-              <div className="space-y-6">
+      <section className="relative overflow-hidden border-b bg-gradient-to-br from-background via-background to-primary/5">
+        <div className="container mx-auto px-4 py-20 lg:py-32">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.3fr,1fr] lg:gap-20">
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 space-y-10">
+              <div className="space-y-8">
                 <div className="inline-block">
-                  <Badge variant="outline" className="px-3 py-1 text-sm font-medium">
-                    Powered by Ministry of Education & AICTE
-                  </Badge>
+                  <span className="text-sm font-semibold tracking-wide text-primary uppercase">
+                    India's Collaborative Hackathon Ecosystem
+                  </span>
                 </div>
                 
-                <h1 className="text-5xl font-bold leading-[1.1] tracking-tight lg:text-6xl xl:text-7xl">
-                  Build Solutions.
+                <h1 className="text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+                  Empowering Innovation
                   <br />
-                  <span className="text-primary">Transform India.</span>
+                  <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                    Across Universities & Enterprises
+                  </span>
                 </h1>
                 
-                <div className="max-w-xl space-y-4">
-                  <p className="text-xl leading-relaxed text-muted-foreground">
-                    A unified platform connecting <span className="font-semibold text-foreground">government ministries</span>, <span className="font-semibold text-foreground">premier universities</span>, and <span className="font-semibold text-foreground">enterprise partners</span> with India's brightest innovators.
-                  </p>
-                  <p className="text-base text-muted-foreground">
-                    Participate in national-level hackathons, collaborate with industry leaders, and solve real-world challenges that shape the future.
+                <div className="max-w-2xl space-y-5">
+                  <p className="text-lg leading-relaxed text-muted-foreground sm:text-xl">
+                    Zidio connects <strong className="font-semibold text-foreground">students</strong>, <strong className="font-semibold text-foreground">universities</strong>, <strong className="font-semibold text-foreground">enterprises</strong>, and <strong className="font-semibold text-foreground">recruiters</strong> in a trusted national platform for problem-driven hackathons—delivering real outcomes, verified credentials, and career pathways.
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-4 sm:flex-row">
-                {!isAuthenticated ? (
-                  <>
-                    <Link href="/signup">
-                      <Button size="lg" className="w-full text-base sm:w-auto" data-testid="button-get-started">
-                        Sign Up
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </Link>
-                    <Link href="/login">
-                      <Button size="lg" variant="outline" className="w-full text-base sm:w-auto">
-                        Login
-                      </Button>
-                    </Link>
-                  </>
-                ) : (
-                  <Link href="/dashboard">
-                    <Button size="lg" className="text-base" data-testid="button-go-to-dashboard">
-                      Go to Dashboard
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                )}
+              <div className="flex flex-wrap items-center gap-4">
+                <Link href="/signup">
+                  <Button size="lg" className="group h-12 px-8 text-base font-semibold transition-all hover:scale-105 hover:shadow-lg" data-testid="button-get-started">
+                    Sign Up
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
                 <Link href="/explore">
-                  <Button size="lg" variant="ghost" className="w-full text-base sm:w-auto" data-testid="button-explore">
-                    Browse Hackathons
-                    <Search className="ml-2 h-4 w-4" />
+                  <Button size="lg" variant="outline" className="h-12 px-8 text-base font-semibold transition-all hover:scale-105 hover:border-primary hover:bg-primary/5" data-testid="button-explore">
+                    Explore Hackathons
                   </Button>
                 </Link>
               </div>
 
-              <div className="border-l-4 border-primary bg-primary/5 p-6">
-                <div className="grid gap-4 sm:grid-cols-3">
+              <div className="flex flex-wrap items-center gap-8 border-l-4 border-primary bg-card/50 py-6 pl-6 pr-4 backdrop-blur-sm">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                    <Trophy className="h-7 w-7 text-primary" />
+                  </div>
                   <div>
                     <div className="text-3xl font-bold">50+</div>
-                    <div className="text-sm text-muted-foreground">Active Events</div>
+                    <div className="text-sm text-muted-foreground">Active Hackathons</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                    <Users className="h-7 w-7 text-primary" />
                   </div>
                   <div>
                     <div className="text-3xl font-bold">10,000+</div>
-                    <div className="text-sm text-muted-foreground">Student Participants</div>
+                    <div className="text-sm text-muted-foreground">Participants</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                    <Building2 className="h-7 w-7 text-primary" />
                   </div>
                   <div>
                     <div className="text-3xl font-bold">100+</div>
-                    <div className="text-sm text-muted-foreground">Partner Organizations</div>
+                    <div className="text-sm text-muted-foreground">Partners</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="relative hidden lg:block">
-              <div className="space-y-6">
-                <div className="rounded-xl border bg-card p-8">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                      <Building2 className="h-6 w-6 text-primary" />
+            <div className="relative hidden lg:block animate-in fade-in slide-in-from-right-8 duration-1000">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-background shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80" 
+                  alt="Students collaborating on hackathon project" 
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary">
+                      <GraduationCap className="h-6 w-6 text-primary-foreground" />
                     </div>
                     <div>
-                      <div className="font-semibold">Government Bodies</div>
-                      <div className="text-sm text-muted-foreground">Ministry partnerships</div>
+                      <div className="text-lg font-bold text-foreground">Campus Innovation</div>
+                      <div className="text-sm text-muted-foreground">IITs, NITs, IIITs & 50+ Universities</div>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Direct collaboration with central and state government initiatives driving digital transformation.
-                  </p>
-                </div>
-
-                <div className="rounded-xl border bg-card p-8">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                      <GraduationCap className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Premier Institutions</div>
-                      <div className="text-sm text-muted-foreground">IITs, NITs, IIITs</div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Partnering with top engineering colleges across India to foster innovation and research.
-                  </p>
-                </div>
-
-                <div className="rounded-xl border bg-card p-8">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                      <Briefcase className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Enterprise Partners</div>
-                      <div className="text-sm text-muted-foreground">Industry leaders</div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Technology giants and startups offering real-world problem statements and mentorship.
-                  </p>
                 </div>
               </div>
+              <div className="absolute -right-6 -top-6 h-32 w-32 rounded-full bg-primary/20 blur-3xl"></div>
+              <div className="absolute -bottom-6 -left-6 h-40 w-40 rounded-full bg-primary/10 blur-3xl"></div>
             </div>
           </div>
         </div>
+        <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       </section>
 
       {/* Stats Section */}
