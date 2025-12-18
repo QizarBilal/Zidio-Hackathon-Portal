@@ -135,41 +135,41 @@ function SignupPage() {
         <img 
           src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&auto=format&fit=crop&q=80"
           alt="Hackathon ecosystem"
-          className="absolute inset-0 w-full h-full object-cover opacity-40 dark:opacity-20 animate-[float_8s_ease-in-out_infinite]"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-40 dark:opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
-        <div className="relative z-10 flex flex-col justify-end p-12 pb-16">
-          <div className="space-y-6">
+        <div className="relative z-10 flex flex-col justify-end p-8 pb-12">
+          <div className="space-y-4">
             <div className="inline-block">
-              <Badge className="px-4 py-2 text-sm font-semibold bg-primary/10 text-primary border-primary/20">Join the Ecosystem</Badge>
+              <Badge className="px-3 py-1.5 text-xs font-semibold bg-primary/10 text-primary border-primary/20">Join the Ecosystem</Badge>
             </div>
-            <h1 className="text-5xl font-bold leading-tight">
+            <h1 className="text-3xl font-bold leading-tight">
               Build. Compete.<br/>Shape the Future.
             </h1>
-            <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
+            <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
               Connect with government bodies, premier institutions, and enterprise partners in India's largest innovation platform.
             </p>
-            <div className="flex items-center gap-8 pt-4">
+            <div className="flex items-center gap-6 pt-2">
               <div>
-                <div className="text-3xl font-bold">10,000+</div>
-                <div className="text-sm text-muted-foreground">Active Innovators</div>
+                <div className="text-2xl font-bold">10,000+</div>
+                <div className="text-xs text-muted-foreground">Active Innovators</div>
               </div>
               <div>
-                <div className="text-3xl font-bold">50+</div>
-                <div className="text-sm text-muted-foreground">Universities</div>
+                <div className="text-2xl font-bold">50+</div>
+                <div className="text-xs text-muted-foreground">Universities</div>
               </div>
               <div>
-                <div className="text-3xl font-bold">100+</div>
-                <div className="text-sm text-muted-foreground">Partners</div>
+                <div className="text-2xl font-bold">100+</div>
+                <div className="text-xs text-muted-foreground">Partners</div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex w-full lg:w-1/2 items-center justify-center p-6 lg:p-12 overflow-y-auto">
+      <div className="flex w-full lg:w-1/2 items-center justify-center p-4 lg:p-8 overflow-hidden">
         <div className="w-full max-w-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="mb-8">
+          <div className="mb-4">
             <Link href="/">
               <Button variant="ghost" size="sm" className="gap-2 -ml-2">
                 <ArrowLeft className="h-4 w-4" />
@@ -178,10 +178,10 @@ function SignupPage() {
             </Link>
           </div>
           
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tight">Create Account</h2>
-              <p className="text-muted-foreground">
+          <div className="space-y-4">
+            <div className="space-y-1">
+              <h2 className="text-2xl font-bold tracking-tight">Create Account</h2>
+              <p className="text-sm text-muted-foreground">
                 {step === "role" && "Choose your role to get started"}
                 {step === "details" && "Complete your registration"}
                 {step === "otp" && "Verify your email address"}
@@ -190,22 +190,22 @@ function SignupPage() {
             </div>
 
             {step === "role" && (
-              <div className="space-y-6 animate-in fade-in duration-500">
-                <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-4 animate-in fade-in duration-500">
+                <div className="grid grid-cols-2 gap-2.5">
                   <button
                     onClick={() => setRole("participant")}
-                    className={`group flex flex-col items-center gap-3 rounded-2xl border-2 p-5 transition-all hover:scale-105 hover:shadow-lg ${
+                    className={`group flex flex-col items-center gap-2 rounded-xl border-2 p-3.5 transition-all hover:scale-105 hover:shadow-lg ${
                       role === "participant" ? "border-primary bg-primary/10 shadow-lg scale-105" : "border-border hover:border-primary/30"
                     }`}
                   >
                     <div className={`flex h-14 w-14 items-center justify-center rounded-xl transition-all ${
                       role === "participant" ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary/20"
                     }`}>
-                      <Trophy className="h-7 w-7" />
+                      <Trophy className="h-6 w-6" />
                     </div>
                     <div className="text-center">
-                      <div className="font-semibold">Participant</div>
-                      <div className="text-xs text-muted-foreground mt-1">Compete & build</div>
+                      <div className="text-sm font-semibold">Participant</div>
+                      <div className="text-xs text-muted-foreground">Compete & build</div>
                     </div>
                   </button>
                   <button
@@ -258,8 +258,8 @@ function SignupPage() {
                   </button>
                 </div>
                 {role && (
-                  <div className="rounded-xl border bg-muted/50 p-4 animate-in slide-in-from-top-2 duration-300">
-                    <p className="text-sm leading-relaxed">
+                  <div className="rounded-lg border bg-muted/50 p-3 animate-in slide-in-from-top-2 duration-300">
+                    <p className="text-xs leading-relaxed">
                       {role === "participant" && "Compete in national-level hackathons and build innovative solutions"}
                       {role === "mentor" && "Share your expertise and guide the next generation of innovators"}
                       {role === "judge" && "Evaluate submissions and provide structured feedback"}
@@ -267,95 +267,95 @@ function SignupPage() {
                     </p>
                   </div>
                 )}
-                <Button onClick={handleRoleSubmit} disabled={!role} className="w-full h-12 text-base" size="lg">
-                  Continue <ArrowRight className="ml-2 h-5 w-5" />
+                <Button onClick={handleRoleSubmit} disabled={!role} className="w-full h-11" size="default">
+                  Continue <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             )}
 
             {step === "details" && (
-              <form onSubmit={handleDetailsSubmit} className="space-y-5 animate-in fade-in duration-500">
-                <div className="space-y-2">
+              <form onSubmit={handleDetailsSubmit} className="space-y-3.5 animate-in fade-in duration-500">
+                <div className="space-y-1.5">
                   <Label htmlFor="name" className="text-sm font-medium">Full Name</Label>
                   <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input 
                       id="name" 
                       value={name} 
                       onChange={(e) => setName(e.target.value)} 
-                      className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                      className="h-10 pl-10 transition-all focus:ring-2 focus:ring-primary/20" 
                       placeholder="John Doe"
                       required 
                     />
                   </div>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="email" className="text-sm font-medium">Email Address</Label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input 
                       id="email" 
                       type="email" 
                       value={email} 
                       onChange={(e) => setEmail(e.target.value)} 
-                      className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                      className="h-10 pl-10 transition-all focus:ring-2 focus:ring-primary/20" 
                       placeholder="john@university.edu"
                       required 
                     />
                   </div>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="password" className="text-sm font-medium">Password</Label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input 
                       id="password" 
                       type="password" 
                       value={password} 
                       onChange={(e) => setPassword(e.target.value)} 
-                      className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                      className="h-10 pl-10 transition-all focus:ring-2 focus:ring-primary/20" 
                       placeholder="Create strong password"
                       required 
                     />
                   </div>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="confirmPassword" className="text-sm font-medium">Confirm Password</Label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input 
                       id="confirmPassword" 
                       type="password" 
                       value={confirmPassword} 
                       onChange={(e) => setConfirmPassword(e.target.value)} 
-                      className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                      className="h-10 pl-10 transition-all focus:ring-2 focus:ring-primary/20" 
                       placeholder="Re-enter password"
                       required 
                     />
                   </div>
                 </div>
-                <Button type="submit" className="w-full h-12 text-base shadow-lg hover:shadow-xl transition-all" size="lg">
-                  {role === "admin" ? "Submit for Approval" : "Send Verification Code"} <ArrowRight className="ml-2 h-5 w-5" />
+                <Button type="submit" className="w-full h-11 shadow-lg hover:shadow-xl transition-all" size="default">
+                  {role === "admin" ? "Submit for Approval" : "Send Verification Code"} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </form>
             )}
 
             {step === "otp" && (
-              <div className="space-y-6 animate-in fade-in duration-500">
-                <div className="rounded-xl border bg-gradient-to-br from-primary/5 to-primary/10 p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20">
-                      <Mail className="h-5 w-5 text-primary" />
+              <div className="space-y-4 animate-in fade-in duration-500">
+                <div className="rounded-lg border bg-gradient-to-br from-primary/5 to-primary/10 p-3.5">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/20">
+                      <Mail className="h-4 w-4 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <p className="font-semibold">Verification Code Sent</p>
-                      <p className="text-sm text-muted-foreground mt-1">
+                      <p className="text-sm font-semibold">Verification Code Sent</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">
                         Enter the 6-digit code sent to <span className="font-medium text-foreground">{email}</span>
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="otp" className="text-sm font-medium">Verification Code</Label>
                   <Input 
                     id="otp" 
@@ -363,16 +363,16 @@ function SignupPage() {
                     onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))} 
                     placeholder="000000" 
                     maxLength={6}
-                    className="h-16 text-center text-3xl tracking-[0.5em] font-semibold transition-all focus:ring-2 focus:ring-primary/20"
+                    className="h-14 text-center text-2xl tracking-[0.5em] font-semibold transition-all focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
                 <Button 
                   onClick={handleOtpSubmit} 
                   disabled={otp.length !== 6} 
-                  className="w-full h-12 text-base shadow-lg hover:shadow-xl transition-all"
-                  size="lg"
+                  className="w-full h-11 shadow-lg hover:shadow-xl transition-all"
+                  size="default"
                 >
-                  Verify & Complete Registration <CheckCircle2 className="ml-2 h-5 w-5" />
+                  Verify & Complete Registration <CheckCircle2 className="ml-2 h-4 w-4" />
                 </Button>
                 <button className="w-full text-center text-sm text-muted-foreground hover:text-primary transition-colors">
                   Didn't receive code? <span className="font-medium">Resend</span>
@@ -381,22 +381,22 @@ function SignupPage() {
             )}
 
             {step === "pending" && (
-              <div className="space-y-6 text-center animate-in fade-in duration-500">
-                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-yellow-100 to-yellow-200 dark:from-yellow-900/30 dark:to-yellow-950/30 shadow-lg">
-                  <AlertCircle className="h-12 w-12 text-yellow-600 dark:text-yellow-400" />
+              <div className="space-y-4 text-center animate-in fade-in duration-500">
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-yellow-100 to-yellow-200 dark:from-yellow-900/30 dark:to-yellow-950/30 shadow-lg">
+                  <AlertCircle className="h-10 w-10 text-yellow-600 dark:text-yellow-400" />
                 </div>
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-bold">Approval Pending</h3>
-                  <p className="text-muted-foreground">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold">Approval Pending</h3>
+                  <p className="text-sm text-muted-foreground">
                     Your admin access request has been submitted successfully
                   </p>
                 </div>
-                <div className="rounded-xl border bg-gradient-to-br from-muted/50 to-muted p-6 text-left">
-                  <div className="flex items-start gap-3">
-                    <Mail className="h-5 w-5 text-primary mt-0.5" />
+                <div className="rounded-lg border bg-gradient-to-br from-muted/50 to-muted p-4 text-left">
+                  <div className="flex items-start gap-2.5">
+                    <Mail className="h-4 w-4 text-primary mt-0.5" />
                     <div className="flex-1">
-                      <p className="text-sm font-medium mb-1">What happens next?</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-xs font-medium mb-1">What happens next?</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
                         Our team will review your request and send a confirmation email to{" "}
                         <span className="font-semibold text-foreground">{email}</span>. You'll be notified by{" "}
                         <span className="font-semibold text-primary">zidiohacks@gmail.com</span> once approved.
@@ -405,7 +405,7 @@ function SignupPage() {
                   </div>
                 </div>
                 <Link href="/">
-                  <Button variant="outline" className="w-full h-12" size="lg">
+                  <Button variant="outline" className="w-full h-11" size="default">
                     <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
                   </Button>
                 </Link>
@@ -446,53 +446,53 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen w-full">
+    <div className="flex h-screen overflow-hidden w-full">
       {/* Left Visual Column - Trust & Authority */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1560439514-4e9645039924?q=80&w=2070"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80"
             alt="Professional team collaboration"
-            className="w-full h-full object-cover animate-in fade-in duration-1000"
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/70 to-primary/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/65 to-primary/55" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
         </div>
 
-        <div className="relative z-10 flex flex-col justify-end p-12 space-y-8">
-          <div className="space-y-4 animate-in slide-in-from-bottom-8 duration-700">
-            <Badge variant="secondary" className="w-fit bg-background/20 backdrop-blur-sm border-background/40 text-white">
+        <div className="relative z-10 flex flex-col justify-end p-8 pb-12">
+          <div className="space-y-3 animate-in slide-in-from-bottom-8 duration-700">
+            <Badge variant="secondary" className="w-fit bg-background/20 backdrop-blur-sm border-background/40 text-white text-xs px-3 py-1">
               Secure Access
             </Badge>
-            <h1 className="text-5xl font-bold text-white leading-tight">
+            <h1 className="text-3xl font-bold text-white leading-tight">
               Welcome Back to the Ecosystem
             </h1>
-            <p className="text-xl text-white/90 leading-relaxed">
+            <p className="text-sm text-white/90 leading-relaxed">
               Continue your journey of innovation, collaboration, and excellence
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/20 animate-in slide-in-from-bottom-4 duration-700 delay-200">
-            <div className="space-y-1">
-              <div className="text-3xl font-bold text-white">24/7</div>
-              <div className="text-sm text-white/80">Platform Access</div>
+          <div className="grid grid-cols-3 gap-4 pt-4 mt-4 border-t border-white/20 animate-in slide-in-from-bottom-4 duration-700 delay-200">
+            <div className="space-y-0.5">
+              <div className="text-2xl font-bold text-white">24/7</div>
+              <div className="text-xs text-white/80">Platform Access</div>
             </div>
-            <div className="space-y-1">
-              <div className="text-3xl font-bold text-white">Secure</div>
-              <div className="text-sm text-white/80">Authentication</div>
+            <div className="space-y-0.5">
+              <div className="text-2xl font-bold text-white">Secure</div>
+              <div className="text-xs text-white/80">Authentication</div>
             </div>
-            <div className="space-y-1">
-              <div className="text-3xl font-bold text-white">Real-time</div>
-              <div className="text-sm text-white/80">Updates</div>
+            <div className="space-y-0.5">
+              <div className="text-2xl font-bold text-white">Real-time</div>
+              <div className="text-xs text-white/80">Updates</div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Right Form Column */}
-      <div className="flex w-full lg:w-1/2 items-center justify-center p-6 lg:p-12">
+      <div className="flex w-full lg:w-1/2 items-center justify-center p-4 lg:p-8 overflow-hidden">
         <div className="w-full max-w-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="mb-8">
+          <div className="mb-4">
             <Link href="/">
               <Button variant="ghost" size="sm" className="gap-2 -ml-2">
                 <ArrowLeft className="h-4 w-4" />
@@ -501,52 +501,52 @@ function LoginPage() {
             </Link>
           </div>
 
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tight">Sign In</h2>
-              <p className="text-muted-foreground">Access your dashboard and continue your work</p>
+          <div className="space-y-4">
+            <div className="space-y-1">
+              <h2 className="text-2xl font-bold tracking-tight">Sign In</h2>
+              <p className="text-sm text-muted-foreground">Access your dashboard and continue your work</p>
             </div>
 
-            <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }} className="space-y-5">
-              <div className="space-y-2">
+            <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }} className="space-y-3.5">
+              <div className="space-y-1.5">
                 <Label htmlFor="login-role" className="text-sm font-medium">Select Your Role</Label>
                 <Select value={role} onValueChange={(value: any) => setRole(value)}>
-                  <SelectTrigger id="login-role" className="h-12">
+                  <SelectTrigger id="login-role" className="h-10">
                     <SelectValue placeholder="Choose your role" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="participant">
-                      <div className="flex items-center gap-3 py-1">
-                        <Trophy className="h-5 w-5 text-primary" />
+                      <div className="flex items-center gap-2 py-0.5">
+                        <Trophy className="h-4 w-4 text-primary" />
                         <div>
-                          <div className="font-medium">Participant</div>
+                          <div className="text-sm font-medium">Participant</div>
                           <div className="text-xs text-muted-foreground">Compete & build</div>
                         </div>
                       </div>
                     </SelectItem>
                     <SelectItem value="mentor">
-                      <div className="flex items-center gap-3 py-1">
-                        <GraduationCap className="h-5 w-5 text-primary" />
+                      <div className="flex items-center gap-2 py-0.5">
+                        <GraduationCap className="h-4 w-4 text-primary" />
                         <div>
-                          <div className="font-medium">Mentor</div>
+                          <div className="text-sm font-medium">Mentor</div>
                           <div className="text-xs text-muted-foreground">Guide teams</div>
                         </div>
                       </div>
                     </SelectItem>
                     <SelectItem value="judge">
-                      <div className="flex items-center gap-3 py-1">
-                        <Code className="h-5 w-5 text-primary" />
+                      <div className="flex items-center gap-2 py-0.5">
+                        <Code className="h-4 w-4 text-primary" />
                         <div>
-                          <div className="font-medium">Judge</div>
+                          <div className="text-sm font-medium">Judge</div>
                           <div className="text-xs text-muted-foreground">Evaluate work</div>
                         </div>
                       </div>
                     </SelectItem>
                     <SelectItem value="admin">
-                      <div className="flex items-center gap-3 py-1">
-                        <Shield className="h-5 w-5 text-primary" />
+                      <div className="flex items-center gap-2 py-0.5">
+                        <Shield className="h-4 w-4 text-primary" />
                         <div>
-                          <div className="font-medium">Admin</div>
+                          <div className="text-sm font-medium">Admin</div>
                           <div className="text-xs text-muted-foreground">Manage platform</div>
                         </div>
                       </div>
@@ -555,32 +555,32 @@ function LoginPage() {
                 </Select>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="login-email" className="text-sm font-medium">Email Address</Label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input 
                     id="login-email" 
                     type="email" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
-                    className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                    className="h-10 pl-10 transition-all focus:ring-2 focus:ring-primary/20" 
                     placeholder="your.email@example.com"
                     required
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="login-password" className="text-sm font-medium">Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input 
                     id="login-password" 
                     type="password" 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
-                    className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                    className="h-10 pl-10 transition-all focus:ring-2 focus:ring-primary/20" 
                     placeholder="Enter your password"
                     required
                   />
@@ -590,10 +590,10 @@ function LoginPage() {
               <Button 
                 type="submit" 
                 disabled={!email || !password} 
-                className="w-full h-12 text-base shadow-lg hover:shadow-xl transition-all" 
-                size="lg"
+                className="w-full h-11 shadow-lg hover:shadow-xl transition-all" 
+                size="default"
               >
-                Sign In <ArrowRight className="ml-2 h-5 w-5" />
+                Sign In <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </form>
 
