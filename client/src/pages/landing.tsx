@@ -274,8 +274,8 @@ export default function LandingPage() {
                   <div className="relative">
                     <div className="relative h-[380px] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
                       <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80" alt="Students collaborating" className="h-full w-full object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/40 bg-background/80 backdrop-blur-xl p-4">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent dark:from-background/90 dark:via-background/20"></div>
+                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/40 bg-background/95 dark:bg-background/80 backdrop-blur-xl p-4">
                         <div className="flex items-center gap-3">
                           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                             <Trophy className="h-5 w-5 text-primary" />
@@ -294,42 +294,39 @@ export default function LandingPage() {
 
             {currentSlide === 1 && (
               <div className="w-full transition-all duration-1000 opacity-100">
-                <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-br from-card to-card/50 p-8 lg:p-12 shadow-2xl">
-                  <div className="absolute right-0 top-0 h-full w-1/2 opacity-30">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=80" alt="University" className="h-full w-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50"></div>
-                  </div>
-                  
-                  <div className="relative z-10 max-w-2xl space-y-6">
-                    <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
-                      <GraduationCap className="h-3 w-3 text-primary" />
-                      <span className="text-xs font-semibold tracking-wide text-primary uppercase">For Universities & Institutions</span>
+                <div className="grid items-center gap-8 lg:grid-cols-[1.3fr,0.7fr]">
+                  <div className="space-y-5">
+                    <div className="space-y-4">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
+                        <GraduationCap className="h-3 w-3 text-primary" />
+                        <span className="text-xs font-semibold tracking-wide text-primary uppercase">For Universities & Institutions</span>
+                      </div>
+                      
+                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
+                        Powering Academic Innovation at Scale
+                      </h1>
+                      
+                      <p className="text-lg leading-relaxed text-muted-foreground max-w-xl">
+                        Enable students to innovate beyond classrooms through structured hackathons aligned with curriculum, research, and industry needs.
+                      </p>
                     </div>
-                    
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
-                      Powering Academic Innovation at Scale
-                    </h1>
-                    
-                    <p className="text-lg leading-relaxed text-muted-foreground max-w-xl">
-                      Enable students to innovate beyond classrooms through structured hackathons aligned with curriculum, research, and industry needs.
-                    </p>
 
-                    <div className="grid grid-cols-3 gap-4 pt-4">
-                      <div className="rounded-xl border bg-background/50 backdrop-blur-sm p-4">
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="rounded-xl border bg-card p-3">
                         <div className="text-2xl font-bold text-primary">50+</div>
                         <div className="text-xs text-muted-foreground">Universities</div>
                       </div>
-                      <div className="rounded-xl border bg-background/50 backdrop-blur-sm p-4">
+                      <div className="rounded-xl border bg-card p-3">
                         <div className="text-2xl font-bold text-primary">200+</div>
-                        <div className="text-xs text-muted-foreground">Events Hosted</div>
+                        <div className="text-xs text-muted-foreground">Events</div>
                       </div>
-                      <div className="rounded-xl border bg-background/50 backdrop-blur-sm p-4">
+                      <div className="rounded-xl border bg-card p-3">
                         <div className="text-2xl font-bold text-primary">5k+</div>
                         <div className="text-xs text-muted-foreground">Students</div>
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-3 pt-2">
+                    <div className="flex flex-wrap gap-3">
                       <Link href="/signup">
                         <Button className="h-11 px-6 text-sm font-semibold rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
                           Partner with Us <ArrowRight className="ml-2 h-4 w-4" />
@@ -342,6 +339,22 @@ export default function LandingPage() {
                       </Link>
                     </div>
                   </div>
+
+                  <div className="relative h-[380px] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=80" alt="University innovation lab" className="h-full w-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent dark:from-background/80"></div>
+                    <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/40 bg-background/95 dark:bg-background/90 backdrop-blur-xl p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                          <GraduationCap className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold">IITs, NITs, IIITs</div>
+                          <div className="text-xs text-muted-foreground">Premier Institutions</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
@@ -351,9 +364,9 @@ export default function LandingPage() {
                 <div className="grid items-center gap-6 lg:grid-cols-[0.7fr,1.3fr]">
                   <div className="relative h-[400px] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
                     <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&auto=format&fit=crop&q=80" alt="Enterprise" className="h-full w-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent dark:from-background/80"></div>
                     <div className="absolute inset-0 flex items-end p-6">
-                      <div className="rounded-xl border border-border/40 bg-background/90 backdrop-blur-xl p-4 w-full">
+                      <div className="rounded-xl border border-border/40 bg-background/95 dark:bg-background/90 backdrop-blur-xl p-4 w-full">
                         <div className="flex items-center gap-3">
                           <Building2 className="h-8 w-8 text-primary" />
                           <div>
@@ -435,7 +448,7 @@ export default function LandingPage() {
                     <div className="space-y-4">
                       <div className="relative h-[180px] overflow-hidden rounded-xl border border-border/50 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80" alt="Mentors" className="h-full w-full object-cover" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent dark:from-background/70"></div>
                       </div>
                       <div className="rounded-xl border bg-card p-4">
                         <div className="text-2xl font-bold text-primary">500+</div>
@@ -449,7 +462,7 @@ export default function LandingPage() {
                       </div>
                       <div className="relative h-[180px] overflow-hidden rounded-xl border border-border/50 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80" alt="Judging" className="h-full w-full object-cover" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent dark:from-background/70"></div>
                       </div>
                     </div>
                   </div>
