@@ -129,37 +129,42 @@ function SignupPage() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden">
-      <div className="hidden lg:flex lg:w-[40%] relative overflow-hidden bg-muted/30">
+    <div className="flex h-screen overflow-hidden relative">
+      {/* Animated background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/5 animate-gradient"></div>
+      
+      <div className="hidden lg:flex lg:w-[40%] relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10"></div>
         <img 
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80"
           alt="Hackathon ecosystem"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-90 dark:opacity-60"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-90 dark:opacity-60 transition-transform duration-700 hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background/40 via-background/20 to-transparent dark:from-background/60 dark:via-background/30 dark:to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20 dark:from-background dark:via-background/80 dark:to-background/30"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(120,119,198,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_50%,rgba(120,119,198,0.2),transparent_50%)]"></div>
         <div className="relative z-10 flex flex-col justify-end p-8 pb-12">
           <div className="space-y-4">
-            <div className="inline-block">
-              <Badge className="px-3 py-1.5 text-xs font-semibold bg-primary/10 text-primary border-primary/20">Join the Ecosystem</Badge>
+            <div className="inline-block animate-in fade-in slide-in-from-left-4 duration-700">
+              <Badge className="px-3 py-1.5 text-xs font-semibold bg-primary/10 text-primary border-primary/20 backdrop-blur-sm shadow-lg">Join the Ecosystem</Badge>
             </div>
-            <h1 className="text-3xl font-bold leading-tight">
+            <h1 className="text-3xl font-bold leading-tight animate-in fade-in slide-in-from-left-6 duration-700 delay-100">
               Build. Compete.<br/>Shape the Future.
             </h1>
-            <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
+            <p className="text-sm text-muted-foreground max-w-md leading-relaxed animate-in fade-in slide-in-from-left-6 duration-700 delay-200">
               Connect with government bodies, premier institutions, and enterprise partners in India's largest innovation platform.
             </p>
             <div className="flex items-center gap-6 pt-2">
-              <div>
-                <div className="text-2xl font-bold">10,000+</div>
+              <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 hover:scale-110 transition-transform cursor-default">
+                <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">10,000+</div>
                 <div className="text-xs text-muted-foreground">Participants</div>
               </div>
-              <div>
-                <div className="text-2xl font-bold">50+</div>
+              <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400 hover:scale-110 transition-transform cursor-default">
+                <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">50+</div>
                 <div className="text-xs text-muted-foreground">Universities</div>
               </div>
-              <div>
-                <div className="text-2xl font-bold">100+</div>
+              <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 hover:scale-110 transition-transform cursor-default">
+                <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">100+</div>
                 <div className="text-xs text-muted-foreground">Partners</div>
               </div>
             </div>
@@ -167,20 +172,20 @@ function SignupPage() {
         </div>
       </div>
 
-      <div className="flex w-full lg:w-[60%] items-center justify-center p-4 lg:p-8 overflow-hidden bg-background">
-        <div className="w-full max-w-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="mb-4">
+      <div className="flex w-full lg:w-[60%] items-center justify-center p-4 lg:p-8 overflow-hidden bg-background/95 backdrop-blur-sm relative z-10">
+        <div className="w-full max-w-lg">
+          <div className="mb-6 animate-in fade-in slide-in-from-top-4 duration-500">
             <Link href="/">
-              <Button variant="ghost" size="sm" className="gap-2 -ml-2">
+              <Button variant="ghost" size="sm" className="gap-2 -ml-2 hover:gap-3 transition-all hover:bg-primary/5">
                 <ArrowLeft className="h-4 w-4" />
                 Back
               </Button>
             </Link>
           </div>
           
-          <div className="space-y-4">
-            <div className="space-y-1">
-              <h2 className="text-2xl font-bold tracking-tight">Create Account</h2>
+          <div className="space-y-6 bg-card/50 dark:bg-card/30 rounded-2xl p-6 shadow-2xl border border-border/50 backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+            <div className="space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
+              <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">Create Account</h2>
               <p className="text-sm text-muted-foreground">
                 {step === "role" && "Choose your role to get started"}
                 {step === "details" && "Complete your registration"}
@@ -446,43 +451,50 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden w-full">
+    <div className="flex h-screen overflow-hidden w-full relative">
+      {/* Animated background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/5 animate-gradient"></div>
+      
       {/* Left Visual Column - Trust & Authority */}
-      <div className="hidden lg:flex lg:w-[40%] relative overflow-hidden bg-muted/30">
+      <div className="hidden lg:flex lg:w-[40%] relative overflow-hidden">
         <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10"></div>
           <img
             src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80"
             alt="Professional team collaboration"
-            className="w-full h-full object-cover object-center opacity-90 dark:opacity-60"
+            className="w-full h-full object-cover object-center opacity-90 dark:opacity-60 transition-transform duration-700 hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-background/40 via-background/20 to-transparent dark:from-background/60 dark:via-background/30 dark:to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20 dark:from-background dark:via-background/80 dark:to-background/30" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(120,119,198,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_70%_50%,rgba(120,119,198,0.2),transparent_50%)]"></div>
         </div>
 
         <div className="relative z-10 flex flex-col justify-end p-8 pb-12">
-          <div className="space-y-3 animate-in slide-in-from-bottom-8 duration-700">
-            <Badge className="w-fit px-3 py-1 text-xs font-semibold bg-primary/10 text-primary border-primary/20">
-              Secure Access
-            </Badge>
-            <h1 className="text-3xl font-bold leading-tight">
+          <div className="space-y-3">
+            <div className="animate-in fade-in slide-in-from-left-4 duration-700">
+              <Badge className="w-fit px-3 py-1 text-xs font-semibold bg-primary/10 text-primary border-primary/20 backdrop-blur-sm shadow-lg">
+                Secure Access
+              </Badge>
+            </div>
+            <h1 className="text-3xl font-bold leading-tight animate-in fade-in slide-in-from-left-6 duration-700 delay-100">
               Welcome Back to the Ecosystem
             </h1>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-left-6 duration-700 delay-200">
               Continue your journey of innovation, collaboration, and excellence
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 pt-4 mt-4 border-t border-foreground/20 animate-in slide-in-from-bottom-4 duration-700 delay-200">
-            <div className="space-y-0.5">
-              <div className="text-2xl font-bold">10,000+</div>
+          <div className="grid grid-cols-3 gap-4 pt-4 mt-4 border-t border-foreground/20">
+            <div className="space-y-0.5 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300 hover:scale-110 transition-transform cursor-default">
+              <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">10,000+</div>
               <div className="text-xs text-muted-foreground">Participants</div>
             </div>
-            <div className="space-y-0.5">
-              <div className="text-2xl font-bold">50+</div>
+            <div className="space-y-0.5 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400 hover:scale-110 transition-transform cursor-default">
+              <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">50+</div>
               <div className="text-xs text-muted-foreground">Universities</div>
             </div>
-            <div className="space-y-0.5">
-              <div className="text-2xl font-bold">100+</div>
+            <div className="space-y-0.5 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 hover:scale-110 transition-transform cursor-default">
+              <div className="text-2xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">100+</div>
               <div className="text-xs text-muted-foreground">Partners</div>
             </div>
           </div>
@@ -490,28 +502,28 @@ function LoginPage() {
       </div>
 
       {/* Right Form Column */}
-      <div className="flex w-full lg:w-[60%] items-center justify-center p-4 lg:p-8 overflow-hidden bg-background">
-        <div className="w-full max-w-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="mb-4">
+      <div className="flex w-full lg:w-[60%] items-center justify-center p-4 lg:p-8 overflow-hidden bg-background/95 backdrop-blur-sm relative z-10">
+        <div className="w-full max-w-lg">
+          <div className="mb-6 animate-in fade-in slide-in-from-top-4 duration-500">
             <Link href="/">
-              <Button variant="ghost" size="sm" className="gap-2 -ml-2">
+              <Button variant="ghost" size="sm" className="gap-2 -ml-2 hover:gap-3 transition-all hover:bg-primary/5">
                 <ArrowLeft className="h-4 w-4" />
                 Back
               </Button>
             </Link>
           </div>
 
-          <div className="space-y-4">
-            <div className="space-y-1">
-              <h2 className="text-2xl font-bold tracking-tight">Sign In</h2>
+          <div className="space-y-6 bg-card/50 dark:bg-card/30 rounded-2xl p-6 shadow-2xl border border-border/50 backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+            <div className="space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
+              <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">Sign In</h2>
               <p className="text-sm text-muted-foreground">Access your dashboard and continue your work</p>
             </div>
 
-            <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }} className="space-y-3.5">
-              <div className="space-y-1.5">
-                <Label htmlFor="login-role" className="text-sm font-medium">Select Your Role</Label>
+            <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }} className="space-y-4 animate-in fade-in duration-500 delay-300">
+              <div className="space-y-2 group">
+                <Label htmlFor="login-role" className="text-sm font-medium group-hover:text-primary transition-colors">Select Your Role</Label>
                 <Select value={role} onValueChange={(value: any) => setRole(value)}>
-                  <SelectTrigger id="login-role" className="h-10">
+                  <SelectTrigger id="login-role" className="h-11 transition-all hover:border-primary/50 focus:ring-2 focus:ring-primary/20 hover:shadow-md">
                     <SelectValue placeholder="Choose your role" />
                   </SelectTrigger>
                   <SelectContent>
@@ -555,32 +567,32 @@ function LoginPage() {
                 </Select>
               </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="login-email" className="text-sm font-medium">Email Address</Label>
+              <div className="space-y-2 group">
+                <Label htmlFor="login-email" className="text-sm font-medium group-hover:text-primary transition-colors">Email Address</Label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
                   <Input 
                     id="login-email" 
                     type="email" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
-                    className="h-10 pl-10 transition-all focus:ring-2 focus:ring-primary/20" 
+                    className="h-11 pl-10 transition-all focus:ring-2 focus:ring-primary/20 hover:border-primary/50 hover:shadow-md focus:scale-[1.01]" 
                     placeholder="your.email@example.com"
                     required
                   />
                 </div>
               </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="login-password" className="text-sm font-medium">Password</Label>
+              <div className="space-y-2 group">
+                <Label htmlFor="login-password" className="text-sm font-medium group-hover:text-primary transition-colors">Password</Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
                   <Input 
                     id="login-password" 
                     type="password" 
                     value={password} 
                     onChange={(e) => setPassword(e.target.value)} 
-                    className="h-10 pl-10 transition-all focus:ring-2 focus:ring-primary/20" 
+                    className="h-11 pl-10 transition-all focus:ring-2 focus:ring-primary/20 hover:border-primary/50 hover:shadow-md focus:scale-[1.01]" 
                     placeholder="Enter your password"
                     required
                   />
@@ -590,16 +602,16 @@ function LoginPage() {
               <Button 
                 type="submit" 
                 disabled={!email || !password} 
-                className="w-full h-11 shadow-lg hover:shadow-xl transition-all" 
+                className="w-full h-12 shadow-xl hover:shadow-2xl transition-all hover:scale-[1.02] bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 font-semibold" 
                 size="default"
               >
-                Sign In <ArrowRight className="ml-2 h-4 w-4" />
+                Sign In <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
             </form>
 
-            <div className="text-center text-sm pt-2">
+            <div className="text-center text-sm pt-2 animate-in fade-in duration-500 delay-500">
               Don't have an account?{" "}
-              <Link href="/signup" className="font-semibold text-primary hover:underline">
+              <Link href="/signup" className="font-semibold text-primary hover:underline hover:text-primary/80 transition-colors">
                 Create account
               </Link>
             </div>
