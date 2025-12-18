@@ -173,77 +173,140 @@ function StatCounter({ stat }: { stat: { label: string; value: number; icon: any
 
 export default function LandingPage() {
   const { isAuthenticated, isLoading } = useAuth();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const slides = [
+    {
+      eyebrow: "For Innovators & Builders",
+      headline: "Where India's Best Minds Build Real Solutions",
+      description: "Participate in national and state-level hackathons, collaborate with top talent, and solve real-world challenges backed by institutions and industry.",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80",
+      imageAlt: "Students collaborating on hackathon projects",
+      cta1: { text: "Sign Up", href: "/signup" },
+      cta2: { text: "Explore Hackathons", href: "/explore" }
+    },
+    {
+      eyebrow: "For Universities & Institutions",
+      headline: "Powering Academic Innovation at Scale",
+      description: "Enable students to innovate beyond classrooms through structured hackathons aligned with curriculum, research, and industry needs.",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=80",
+      imageAlt: "University innovation lab",
+      cta1: { text: "Partner with Us", href: "/signup" },
+      cta2: { text: "Learn More", href: "/explore" }
+    },
+    {
+      eyebrow: "For Enterprises & Recruiters",
+      headline: "Discover Talent Through Real Innovation",
+      description: "Identify skilled candidates by evaluating real projects, not resumes — through enterprise-grade hackathons and challenges.",
+      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&auto=format&fit=crop&q=80",
+      imageAlt: "Corporate innovation setting",
+      cta1: { text: "Host a Hackathon", href: "/signup" },
+      cta2: { text: "View Talent Pool", href: "/explore" }
+    },
+    {
+      eyebrow: "For Mentors & Judges",
+      headline: "Evaluate, Guide, and Shape Innovation",
+      description: "Mentor teams, review submissions, and uphold transparent, structured evaluation across national-level competitions.",
+      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&auto=format&fit=crop&q=80",
+      imageAlt: "Judges reviewing hackathon submissions",
+      cta1: { text: "Join as Mentor", href: "/signup" },
+      cta2: { text: "View Opportunities", href: "/explore" }
+    }
+  ];
+
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, [isPaused, slides.length]);
 
   return (
     <div className="min-h-screen">
-      <section className="relative overflow-hidden border-b">
+      <section 
+        className="relative overflow-hidden border-b"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/[0.015]"></div>
         <div className="container relative mx-auto px-4 py-28 lg:py-48">
-          <div className="grid items-center gap-20 lg:grid-cols-[1.4fr,1fr] lg:gap-28">
-            <div className="space-y-14">
-              <div className="space-y-8">
-                <div className="inline-block">
-                  <span className="text-sm font-medium tracking-wider text-primary uppercase">
-                    National Innovation Infrastructure
-                  </span>
-                </div>
-                
-                <h1>
-                  <span className="block text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-                    The Institutional Platform
-                  </span>
-                  <span className="mt-3 block text-3xl font-bold leading-tight tracking-tight text-primary sm:text-4xl lg:text-5xl xl:text-6xl">
-                    for Universities & Enterprises
-                  </span>
-                </h1>
-                
-                <div className="max-w-2xl">
-                  <p className="text-lg leading-relaxed text-muted-foreground">
-                    Connecting research institutions, government bodies, and enterprise organizations with verified student innovators through structured evaluation, recognized credentials, and direct hiring pathways—operating at national scale.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <Link href="/signup">
-                  <Button size="lg" className="h-[3.25rem] px-10 text-[0.9375rem] font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0" data-testid="button-get-started">
-                    Sign Up
-                    <ArrowRight className="ml-2.5 h-[1.125rem] w-[1.125rem]" />
-                  </Button>
-                </Link>
-                <Link href="/explore">
-                  <Button size="lg" variant="outline" className="h-[3.25rem] border-[1.5px] px-10 text-[0.9375rem] font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/70 hover:bg-primary/[0.025] active:translate-y-0" data-testid="button-explore">
-                    Explore Hackathons
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="relative hidden lg:block">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-[0_12px_48px_rgba(0,0,0,0.15)] dark:shadow-[0_12px_48px_rgba(0,0,0,0.5)]">
-                <div className="absolute inset-0 z-10 bg-gradient-to-br from-background/5 via-transparent to-background/10"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80" 
-                  alt="Students collaborating on hackathon project" 
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/[0.98] via-background/40 to-background/10"></div>
-                <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-background/95 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-10">
-                  <div className="flex items-start gap-5">
-                    <div className="flex h-[3.75rem] w-[3.75rem] flex-shrink-0 items-center justify-center rounded-lg bg-primary shadow-xl">
-                      <GraduationCap className="h-8 w-8 text-primary-foreground" />
-                    </div>
-                    <div className="space-y-2">
-                      <div className="text-[1.125rem] font-bold leading-tight tracking-tight text-foreground">Academic Collaboration</div>
-                      <div className="text-[0.8125rem] leading-relaxed tracking-wide text-muted-foreground">IITs, NITs, IIITs & 50+ Research Institutions</div>
-                    </div>
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`grid items-center gap-20 lg:grid-cols-[1.4fr,1fr] lg:gap-28 transition-opacity duration-700 ${
+                currentSlide === index ? 'opacity-100' : 'opacity-0 absolute inset-0 pointer-events-none'
+              }`}
+            >
+              <div className="space-y-14">
+                <div className="space-y-8">
+                  <div className="inline-block">
+                    <span className="text-sm font-medium tracking-wider text-primary uppercase">
+                      {slide.eyebrow}
+                    </span>
+                  </div>
+                  
+                  <h1>
+                    <span className="block text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+                      {slide.headline}
+                    </span>
+                  </h1>
+                  
+                  <div className="max-w-2xl">
+                    <p className="text-lg leading-relaxed text-muted-foreground">
+                      {slide.description}
+                    </p>
                   </div>
                 </div>
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link href={slide.cta1.href}>
+                    <Button size="lg" className="h-[3.25rem] px-10 text-[0.9375rem] font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0">
+                      {slide.cta1.text}
+                      <ArrowRight className="ml-2.5 h-[1.125rem] w-[1.125rem]" />
+                    </Button>
+                  </Link>
+                  <Link href={slide.cta2.href}>
+                    <Button size="lg" variant="outline" className="h-[3.25rem] border-[1.5px] px-10 text-[0.9375rem] font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/70 hover:bg-primary/[0.025] active:translate-y-0">
+                      {slide.cta2.text}
+                    </Button>
+                  </Link>
+                </div>
               </div>
-              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-primary/[0.06] blur-[100px]"></div>
-              <div className="absolute -bottom-10 -left-10 h-52 w-52 rounded-full bg-primary/[0.04] blur-[120px]"></div>
+
+              <div className="relative hidden lg:block">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-[0_12px_48px_rgba(0,0,0,0.15)] dark:shadow-[0_12px_48px_rgba(0,0,0,0.5)]">
+                  <div className="absolute inset-0 z-10 bg-gradient-to-br from-background/5 via-transparent to-background/10"></div>
+                  <img 
+                    src={slide.image}
+                    alt={slide.imageAlt}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/[0.98] via-background/40 to-background/10"></div>
+                  <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-background/95 to-transparent"></div>
+                </div>
+                <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-primary/[0.06] blur-[100px]"></div>
+                <div className="absolute -bottom-10 -left-10 h-52 w-52 rounded-full bg-primary/[0.04] blur-[120px]"></div>
+              </div>
             </div>
+          ))}
+
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === index 
+                    ? 'w-8 bg-primary' 
+                    : 'w-2 bg-primary/30 hover:bg-primary/50'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
         <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
