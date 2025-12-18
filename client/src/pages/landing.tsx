@@ -117,51 +117,44 @@ const partners = [
 
 function StatCounter({ stat }: { stat: { label: string; value: number; icon: any } }) {
   const [count, setCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          
+          const duration = 2000;
+          const steps = 60;
+          const increment = stat.value / steps;
+          const stepDuration = duration / steps;
+
+          let current = 0;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= stat.value) {
+              setCount(stat.value);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(current));
+            }
+          }, stepDuration);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.3 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(element);
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      observer.disconnect();
     };
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    const duration = 2000;
-    const steps = 60;
-    const increment = stat.value / steps;
-    const stepDuration = duration / steps;
-
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= stat.value) {
-        setCount(stat.value);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, stepDuration);
-
-    return () => clearInterval(timer);
-  }, [isVisible, stat.value]);
+  }, [stat.value, hasAnimated]);
 
   return (
     <div ref={ref} className="text-center">
@@ -171,8 +164,7 @@ function StatCounter({ stat }: { stat: { label: string; value: number; icon: any
         </div>
       </div>
       <div className="text-2xl font-bold sm:text-3xl">
-        {count.toLocaleString()}
-        {stat.label.includes("Participants") ? "+" : "+"}
+        {count.toLocaleString()}+
       </div>
       <div className="text-sm text-muted-foreground">{stat.label}</div>
     </div>
