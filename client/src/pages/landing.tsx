@@ -228,90 +228,125 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen">
       <section 
-        className="relative overflow-hidden border-b"
+        className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/[0.02]"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/[0.015]"></div>
-        <div className="container relative mx-auto px-4 py-28 lg:py-48">
-          <div className="relative min-h-[600px]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80"></div>
+        
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative min-h-[calc(100vh-80px)] flex items-center py-20 lg:py-0">
             {slides.map((slide, index) => (
               <div
                 key={index}
-                className={`grid items-center gap-20 lg:grid-cols-[1.4fr,1fr] lg:gap-28 transition-opacity duration-700 ${
-                  currentSlide === index ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 pointer-events-none'
+                className={`w-full transition-all duration-1000 ${
+                  currentSlide === index 
+                    ? 'opacity-100 relative translate-y-0' 
+                    : 'opacity-0 absolute inset-0 pointer-events-none translate-y-4'
                 }`}
               >
-                <div className="space-y-14">
-                  <div className="space-y-8">
-                    <div className="inline-block">
-                      <span className="text-sm font-medium tracking-wider text-primary uppercase">
-                        {slide.eyebrow}
-                      </span>
+                <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+                  <div className="space-y-10 max-w-3xl">
+                    <div className="space-y-7">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 backdrop-blur-sm">
+                        <div className="h-2 w-2 rounded-full bg-primary animate-pulse"></div>
+                        <span className="text-xs font-semibold tracking-wide text-primary uppercase">
+                          {slide.eyebrow}
+                        </span>
+                      </div>
+                      
+                      <h1 className="text-[2.75rem] sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
+                          {slide.headline}
+                        </span>
+                      </h1>
+                      
+                      <div className="max-w-2xl">
+                        <p className="text-xl leading-relaxed text-muted-foreground font-light">
+                          {slide.description}
+                        </p>
+                      </div>
                     </div>
-                    
-                    <h1>
-                      <span className="block text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-                        {slide.headline}
-                      </span>
-                    </h1>
-                    
-                    <div className="max-w-2xl">
-                      <p className="text-lg leading-relaxed text-muted-foreground">
-                        {slide.description}
-                      </p>
+
+                    <div className="flex flex-wrap items-center gap-4 pt-2">
+                      <Link href={slide.cta1.href}>
+                        <Button 
+                          size="lg" 
+                          className="h-14 px-8 text-base font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
+                        >
+                          {slide.cta1.text}
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Button>
+                      </Link>
+                      <Link href={slide.cta2.href}>
+                        <Button 
+                          size="lg" 
+                          variant="outline" 
+                          className="h-14 px-8 text-base font-semibold rounded-xl border-2 hover:bg-primary/5 hover:border-primary/50 hover:scale-105 transition-all duration-300"
+                        >
+                          {slide.cta2.text}
+                        </Button>
+                      </Link>
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4">
-                    <Link href={slide.cta1.href}>
-                      <Button size="lg" className="h-[3.25rem] px-10 text-[0.9375rem] font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0">
-                        {slide.cta1.text}
-                        <ArrowRight className="ml-2.5 h-[1.125rem] w-[1.125rem]" />
-                      </Button>
-                    </Link>
-                    <Link href={slide.cta2.href}>
-                      <Button size="lg" variant="outline" className="h-[3.25rem] border-[1.5px] px-10 text-[0.9375rem] font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/70 hover:bg-primary/[0.025] active:translate-y-0">
-                        {slide.cta2.text}
-                      </Button>
-                    </Link>
+                  <div className="relative">
+                    <div className="relative aspect-[4/5] lg:aspect-[5/6] overflow-hidden rounded-3xl border border-border/50 shadow-2xl">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background/20 z-10"></div>
+                      <img 
+                        src={slide.image}
+                        alt={slide.imageAlt}
+                        className="h-full w-full object-cover scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
+                      
+                      <div className="absolute inset-x-0 bottom-0 p-8 z-20">
+                        <div className="rounded-2xl border border-border/40 bg-background/80 backdrop-blur-xl p-6 shadow-xl">
+                          <div className="flex items-start gap-4">
+                            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 backdrop-blur-sm">
+                              <Zap className="h-6 w-6 text-primary" />
+                            </div>
+                            <div className="space-y-1">
+                              <div className="text-sm font-semibold text-foreground">Live Innovation Hub</div>
+                              <div className="text-xs text-muted-foreground leading-relaxed">
+                                {index === 0 && "10,000+ Active Participants"}
+                                {index === 1 && "50+ Partner Universities"}
+                                {index === 2 && "100+ Enterprise Sponsors"}
+                                {index === 3 && "500+ Expert Mentors"}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="absolute -right-8 -top-8 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
+                    <div className="absolute -bottom-8 -left-8 h-64 w-64 rounded-full bg-primary/5 blur-3xl"></div>
                   </div>
-                </div>
-
-                <div className="relative hidden lg:block">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-[0_12px_48px_rgba(0,0,0,0.15)] dark:shadow-[0_12px_48px_rgba(0,0,0,0.5)]">
-                    <div className="absolute inset-0 z-10 bg-gradient-to-br from-background/5 via-transparent to-background/10"></div>
-                    <img 
-                      src={slide.image}
-                      alt={slide.imageAlt}
-                      className="h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/[0.98] via-background/40 to-background/10"></div>
-                    <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-background/95 to-transparent"></div>
-                  </div>
-                  <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-primary/[0.06] blur-[100px]"></div>
-                  <div className="absolute -bottom-10 -left-10 h-52 w-52 rounded-full bg-primary/[0.04] blur-[120px]"></div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 z-30 rounded-full bg-background/60 backdrop-blur-md border border-border/50 px-4 py-2.5 shadow-lg">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`rounded-full transition-all duration-500 ${
                   currentSlide === index 
-                    ? 'w-8 bg-primary' 
-                    : 'w-2 bg-primary/30 hover:bg-primary/50'
+                    ? 'h-2.5 w-10 bg-primary shadow-sm shadow-primary/50' 
+                    : 'h-2.5 w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50 hover:w-6'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
         </div>
-        <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+        
+        <div className="absolute left-0 bottom-0 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent"></div>
       </section>
 
       {/* Stats Section */}
