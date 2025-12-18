@@ -38,9 +38,9 @@ const featuredHackathons = [
   },
   {
     id: "2",
-    title: "TechnoVerse AI Challenge",
+    title: "TechnoVerse Innovation Challenge",
     organizer: "IIT Delhi",
-    category: "AI/ML",
+    category: "Technology",
     prizePool: 1500000,
     registrations: 12000,
     status: "registration_open",
@@ -75,7 +75,7 @@ const features = [
   },
   {
     icon: Users,
-    title: "AI-Powered Team Matching",
+    title: "Smart Team Matching",
     description: "Find the perfect teammates based on skills, experience, and project compatibility.",
   },
   {
@@ -91,7 +91,7 @@ const features = [
   {
     icon: Shield,
     title: "Fair Evaluation",
-    description: "Transparent judging with AI-assisted scoring and multi-tier review process.",
+    description: "Transparent judging with structured scoring and multi-tier review process.",
   },
   {
     icon: TrendingUp,
