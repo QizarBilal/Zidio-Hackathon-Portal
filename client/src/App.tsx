@@ -135,9 +135,9 @@ function SignupPage() {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       
       {/* LEFT: Form Section - 55% */}
-      <div className="flex w-full lg:w-[55%] items-center justify-center p-6 lg:p-12 overflow-hidden relative z-10 animate-in slide-in-from-left duration-700">
-        <div className="w-full max-w-xl">
-          <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-500">
+      <div className="flex w-full lg:w-[55%] items-center justify-center p-4 lg:p-6 overflow-y-auto relative z-10 animate-in slide-in-from-left duration-700">
+        <div className="w-full max-w-xl my-auto">
+          <div className="mb-4 animate-in fade-in slide-in-from-top-4 duration-500">
             <Link href="/">
               <Button variant="ghost" size="sm" className="gap-2 hover:gap-3 transition-all hover:bg-primary/10 group">
                 <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
@@ -146,13 +146,13 @@ function SignupPage() {
             </Link>
           </div>
           
-          <div className="space-y-8">
-            <div className="space-y-3 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
+          <div className="space-y-4">
+            <div className="space-y-2 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
               <div className="flex items-center gap-3">
                 <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded-full" />
                 <Badge className="px-3 py-1 text-xs font-bold bg-primary text-primary-foreground shadow-lg">GET STARTED</Badge>
               </div>
-              <h1 className="text-4xl lg:text-5xl font-black tracking-tight">
+              <h1 className="text-3xl lg:text-4xl font-black tracking-tight">
                 <span className="bg-gradient-to-br from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
                   Join India's Largest
                 </span>
@@ -161,15 +161,15 @@ function SignupPage() {
                   Innovation Network
                 </span>
               </h1>
-              <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
-                Where brilliant minds converge, groundbreaking ideas flourish, and tomorrow's technology leaders emerge. Start your journey today.
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">
+                Where brilliant minds converge, groundbreaking ideas flourish, and tomorrow's technology leaders emerge.
               </p>
             </div>
           
-          <div className="bg-card border-2 border-border/50 rounded-3xl p-8 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 hover:border-primary/30 transition-all">
-            <div className="space-y-2 mb-6">
-              <h2 className="text-2xl font-bold text-foreground">Create Your Account</h2>
-              <p className="text-sm text-muted-foreground">
+          <div className="bg-card border-2 border-border/50 rounded-3xl p-5 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 hover:border-primary/30 transition-all">
+            <div className="space-y-1.5 mb-4">
+              <h2 className="text-xl font-bold text-foreground">Create Your Account</h2>
+              <p className="text-xs text-muted-foreground">
                 {step === "role" && "Choose your role to get started"}
                 {step === "details" && "Complete your registration"}
                 {step === "otp" && "Verify your email address"}
@@ -426,40 +426,40 @@ function SignupPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.2),transparent_70%)]" />
         </div>
 
-        <div className="relative z-10 flex flex-col justify-between p-12 text-white">
+        <div className="relative z-10 flex flex-col justify-between p-8 text-white h-full">
           {/* Top Badge */}
           <div className="animate-in fade-in duration-1000 delay-500">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-2xl hover:bg-white/20 transition-all group">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-2xl hover:bg-white/20 transition-all group">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-sm font-semibold">10,000+ Active Innovators</span>
+              <span className="text-xs font-semibold">10,000+ Active Innovators</span>
             </div>
           </div>
 
           {/* Main Content */}
-          <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-700">
-            <div className="space-y-4">
-              <h2 className="text-5xl font-black leading-tight tracking-tight">
+          <div className="space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-700">
+            <div className="space-y-3">
+              <h2 className="text-3xl lg:text-4xl font-black leading-tight tracking-tight">
                 Your Ideas.<br/>
                 <span className="bg-gradient-to-r from-blue-300 via-cyan-300 to-teal-300 bg-clip-text text-transparent animate-shimmer">Our Platform.</span><br/>
                 <span className="text-white/90">Limitless Innovation.</span>
               </h2>
-              <p className="text-lg text-white/95 leading-relaxed max-w-md font-medium">
-                Join a thriving ecosystem of innovators, access cutting-edge resources, and transform ideas into reality with India's premier hackathon platform.
+              <p className="text-sm text-white/95 leading-relaxed max-w-md font-medium">
+                Join a thriving ecosystem of innovators and transform ideas into reality with India's premier hackathon platform.
               </p>
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="space-y-2 group hover:scale-110 transition-all duration-300 cursor-default">
-                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">50+</div>
+            <div className="grid grid-cols-3 gap-3">
+              <div className="space-y-1 group hover:scale-110 transition-all duration-300 cursor-default">
+                <div className="text-2xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">50+</div>
                 <div className="text-xs text-white/80 font-medium leading-tight">Top Universities</div>
               </div>
-              <div className="space-y-2 group hover:scale-110 transition-all duration-300 cursor-default">
-                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">100+</div>
+              <div className="space-y-1 group hover:scale-110 transition-all duration-300 cursor-default">
+                <div className="text-2xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">100+</div>
                 <div className="text-xs text-white/80 font-medium leading-tight">Industry Partners</div>
               </div>
-              <div className="space-y-2 group hover:scale-110 transition-all duration-300 cursor-default">
-                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">24/7</div>
+              <div className="space-y-1 group hover:scale-110 transition-all duration-300 cursor-default">
+                <div className="text-2xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">24/7</div>
                 <div className="text-xs text-white/80 font-medium leading-tight">Expert Support</div>
               </div>
             </div>
@@ -519,62 +519,62 @@ function LoginPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(59,130,246,0.2),transparent_70%)]" />
         </div>
 
-        <div className="relative z-10 flex flex-col justify-between p-12 text-white">
+        <div className="relative z-10 flex flex-col justify-between p-8 text-white h-full">
           {/* Top Badge */}
           <div className="animate-in fade-in duration-1000 delay-300">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-2xl hover:bg-white/20 transition-all group">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-2xl hover:bg-white/20 transition-all group">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               <Shield className="w-4 h-4 text-green-400 group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-semibold">Secure Access Portal</span>
+              <span className="text-xs font-semibold">Secure Access Portal</span>
             </div>
           </div>
 
           {/* Main Content */}
-          <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
-            <div className="space-y-4">
-              <h2 className="text-5xl font-black leading-tight tracking-tight">
+          <div className="space-y-5 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
+            <div className="space-y-3">
+              <h2 className="text-3xl lg:text-4xl font-black leading-tight tracking-tight">
                 Welcome Back,<br/>
                 <span className="bg-gradient-to-r from-blue-300 via-cyan-300 to-teal-300 bg-clip-text text-transparent animate-shimmer">Innovator</span>
               </h2>
-              <p className="text-lg text-white/95 leading-relaxed max-w-md font-medium">
-                Your innovation dashboard awaits. Continue building the future, tracking progress, and connecting with visionaries across India.
+              <p className="text-sm text-white/95 leading-relaxed max-w-md font-medium">
+                Your innovation dashboard awaits. Continue building the future and connecting with visionaries across India.
               </p>
             </div>
 
             {/* Feature Cards */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 hover:bg-white/15 hover:scale-[1.02] transition-all duration-300 group cursor-default">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all">
-                  <Trophy className="w-6 h-6 text-white" />
+            <div className="space-y-2">
+              <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-3 border border-white/10 hover:bg-white/15 hover:scale-[1.02] transition-all duration-300 group cursor-default">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all">
+                  <Trophy className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white">Live Progress Tracking</div>
-                  <div className="text-xs text-white/75">Real-time rankings & analytics</div>
+                  <div className="text-xs font-bold text-white">Live Progress Tracking</div>
+                  <div className="text-xs text-white/75">Real-time rankings</div>
                 </div>
               </div>
-              <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 hover:bg-white/15 hover:scale-[1.02] transition-all duration-300 group cursor-default">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all">
-                  <Users className="w-6 h-6 text-white" />
+              <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-3 border border-white/10 hover:bg-white/15 hover:scale-[1.02] transition-all duration-300 group cursor-default">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all">
+                  <Users className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white">Global Collaboration</div>
+                  <div className="text-xs font-bold text-white">Global Collaboration</div>
                   <div className="text-xs text-white/75">Connect with elite talent</div>
                 </div>
               </div>
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/20">
+            <div className="grid grid-cols-3 gap-3 pt-3 border-t border-white/20">
               <div className="space-y-1 group hover:scale-110 transition-all duration-300 cursor-default">
-                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">10K+</div>
+                <div className="text-2xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">10K+</div>
                 <div className="text-xs text-white/80 font-medium">Active Users</div>
               </div>
               <div className="space-y-1 group hover:scale-110 transition-all duration-300 cursor-default">
-                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">50+</div>
+                <div className="text-2xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">50+</div>
                 <div className="text-xs text-white/80 font-medium">Institutions</div>
               </div>
               <div className="space-y-1 group hover:scale-110 transition-all duration-300 cursor-default">
-                <div className="text-3xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">24/7</div>
+                <div className="text-2xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">24/7</div>
                 <div className="text-xs text-white/80 font-medium">Support</div>
               </div>
             </div>
@@ -583,9 +583,9 @@ function LoginPage() {
       </div>
 
       {/* RIGHT: Premium Form Section - 55% */}
-      <div className="flex w-full lg:w-[55%] items-center justify-center p-6 lg:p-12 overflow-hidden relative z-10 animate-in slide-in-from-right duration-700 delay-200">
-        <div className="w-full max-w-xl">
-          <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-500">
+      <div className="flex w-full lg:w-[55%] items-center justify-center p-4 lg:p-6 overflow-y-auto relative z-10 animate-in slide-in-from-right duration-700 delay-200">
+        <div className="w-full max-w-xl my-auto">
+          <div className="mb-4 animate-in fade-in slide-in-from-top-4 duration-500">
             <Link href="/">
               <Button variant="ghost" size="sm" className="gap-2 hover:gap-3 transition-all hover:bg-primary/10 group">
                 <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
@@ -594,13 +594,13 @@ function LoginPage() {
             </Link>
           </div>
 
-          <div className="space-y-8">
-            <div className="space-y-3 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
+          <div className="space-y-4">
+            <div className="space-y-2 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
               <div className="flex items-center gap-3">
                 <div className="h-1 w-12 bg-gradient-to-r from-primary to-primary/50 rounded-full" />
                 <Badge className="px-3 py-1 text-xs font-bold bg-primary text-primary-foreground shadow-lg">SIGN IN</Badge>
               </div>
-              <h1 className="text-4xl lg:text-5xl font-black tracking-tight">
+              <h1 className="text-3xl lg:text-4xl font-black tracking-tight">
                 <span className="bg-gradient-to-br from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
                   Continue Your
                 </span>
@@ -609,18 +609,18 @@ function LoginPage() {
                   Innovation Journey
                 </span>
               </h1>
-              <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
-                Access your personalized dashboard, track submissions, and connect with the innovation ecosystem.
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-lg">
+                Access your personalized dashboard and connect with the innovation ecosystem.
               </p>
             </div>
 
-            <div className="bg-card border-2 border-border/50 rounded-3xl p-8 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 hover:border-primary/30 transition-all">
-              <div className="space-y-1.5 mb-6">
-                <h2 className="text-xl font-bold text-foreground">Sign In to Your Account</h2>
-                <p className="text-sm text-muted-foreground">Enter your credentials to access your workspace</p>
+            <div className="bg-card border-2 border-border/50 rounded-3xl p-5 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 hover:border-primary/30 transition-all">
+              <div className="space-y-1 mb-4">
+                <h2 className="text-lg font-bold text-foreground">Sign In to Your Account</h2>
+                <p className="text-xs text-muted-foreground">Enter your credentials to access your workspace</p>
               </div>
 
-            <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }} className="space-y-4 animate-in fade-in duration-500 delay-300">
+            <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }} className="space-y-3 animate-in fade-in duration-500 delay-300">
               <div className="space-y-2 group">
                 <Label htmlFor="login-role" className="text-sm font-medium group-hover:text-primary transition-colors">Select Your Role</Label>
                 <Select value={role} onValueChange={(value: any) => setRole(value)}>
