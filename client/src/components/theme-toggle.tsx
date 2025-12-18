@@ -6,33 +6,25 @@ export function ThemeToggle() {
   const isDark = theme === "dark";
 
   return (
-    <div className="flex items-center gap-3">
-      <span className={`text-sm font-medium transition-colors ${!isDark ? "text-foreground" : "text-muted-foreground"}`}>
-        Light
-      </span>
-      <button
-        onClick={() => setTheme(isDark ? "light" : "dark")}
-        className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${isDark ? "bg-[#1e3a5f]" : "bg-[#fbbf24]"}`}
-        data-testid="button-theme-toggle"
-        aria-label="Toggle theme"
+    <button
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${isDark ? "bg-[#1e3a5f]" : "bg-[#fbbf24]"}`}
+      data-testid="button-theme-toggle"
+      aria-label="Toggle theme"
+    >
+      <div
+        className={`absolute top-0.5 w-6 h-6 rounded-full transition-all duration-300 flex items-center justify-center ${
+          isDark 
+            ? "right-0.5 bg-[#3b82f6]" 
+            : "left-0.5 bg-[#fbbf24]"
+        }`}
       >
-        <div
-          className={`absolute top-0.5 w-6 h-6 rounded-full transition-all duration-300 flex items-center justify-center ${
-            isDark 
-              ? "right-0.5 bg-[#3b82f6]" 
-              : "left-0.5 bg-[#fbbf24]"
-          }`}
-        >
-          {isDark ? (
-            <Moon className="h-3.5 w-3.5 text-white" />
-          ) : (
-            <Sun className="h-3.5 w-3.5 text-white" />
-          )}
-        </div>
-      </button>
-      <span className={`text-sm font-medium transition-colors ${isDark ? "text-foreground" : "text-muted-foreground"}`}>
-        Dark
-      </span>
-    </div>
+        {isDark ? (
+          <Moon className="h-3.5 w-3.5 text-white" />
+        ) : (
+          <Sun className="h-3.5 w-3.5 text-white" />
+        )}
+      </div>
+    </button>
   );
 }
