@@ -464,9 +464,7 @@ function App() {
         <TooltipProvider>
           <div className="min-h-screen">
             <AppSidebar />
-            <main>
-              <Router />
-            </main>
+            <Router />
           </div>
           <Toaster />
         </TooltipProvider>

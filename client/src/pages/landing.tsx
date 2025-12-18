@@ -190,13 +190,13 @@ export default function LandingPage() {
           <div className="grid items-center gap-20 lg:grid-cols-[1.4fr,1fr] lg:gap-28">
             <div className="space-y-14">
               <div className="space-y-11">
-                <div className="inline-block opacity-0 animate-in fade-in slide-in-from-bottom-1 duration-400">
+                <div className="inline-block">
                   <span className="text-[0.75rem] font-medium tracking-[0.15em] text-primary/90 uppercase">
                     National Innovation Infrastructure
                   </span>
                 </div>
                 
-                <h1 className="opacity-0 animate-in fade-in slide-in-from-bottom-2 duration-400 delay-75">
+                <h1>
                   <span className="block text-[3.5rem] font-bold leading-[1.02] tracking-[-0.025em] sm:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.25rem]">
                     The Institutional Platform
                   </span>
@@ -205,14 +205,14 @@ export default function LandingPage() {
                   </span>
                 </h1>
                 
-                <div className="max-w-[42rem] opacity-0 animate-in fade-in slide-in-from-bottom-1 duration-400 delay-100">
+                <div className="max-w-[42rem]">
                   <p className="text-[1.125rem] font-normal leading-[1.65] text-foreground/75">
                     Connecting research institutions, government bodies, and enterprise organizations with verified student innovators through structured evaluation, recognized credentials, and direct hiring pathways—operating at national scale.
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 opacity-0 animate-in fade-in duration-300 delay-150">
+              <div className="flex flex-wrap items-center gap-4">
                 <Link href="/signup">
                   <Button size="lg" className="h-[3.25rem] px-10 text-[0.9375rem] font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0" data-testid="button-get-started">
                     Sign Up
@@ -226,7 +226,7 @@ export default function LandingPage() {
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center gap-12 border-l-[2.5px] border-primary/50 bg-card/30 py-8 pl-8 pr-6 opacity-0 animate-in fade-in duration-400 delay-200">
+              <div className="flex flex-wrap items-center gap-12 border-l-[2.5px] border-primary/50 bg-card/30 py-8 pl-8 pr-6">
                 <div className="flex items-center gap-4">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/[0.06]">
                     <Trophy className="h-8 w-8 text-primary" />
@@ -257,7 +257,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="relative hidden lg:block opacity-0 animate-in fade-in slide-in-from-right-4 duration-800 delay-100">
+            <div className="relative hidden lg:block">
               <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-[0_12px_48px_rgba(0,0,0,0.15)] dark:shadow-[0_12px_48px_rgba(0,0,0,0.5)]">
                 <div className="absolute inset-0 z-10 bg-gradient-to-br from-background/5 via-transparent to-background/10"></div>
                 <img 
