@@ -426,17 +426,9 @@ function SignupPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.2),transparent_70%)]" />
         </div>
 
-        <div className="relative z-10 flex flex-col justify-between p-6 text-white h-full">
-          {/* Top Badge */}
-          <div className="animate-in fade-in duration-1000 delay-500">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-2 py-1 rounded-full border border-white/20 shadow-2xl hover:bg-white/20 transition-all group">
-              <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-xs font-semibold">10,000+ Innovators</span>
-            </div>
-          </div>
-
+        <div className="relative z-10 flex flex-col justify-center items-center p-6 text-white h-full">
           {/* Main Content */}
-          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-700">
+          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-700 text-center">
             <div className="space-y-2">
               <h2 className="text-2xl lg:text-3xl font-black leading-tight tracking-tight">
                 Your Ideas.<br/>
@@ -449,7 +441,7 @@ function SignupPage() {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 gap-2 justify-items-center">
               <div className="space-y-0.5 group hover:scale-110 transition-all duration-300 cursor-default">
                 <div className="text-xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">50+</div>
                 <div className="text-xs text-white/80 font-medium leading-tight">Universities</div>
@@ -465,7 +457,7 @@ function SignupPage() {
             </div>
 
             {/* Avatar Stack */}
-            <div className="flex items-center gap-2 animate-in fade-in duration-1000 delay-1000">
+            <div className="flex items-center justify-center gap-2 animate-in fade-in duration-1000 delay-1000">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 border-2 border-white/20"></div>
@@ -519,18 +511,9 @@ function LoginPage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(59,130,246,0.2),transparent_70%)]" />
         </div>
 
-        <div className="relative z-10 flex flex-col justify-between p-6 text-white h-full">
-          {/* Top Badge */}
-          <div className="animate-in fade-in duration-1000 delay-300">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-2 py-1 rounded-full border border-white/20 shadow-2xl hover:bg-white/20 transition-all group">
-              <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-              <Shield className="w-3 h-3 text-green-400 group-hover:scale-110 transition-transform" />
-              <span className="text-xs font-semibold">Secure Portal</span>
-            </div>
-          </div>
-
+        <div className="relative z-10 flex flex-col justify-center items-center p-6 text-white h-full">
           {/* Main Content */}
-          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
+          <div className="space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500 text-center">
             <div className="space-y-2">
               <h2 className="text-2xl lg:text-3xl font-black leading-tight tracking-tight">
                 Welcome Back,<br/>
@@ -542,7 +525,7 @@ function LoginPage() {
             </div>
 
             {/* Feature Cards */}
-            <div className="space-y-1.5">
+            <div className="space-y-1.5 flex flex-col items-center">
               <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-lg p-2 border border-white/10 hover:bg-white/15 hover:scale-[1.02] transition-all duration-300 group cursor-default">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all">
                   <Trophy className="w-4 h-4 text-white" />
@@ -564,7 +547,7 @@ function LoginPage() {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/20">
+            <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/20 justify-items-center">
               <div className="space-y-0.5 group hover:scale-110 transition-all duration-300 cursor-default">
                 <div className="text-xl font-black bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent">10K+</div>
                 <div className="text-xs text-white/80 font-medium">Users</div>
