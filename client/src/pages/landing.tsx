@@ -236,98 +236,226 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80"></div>
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative py-12 lg:py-14">
-            {slides.map((slide, index) => (
-              <div
-                key={index}
-                className={`w-full transition-all duration-1000 ${
-                  currentSlide === index 
-                    ? 'opacity-100 relative translate-y-0' 
-                    : 'opacity-0 absolute inset-0 pointer-events-none translate-y-4'
-                }`}
-              >
-                <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
+          <div className="relative py-12 lg:py-14 min-h-[500px] flex items-center">
+            
+            {currentSlide === 0 && (
+              <div className="w-full transition-all duration-1000 opacity-100">
+                <div className="grid items-center gap-10 lg:grid-cols-[1.2fr,0.8fr]">
                   <div className="space-y-6 max-w-3xl">
                     <div className="space-y-4">
                       <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 backdrop-blur-sm">
                         <div className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></div>
-                        <span className="text-xs font-semibold tracking-wide text-primary uppercase">
-                          {slide.eyebrow}
-                        </span>
+                        <span className="text-xs font-semibold tracking-wide text-primary uppercase">For Innovators & Builders</span>
                       </div>
                       
-                      <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold leading-[1.1] tracking-tight">
-                        <span className="bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
-                          {slide.headline}
-                        </span>
+                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
+                        Where India's Best Minds Build Real Solutions
                       </h1>
                       
-                      <div className="max-w-2xl">
-                        <p className="text-base lg:text-lg leading-relaxed text-muted-foreground font-light">
-                          {slide.description}
-                        </p>
-                      </div>
+                      <p className="text-lg leading-relaxed text-muted-foreground max-w-xl">
+                        Participate in national and state-level hackathons, collaborate with top talent, and solve real-world challenges backed by institutions and industry.
+                      </p>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-3">
-                      <Link href={slide.cta1.href}>
-                        <Button 
-                          size="lg" 
-                          className="h-11 px-6 text-sm font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300"
-                        >
-                          {slide.cta1.text}
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                      <Link href="/signup">
+                        <Button className="h-11 px-6 text-sm font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300">
+                          Sign Up <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </Link>
-                      <Link href={slide.cta2.href}>
-                        <Button 
-                          size="lg" 
-                          variant="outline" 
-                          className="h-11 px-6 text-sm font-semibold rounded-xl border-2 hover:bg-primary/5 hover:border-primary/50 hover:scale-105 transition-all duration-300"
-                        >
-                          {slide.cta2.text}
+                      <Link href="/explore">
+                        <Button variant="outline" className="h-11 px-6 text-sm font-semibold rounded-xl border-2 hover:bg-primary/5 hover:border-primary/50 hover:scale-105 transition-all duration-300">
+                          Explore Hackathons
                         </Button>
                       </Link>
                     </div>
                   </div>
 
-                  <div className="relative max-w-lg mx-auto lg:mx-0">
-                    <div className="relative aspect-[4/5] lg:aspect-[1/1] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background/20 z-10"></div>
-                      <img 
-                        src={slide.image}
-                        alt={slide.imageAlt}
-                        className="h-full w-full object-cover scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60"></div>
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
-                      
-                      <div className="absolute inset-x-0 bottom-0 p-4 z-20">
-                        <div className="rounded-xl border border-border/40 bg-background/80 backdrop-blur-xl p-4 shadow-xl">
-                          <div className="flex items-start gap-3">
-                            <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 backdrop-blur-sm">
-                              <Zap className="h-4 w-4 text-primary" />
-                            </div>
-                            <div className="space-y-0.5">
-                              <div className="text-xs font-semibold text-foreground">Live Innovation Hub</div>
-                              <div className="text-[0.7rem] text-muted-foreground leading-relaxed">
-                                {index === 0 && "10,000+ Active Participants"}
-                                {index === 1 && "50+ Partner Universities"}
-                                {index === 2 && "100+ Enterprise Sponsors"}
-                                {index === 3 && "500+ Expert Mentors"}
-                              </div>
-                            </div>
+                  <div className="relative">
+                    <div className="relative h-[380px] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
+                      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80" alt="Students collaborating" className="h-full w-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/40 bg-background/80 backdrop-blur-xl p-4">
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                            <Trophy className="h-5 w-5 text-primary" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold">10,000+ Participants</div>
+                            <div className="text-xs text-muted-foreground">Active Innovators</div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="absolute -right-6 -top-6 h-40 w-40 rounded-full bg-primary/10 blur-3xl"></div>
-                    <div className="absolute -bottom-6 -left-6 h-40 w-40 rounded-full bg-primary/5 blur-3xl"></div>
                   </div>
                 </div>
               </div>
-            ))}
+            )}
+
+            {currentSlide === 1 && (
+              <div className="w-full transition-all duration-1000 opacity-100">
+                <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-br from-card to-card/50 p-8 lg:p-12 shadow-2xl">
+                  <div className="absolute right-0 top-0 h-full w-1/2 opacity-30">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=80" alt="University" className="h-full w-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50"></div>
+                  </div>
+                  
+                  <div className="relative z-10 max-w-2xl space-y-6">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
+                      <GraduationCap className="h-3 w-3 text-primary" />
+                      <span className="text-xs font-semibold tracking-wide text-primary uppercase">For Universities & Institutions</span>
+                    </div>
+                    
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
+                      Powering Academic Innovation at Scale
+                    </h1>
+                    
+                    <p className="text-lg leading-relaxed text-muted-foreground max-w-xl">
+                      Enable students to innovate beyond classrooms through structured hackathons aligned with curriculum, research, and industry needs.
+                    </p>
+
+                    <div className="grid grid-cols-3 gap-4 pt-4">
+                      <div className="rounded-xl border bg-background/50 backdrop-blur-sm p-4">
+                        <div className="text-2xl font-bold text-primary">50+</div>
+                        <div className="text-xs text-muted-foreground">Universities</div>
+                      </div>
+                      <div className="rounded-xl border bg-background/50 backdrop-blur-sm p-4">
+                        <div className="text-2xl font-bold text-primary">200+</div>
+                        <div className="text-xs text-muted-foreground">Events Hosted</div>
+                      </div>
+                      <div className="rounded-xl border bg-background/50 backdrop-blur-sm p-4">
+                        <div className="text-2xl font-bold text-primary">5k+</div>
+                        <div className="text-xs text-muted-foreground">Students</div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3 pt-2">
+                      <Link href="/signup">
+                        <Button className="h-11 px-6 text-sm font-semibold rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
+                          Partner with Us <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                      <Link href="/explore">
+                        <Button variant="outline" className="h-11 px-6 text-sm font-semibold rounded-xl border-2 hover:scale-105 transition-all duration-300">
+                          Learn More
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {currentSlide === 2 && (
+              <div className="w-full transition-all duration-1000 opacity-100">
+                <div className="grid items-center gap-6 lg:grid-cols-[0.7fr,1.3fr]">
+                  <div className="relative h-[400px] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&auto=format&fit=crop&q=80" alt="Enterprise" className="h-full w-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background/40"></div>
+                    <div className="absolute inset-0 flex items-end p-6">
+                      <div className="rounded-xl border border-border/40 bg-background/90 backdrop-blur-xl p-4 w-full">
+                        <div className="flex items-center gap-3">
+                          <Building2 className="h-8 w-8 text-primary" />
+                          <div>
+                            <div className="text-sm font-bold">100+ Partners</div>
+                            <div className="text-xs text-muted-foreground">Enterprise Organizations</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div className="space-y-4">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
+                        <Briefcase className="h-3 w-3 text-primary" />
+                        <span className="text-xs font-semibold tracking-wide text-primary uppercase">For Enterprises & Recruiters</span>
+                      </div>
+                      
+                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
+                        Discover Talent Through Real Innovation
+                      </h1>
+                      
+                      <p className="text-lg leading-relaxed text-muted-foreground">
+                        Identify skilled candidates by evaluating real projects, not resumes — through enterprise-grade hackathons and challenges.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3">
+                      <Link href="/signup">
+                        <Button className="h-11 px-6 text-sm font-semibold rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
+                          Host a Hackathon <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                      <Link href="/explore">
+                        <Button variant="outline" className="h-11 px-6 text-sm font-semibold rounded-xl border-2 hover:scale-105 transition-all duration-300">
+                          View Talent Pool
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {currentSlide === 3 && (
+              <div className="w-full transition-all duration-1000 opacity-100">
+                <div className="grid items-center gap-10 lg:grid-cols-2">
+                  <div className="space-y-6">
+                    <div className="space-y-4">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
+                        <Users className="h-3 w-3 text-primary" />
+                        <span className="text-xs font-semibold tracking-wide text-primary uppercase">For Mentors & Judges</span>
+                      </div>
+                      
+                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
+                        Evaluate, Guide, and Shape Innovation
+                      </h1>
+                      
+                      <p className="text-lg leading-relaxed text-muted-foreground">
+                        Mentor teams, review submissions, and uphold transparent, structured evaluation across national-level competitions.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3">
+                      <Link href="/signup">
+                        <Button className="h-11 px-6 text-sm font-semibold rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
+                          Join as Mentor <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                      <Link href="/explore">
+                        <Button variant="outline" className="h-11 px-6 text-sm font-semibold rounded-xl border-2 hover:scale-105 transition-all duration-300">
+                          View Opportunities
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-4">
+                      <div className="relative h-[180px] overflow-hidden rounded-xl border border-border/50 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80" alt="Mentors" className="h-full w-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+                      </div>
+                      <div className="rounded-xl border bg-card p-4">
+                        <div className="text-2xl font-bold text-primary">500+</div>
+                        <div className="text-xs text-muted-foreground">Expert Mentors</div>
+                      </div>
+                    </div>
+                    <div className="space-y-4 pt-8">
+                      <div className="rounded-xl border bg-card p-4">
+                        <div className="text-2xl font-bold text-primary">1000+</div>
+                        <div className="text-xs text-muted-foreground">Reviews Completed</div>
+                      </div>
+                      <div className="relative h-[180px] overflow-hidden rounded-xl border border-border/50 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80" alt="Judging" className="h-full w-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 z-30 rounded-full bg-background/60 backdrop-blur-md border border-border/50 px-4 py-2.5 shadow-lg">
