@@ -101,6 +101,7 @@ function SignupPage() {
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
   const [otp, setOtp] = useState("");
 
@@ -128,232 +129,298 @@ function SignupPage() {
   };
 
   return (
-    <div className="flex min-h-screen">
-      <div className="hidden w-1/2 bg-gradient-to-br from-primary/10 to-primary/5 lg:flex lg:flex-col lg:justify-center lg:p-12">
-        <div className="space-y-6">
-          <h2 className="text-4xl font-bold">Join India's Premier Hackathon Ecosystem</h2>
-          <p className="text-lg text-muted-foreground">
-            Connect with government bodies, premier institutions, and enterprise partners
-          </p>
-          <div className="grid grid-cols-2 gap-4 pt-8">
-            <div className="rounded-lg border bg-background p-4">
-              <div className="text-2xl font-bold">50+</div>
-              <div className="text-sm text-muted-foreground">Active Events</div>
+    <div className="flex h-screen overflow-hidden">
+      <div className="hidden w-1/2 lg:flex relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&auto=format&fit=crop&q=80"
+          alt="Hackathon ecosystem"
+          className="absolute inset-0 w-full h-full object-cover opacity-40 dark:opacity-20 animate-[float_8s_ease-in-out_infinite]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+        <div className="relative z-10 flex flex-col justify-end p-12 pb-16">
+          <div className="space-y-6">
+            <div className="inline-block">
+              <Badge className="px-4 py-2 text-sm font-semibold bg-primary/10 text-primary border-primary/20">Join the Ecosystem</Badge>
             </div>
-            <div className="rounded-lg border bg-background p-4">
-              <div className="text-2xl font-bold">10k+</div>
-              <div className="text-sm text-muted-foreground">Participants</div>
-            </div>
-            <div className="rounded-lg border bg-background p-4">
-              <div className="text-2xl font-bold">50+</div>
-              <div className="text-sm text-muted-foreground">Universities</div>
-            </div>
-            <div className="rounded-lg border bg-background p-4">
-              <div className="text-2xl font-bold">100+</div>
-              <div className="text-sm text-muted-foreground">Partners</div>
+            <h1 className="text-5xl font-bold leading-tight">
+              Build. Compete.<br/>Shape the Future.
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
+              Connect with government bodies, premier institutions, and enterprise partners in India's largest innovation platform.
+            </p>
+            <div className="flex items-center gap-8 pt-4">
+              <div>
+                <div className="text-3xl font-bold">10,000+</div>
+                <div className="text-sm text-muted-foreground">Active Innovators</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold">50+</div>
+                <div className="text-sm text-muted-foreground">Universities</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold">100+</div>
+                <div className="text-sm text-muted-foreground">Partners</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex w-full items-center justify-center p-8 lg:w-1/2">
-        <div className="w-full max-w-md space-y-4">
-          <Link href="/">
-            <Button variant="ghost" size="sm" className="gap-2">
-              <ArrowLeft className="h-4 w-4" />
-              Back to Home
-            </Button>
-          </Link>
-          <Card className="w-full">
-            <CardHeader>
-              <CardTitle className="text-2xl">Create Account</CardTitle>
-              <CardDescription>
-                {step === "role" && "Choose your role and get started"}
-                {step === "details" && "Fill in your details"}
+      <div className="flex w-full lg:w-1/2 items-center justify-center p-6 lg:p-12 overflow-y-auto">
+        <div className="w-full max-w-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="mb-8">
+            <Link href="/">
+              <Button variant="ghost" size="sm" className="gap-2 -ml-2">
+                <ArrowLeft className="h-4 w-4" />
+                Back
+              </Button>
+            </Link>
+          </div>
+          
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tight">Create Account</h2>
+              <p className="text-muted-foreground">
+                {step === "role" && "Choose your role to get started"}
+                {step === "details" && "Complete your registration"}
                 {step === "otp" && "Verify your email address"}
-                {step === "pending" && "Account pending approval"}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {step === "role" && (
-                <div className="space-y-6">
-                  <div>
-                    <Label className="text-base font-semibold">Choose Your Role</Label>
-                    <p className="text-sm text-muted-foreground mt-1">Select how you want to participate in the hackathon ecosystem</p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <button
-                      onClick={() => setRole("participant")}
-                      className={`flex flex-col items-center gap-3 rounded-xl border-2 p-4 transition-all hover:border-primary/50 hover:bg-primary/5 ${
-                        role === "participant" ? "border-primary bg-primary/10" : "border-border"
-                      }`}
-                    >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                        <Trophy className="h-6 w-6 text-primary" />
-                      </div>
-                      <div className="text-center">
-                        <div className="font-semibold">Participant</div>
-                        <div className="text-xs text-muted-foreground mt-1">Compete & innovate</div>
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => setRole("mentor")}
-                      className={`flex flex-col items-center gap-3 rounded-xl border-2 p-4 transition-all hover:border-primary/50 hover:bg-primary/5 ${
-                        role === "mentor" ? "border-primary bg-primary/10" : "border-border"
-                      }`}
-                    >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                        <GraduationCap className="h-6 w-6 text-primary" />
-                      </div>
-                      <div className="text-center">
-                        <div className="font-semibold">Mentor</div>
-                        <div className="text-xs text-muted-foreground mt-1">Guide & support</div>
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => setRole("judge")}
-                      className={`flex flex-col items-center gap-3 rounded-xl border-2 p-4 transition-all hover:border-primary/50 hover:bg-primary/5 ${
-                        role === "judge" ? "border-primary bg-primary/10" : "border-border"
-                      }`}
-                    >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                        <Code className="h-6 w-6 text-primary" />
-                      </div>
-                      <div className="text-center">
-                        <div className="font-semibold">Judge</div>
-                        <div className="text-xs text-muted-foreground mt-1">Evaluate & score</div>
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => setRole("admin")}
-                      className={`flex flex-col items-center gap-3 rounded-xl border-2 p-4 transition-all hover:border-primary/50 hover:bg-primary/5 ${
-                        role === "admin" ? "border-primary bg-primary/10" : "border-border"
-                      }`}
-                    >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                        <Shield className="h-6 w-6 text-primary" />
-                      </div>
-                      <div className="text-center">
-                        <div className="font-semibold">Admin</div>
-                        <div className="text-xs text-muted-foreground mt-1">Manage platform</div>
-                      </div>
-                    </button>
-                  </div>
-                  {role && (
-                    <div className="rounded-xl border bg-card p-4">
-                      <div className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
-                        <div>
-                          <p className="font-medium text-sm">
-                            {role === "participant" && "Build innovative solutions, compete with peers, and win prizes in national-level competitions"}
-                            {role === "mentor" && "Share your expertise, guide talented teams, and help shape the next generation of innovators"}
-                            {role === "judge" && "Evaluate submissions with structured criteria and provide valuable feedback to participants"}
-                            {role === "admin" && "Manage hackathons, coordinate events, and oversee the entire platform operations"}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  <Button onClick={handleRoleSubmit} disabled={!role} className="w-full" size="lg">
-                    Continue <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-              )}
+                {step === "pending" && "Approval pending"}
+              </p>
+            </div>
 
-            {step === "details" && (
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Full Name</Label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input id="name" value={name} onChange={(e) => setName(e.target.value)} className="pl-10" placeholder="Enter your name" />
-                  </div>
+            {step === "role" && (
+              <div className="space-y-6 animate-in fade-in duration-500">
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    onClick={() => setRole("participant")}
+                    className={`group flex flex-col items-center gap-3 rounded-2xl border-2 p-5 transition-all hover:scale-105 hover:shadow-lg ${
+                      role === "participant" ? "border-primary bg-primary/10 shadow-lg scale-105" : "border-border hover:border-primary/30"
+                    }`}
+                  >
+                    <div className={`flex h-14 w-14 items-center justify-center rounded-xl transition-all ${
+                      role === "participant" ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary/20"
+                    }`}>
+                      <Trophy className="h-7 w-7" />
+                    </div>
+                    <div className="text-center">
+                      <div className="font-semibold">Participant</div>
+                      <div className="text-xs text-muted-foreground mt-1">Compete & build</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => setRole("mentor")}
+                    className={`group flex flex-col items-center gap-3 rounded-2xl border-2 p-5 transition-all hover:scale-105 hover:shadow-lg ${
+                      role === "mentor" ? "border-primary bg-primary/10 shadow-lg scale-105" : "border-border hover:border-primary/30"
+                    }`}
+                  >
+                    <div className={`flex h-14 w-14 items-center justify-center rounded-xl transition-all ${
+                      role === "mentor" ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary/20"
+                    }`}>
+                      <GraduationCap className="h-7 w-7" />
+                    </div>
+                    <div className="text-center">
+                      <div className="font-semibold">Mentor</div>
+                      <div className="text-xs text-muted-foreground mt-1">Guide teams</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => setRole("judge")}
+                    className={`group flex flex-col items-center gap-3 rounded-2xl border-2 p-5 transition-all hover:scale-105 hover:shadow-lg ${
+                      role === "judge" ? "border-primary bg-primary/10 shadow-lg scale-105" : "border-border hover:border-primary/30"
+                    }`}
+                  >
+                    <div className={`flex h-14 w-14 items-center justify-center rounded-xl transition-all ${
+                      role === "judge" ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary/20"
+                    }`}>
+                      <Code className="h-7 w-7" />
+                    </div>
+                    <div className="text-center">
+                      <div className="font-semibold">Judge</div>
+                      <div className="text-xs text-muted-foreground mt-1">Evaluate work</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => setRole("admin")}
+                    className={`group flex flex-col items-center gap-3 rounded-2xl border-2 p-5 transition-all hover:scale-105 hover:shadow-lg ${
+                      role === "admin" ? "border-primary bg-primary/10 shadow-lg scale-105" : "border-border hover:border-primary/30"
+                    }`}
+                  >
+                    <div className={`flex h-14 w-14 items-center justify-center rounded-xl transition-all ${
+                      role === "admin" ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary/20"
+                    }`}>
+                      <Shield className="h-7 w-7" />
+                    </div>
+                    <div className="text-center">
+                      <div className="font-semibold">Admin</div>
+                      <div className="text-xs text-muted-foreground mt-1">Manage platform</div>
+                    </div>
+                  </button>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="pl-10" placeholder="Enter your email" />
+                {role && (
+                  <div className="rounded-xl border bg-muted/50 p-4 animate-in slide-in-from-top-2 duration-300">
+                    <p className="text-sm leading-relaxed">
+                      {role === "participant" && "Compete in national-level hackathons and build innovative solutions"}
+                      {role === "mentor" && "Share your expertise and guide the next generation of innovators"}
+                      {role === "judge" && "Evaluate submissions and provide structured feedback"}
+                      {role === "admin" && "Manage platform operations and coordinate events"}
+                    </p>
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="password">Password</Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="pl-10" placeholder="Create password" />
-                  </div>
-                </div>
-                <Button onClick={handleDetailsSubmit} disabled={!name || !email || !password} className="w-full">
-                  {role === "admin" ? "Submit for Approval" : "Send OTP"}
+                )}
+                <Button onClick={handleRoleSubmit} disabled={!role} className="w-full h-12 text-base" size="lg">
+                  Continue <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
             )}
 
+            {step === "details" && (
+              <form onSubmit={handleDetailsSubmit} className="space-y-5 animate-in fade-in duration-500">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-sm font-medium">Full Name</Label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Input 
+                      id="name" 
+                      value={name} 
+                      onChange={(e) => setName(e.target.value)} 
+                      className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                      placeholder="John Doe"
+                      required 
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm font-medium">Email Address</Label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      value={email} 
+                      onChange={(e) => setEmail(e.target.value)} 
+                      className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                      placeholder="john@university.edu"
+                      required 
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password" className="text-sm font-medium">Password</Label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Input 
+                      id="password" 
+                      type="password" 
+                      value={password} 
+                      onChange={(e) => setPassword(e.target.value)} 
+                      className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                      placeholder="Create strong password"
+                      required 
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="confirmPassword" className="text-sm font-medium">Confirm Password</Label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Input 
+                      id="confirmPassword" 
+                      type="password" 
+                      value={confirmPassword} 
+                      onChange={(e) => setConfirmPassword(e.target.value)} 
+                      className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                      placeholder="Re-enter password"
+                      required 
+                    />
+                  </div>
+                </div>
+                <Button type="submit" className="w-full h-12 text-base shadow-lg hover:shadow-xl transition-all" size="lg">
+                  {role === "admin" ? "Submit for Approval" : "Send Verification Code"} <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </form>
+            )}
+
             {step === "otp" && (
-              <div className="space-y-4">
-                <div className="rounded-lg border bg-primary/5 p-4">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="text-sm font-medium">Verification Code Sent</p>
-                      <p className="text-xs text-muted-foreground">
-                        Check your inbox at <span className="font-medium text-foreground">{email}</span>
+              <div className="space-y-6 animate-in fade-in duration-500">
+                <div className="rounded-xl border bg-gradient-to-br from-primary/5 to-primary/10 p-5">
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20">
+                      <Mail className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold">Verification Code Sent</p>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Enter the 6-digit code sent to <span className="font-medium text-foreground">{email}</span>
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="otp">Enter 6-Digit OTP</Label>
+                  <Label htmlFor="otp" className="text-sm font-medium">Verification Code</Label>
                   <Input 
                     id="otp" 
                     value={otp} 
                     onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))} 
                     placeholder="000000" 
                     maxLength={6}
-                    className="text-center text-2xl tracking-widest"
+                    className="h-16 text-center text-3xl tracking-[0.5em] font-semibold transition-all focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
-                <Button onClick={handleOtpSubmit} disabled={otp.length !== 6} className="w-full">
-                  Verify & Complete Signup
+                <Button 
+                  onClick={handleOtpSubmit} 
+                  disabled={otp.length !== 6} 
+                  className="w-full h-12 text-base shadow-lg hover:shadow-xl transition-all"
+                  size="lg"
+                >
+                  Verify & Complete Registration <CheckCircle2 className="ml-2 h-5 w-5" />
                 </Button>
-                <button className="w-full text-center text-sm text-muted-foreground hover:text-primary">
-                  Resend OTP
+                <button className="w-full text-center text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Didn't receive code? <span className="font-medium">Resend</span>
                 </button>
               </div>
             )}
 
             {step === "pending" && (
-              <div className="space-y-4 text-center">
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-yellow-50 dark:bg-yellow-950">
-                  <AlertCircle className="h-10 w-10 text-yellow-600 dark:text-yellow-400" />
+              <div className="space-y-6 text-center animate-in fade-in duration-500">
+                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-yellow-100 to-yellow-200 dark:from-yellow-900/30 dark:to-yellow-950/30 shadow-lg">
+                  <AlertCircle className="h-12 w-12 text-yellow-600 dark:text-yellow-400" />
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-semibold">Admin Access Pending</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Your admin account request has been submitted successfully.
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-bold">Approval Pending</h3>
+                  <p className="text-muted-foreground">
+                    Your admin access request has been submitted successfully
                   </p>
-                  <div className="mt-4 rounded-lg border bg-muted p-4">
-                    <p className="text-sm">
-                      You will receive an email at <span className="font-semibold text-foreground">{email}</span> once your account is verified by <span className="font-semibold text-primary">zidiohacks@gmail.com</span>
-                    </p>
+                </div>
+                <div className="rounded-xl border bg-gradient-to-br from-muted/50 to-muted p-6 text-left">
+                  <div className="flex items-start gap-3">
+                    <Mail className="h-5 w-5 text-primary mt-0.5" />
+                    <div className="flex-1">
+                      <p className="text-sm font-medium mb-1">What happens next?</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Our team will review your request and send a confirmation email to{" "}
+                        <span className="font-semibold text-foreground">{email}</span>. You'll be notified by{" "}
+                        <span className="font-semibold text-primary">zidiohacks@gmail.com</span> once approved.
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <Link href="/">
-                  <Button variant="outline" className="w-full">Back to Home</Button>
+                  <Button variant="outline" className="w-full h-12" size="lg">
+                    <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
+                  </Button>
                 </Link>
               </div>
             )}
 
             {step !== "pending" && (
-              <div className="text-center text-sm">
+              <div className="text-center text-sm pt-2">
                 Already have an account?{" "}
-                <Link href="/login" className="font-medium text-primary hover:underline">
-                  Login
+                <Link href="/login" className="font-semibold text-primary hover:underline">
+                  Sign in
                 </Link>
               </div>
             )}
-          </CardContent>
-        </Card>
+          </div>
         </div>
       </div>
     </div>
@@ -379,92 +446,164 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen">
-      <div className="hidden w-1/2 bg-gradient-to-br from-primary/10 to-primary/5 lg:flex lg:flex-col lg:justify-center lg:p-12">
-        <div className="space-y-6">
-          <h2 className="text-4xl font-bold">Welcome Back</h2>
-          <p className="text-lg text-muted-foreground">
-            Access your dashboard and continue building innovative solutions
-          </p>
+    <div className="flex min-h-screen w-full">
+      {/* Left Visual Column - Trust & Authority */}
+      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1560439514-4e9645039924?q=80&w=2070"
+            alt="Professional team collaboration"
+            className="w-full h-full object-cover animate-in fade-in duration-1000"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/70 to-primary/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+        </div>
+
+        <div className="relative z-10 flex flex-col justify-end p-12 space-y-8">
+          <div className="space-y-4 animate-in slide-in-from-bottom-8 duration-700">
+            <Badge variant="secondary" className="w-fit bg-background/20 backdrop-blur-sm border-background/40 text-white">
+              Secure Access
+            </Badge>
+            <h1 className="text-5xl font-bold text-white leading-tight">
+              Welcome Back to the Ecosystem
+            </h1>
+            <p className="text-xl text-white/90 leading-relaxed">
+              Continue your journey of innovation, collaboration, and excellence
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/20 animate-in slide-in-from-bottom-4 duration-700 delay-200">
+            <div className="space-y-1">
+              <div className="text-3xl font-bold text-white">24/7</div>
+              <div className="text-sm text-white/80">Platform Access</div>
+            </div>
+            <div className="space-y-1">
+              <div className="text-3xl font-bold text-white">Secure</div>
+              <div className="text-sm text-white/80">Authentication</div>
+            </div>
+            <div className="space-y-1">
+              <div className="text-3xl font-bold text-white">Real-time</div>
+              <div className="text-sm text-white/80">Updates</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="flex w-full items-center justify-center p-8 lg:w-1/2">
-        <div className="w-full max-w-md space-y-4">
-          <Link href="/">
-            <Button variant="ghost" size="sm" className="gap-2">
-              <ArrowLeft className="h-4 w-4" />
-              Back to Home
-            </Button>
-          </Link>
-          <Card className="w-full">
-            <CardHeader>
-              <CardTitle className="text-2xl">Login</CardTitle>
-              <CardDescription>Enter your credentials to continue</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="login-role">Role</Label>
-                  <Select value={role} onValueChange={(value: any) => setRole(value)}>
-                    <SelectTrigger id="login-role">
-                      <SelectValue placeholder="Select your role" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="participant">
-                        <div className="flex items-center gap-2">
-                          <Trophy className="h-4 w-4" />
-                          <span>Participant</span>
+      {/* Right Form Column */}
+      <div className="flex w-full lg:w-1/2 items-center justify-center p-6 lg:p-12">
+        <div className="w-full max-w-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="mb-8">
+            <Link href="/">
+              <Button variant="ghost" size="sm" className="gap-2 -ml-2">
+                <ArrowLeft className="h-4 w-4" />
+                Back
+              </Button>
+            </Link>
+          </div>
+
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tight">Sign In</h2>
+              <p className="text-muted-foreground">Access your dashboard and continue your work</p>
+            </div>
+
+            <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }} className="space-y-5">
+              <div className="space-y-2">
+                <Label htmlFor="login-role" className="text-sm font-medium">Select Your Role</Label>
+                <Select value={role} onValueChange={(value: any) => setRole(value)}>
+                  <SelectTrigger id="login-role" className="h-12">
+                    <SelectValue placeholder="Choose your role" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="participant">
+                      <div className="flex items-center gap-3 py-1">
+                        <Trophy className="h-5 w-5 text-primary" />
+                        <div>
+                          <div className="font-medium">Participant</div>
+                          <div className="text-xs text-muted-foreground">Compete & build</div>
                         </div>
-                      </SelectItem>
-                      <SelectItem value="mentor">
-                        <div className="flex items-center gap-2">
-                          <GraduationCap className="h-4 w-4" />
-                          <span>Mentor</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="mentor">
+                      <div className="flex items-center gap-3 py-1">
+                        <GraduationCap className="h-5 w-5 text-primary" />
+                        <div>
+                          <div className="font-medium">Mentor</div>
+                          <div className="text-xs text-muted-foreground">Guide teams</div>
                         </div>
-                      </SelectItem>
-                      <SelectItem value="judge">
-                        <div className="flex items-center gap-2">
-                          <Code className="h-4 w-4" />
-                          <span>Judge</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="judge">
+                      <div className="flex items-center gap-3 py-1">
+                        <Code className="h-5 w-5 text-primary" />
+                        <div>
+                          <div className="font-medium">Judge</div>
+                          <div className="text-xs text-muted-foreground">Evaluate work</div>
                         </div>
-                      </SelectItem>
-                      <SelectItem value="admin">
-                        <div className="flex items-center gap-2">
-                          <Shield className="h-4 w-4" />
-                          <span>Admin</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="admin">
+                      <div className="flex items-center gap-3 py-1">
+                        <Shield className="h-5 w-5 text-primary" />
+                        <div>
+                          <div className="font-medium">Admin</div>
+                          <div className="text-xs text-muted-foreground">Manage platform</div>
                         </div>
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="login-email">Email</Label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input id="login-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="pl-10" placeholder="Enter your email" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="login-password">Password</Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input id="login-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="pl-10" placeholder="Enter password" />
-                  </div>
-                </div>
-                <Button onClick={handleLogin} disabled={!email || !password} className="w-full">
-                  Login
-                </Button>
+                      </div>
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
-              <div className="text-center text-sm">
-                Don't have an account?{" "}
-                <Link href="/signup" className="font-medium text-primary hover:underline">
-                  Sign up
-                </Link>
+              <div className="space-y-2">
+                <Label htmlFor="login-email" className="text-sm font-medium">Email Address</Label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Input 
+                    id="login-email" 
+                    type="email" 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} 
+                    className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                </div>
               </div>
-            </CardContent>
-          </Card>
+
+              <div className="space-y-2">
+                <Label htmlFor="login-password" className="text-sm font-medium">Password</Label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Input 
+                    id="login-password" 
+                    type="password" 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                    className="h-12 pl-11 transition-all focus:ring-2 focus:ring-primary/20" 
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+              </div>
+
+              <Button 
+                type="submit" 
+                disabled={!email || !password} 
+                className="w-full h-12 text-base shadow-lg hover:shadow-xl transition-all" 
+                size="lg"
+              >
+                Sign In <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </form>
+
+            <div className="text-center text-sm pt-2">
+              Don't have an account?{" "}
+              <Link href="/signup" className="font-semibold text-primary hover:underline">
+                Create account
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
