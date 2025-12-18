@@ -130,14 +130,14 @@ function SignupPage() {
 
   return (
     <div className="flex h-screen overflow-hidden">
-      <div className="hidden w-1/2 lg:flex relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-[40%] relative overflow-hidden bg-muted/30">
         <img 
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80"
           alt="Hackathon ecosystem"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-90 dark:opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 dark:from-primary/60 dark:via-primary/40 dark:to-primary/30"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent dark:from-background/95 dark:via-background/50 dark:to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background/40 via-background/20 to-transparent dark:from-background/60 dark:via-background/30 dark:to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20 dark:from-background dark:via-background/80 dark:to-background/30"></div>
         <div className="relative z-10 flex flex-col justify-end p-8 pb-12">
           <div className="space-y-4">
             <div className="inline-block">
@@ -167,7 +167,7 @@ function SignupPage() {
         </div>
       </div>
 
-      <div className="flex w-full lg:w-1/2 items-center justify-center p-4 lg:p-8 overflow-hidden">
+      <div className="flex w-full lg:w-[60%] items-center justify-center p-4 lg:p-8 overflow-hidden bg-background">
         <div className="w-full max-w-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="mb-4">
             <Link href="/">
@@ -448,15 +448,15 @@ function LoginPage() {
   return (
     <div className="flex h-screen overflow-hidden w-full">
       {/* Left Visual Column - Trust & Authority */}
-      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-[40%] relative overflow-hidden bg-muted/30">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80"
             alt="Professional team collaboration"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center opacity-90 dark:opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 dark:from-primary/70 dark:via-primary/50 dark:to-primary/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent dark:from-background/95 dark:via-background/50 dark:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/40 via-background/20 to-transparent dark:from-background/60 dark:via-background/30 dark:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20 dark:from-background dark:via-background/80 dark:to-background/30" />
         </div>
 
         <div className="relative z-10 flex flex-col justify-end p-8 pb-12">
@@ -490,7 +490,7 @@ function LoginPage() {
       </div>
 
       {/* Right Form Column */}
-      <div className="flex w-full lg:w-1/2 items-center justify-center p-4 lg:p-8 overflow-hidden">
+      <div className="flex w-full lg:w-[60%] items-center justify-center p-4 lg:p-8 overflow-hidden bg-background">
         <div className="w-full max-w-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="mb-4">
             <Link href="/">
