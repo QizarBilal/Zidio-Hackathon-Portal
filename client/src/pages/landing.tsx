@@ -185,102 +185,102 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen">
       <section className="relative overflow-hidden border-b">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/[0.02]"></div>
-        <div className="container relative mx-auto px-4 py-24 lg:py-40">
-          <div className="grid items-center gap-16 lg:grid-cols-[1.35fr,1fr] lg:gap-24">
-            <div className="space-y-12">
-              <div className="space-y-10">
-                <div className="inline-block opacity-0 animate-in fade-in slide-in-from-bottom-2 duration-500">
-                  <span className="text-[0.8125rem] font-semibold tracking-[0.1em] text-primary uppercase">
-                    National Hackathon Infrastructure
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/[0.015]"></div>
+        <div className="container relative mx-auto px-4 py-28 lg:py-48">
+          <div className="grid items-center gap-20 lg:grid-cols-[1.4fr,1fr] lg:gap-28">
+            <div className="space-y-14">
+              <div className="space-y-11">
+                <div className="inline-block opacity-0 animate-in fade-in slide-in-from-bottom-1 duration-400">
+                  <span className="text-[0.75rem] font-medium tracking-[0.15em] text-primary/90 uppercase">
+                    National Innovation Infrastructure
                   </span>
                 </div>
                 
-                <h1 className="text-5xl font-bold leading-[1.05] tracking-[-0.02em] opacity-0 animate-in fade-in slide-in-from-bottom-3 duration-700 delay-100 sm:text-6xl lg:text-[5rem] xl:text-[5.75rem]">
-                  India's Institutional Platform
-                  <br />
-                  <span className="text-primary">
-                    for Innovation Ecosystems
+                <h1 className="opacity-0 animate-in fade-in slide-in-from-bottom-2 duration-400 delay-75">
+                  <span className="block text-[3.5rem] font-bold leading-[1.02] tracking-[-0.025em] sm:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.25rem]">
+                    The Institutional Platform
+                  </span>
+                  <span className="mt-2 block text-[2.75rem] font-bold leading-[1.05] tracking-[-0.02em] text-primary sm:text-[3.5rem] lg:text-[4.25rem] xl:text-[4.875rem]">
+                    for Universities & Enterprises
                   </span>
                 </h1>
                 
-                <div className="max-w-[38rem] space-y-6 opacity-0 animate-in fade-in slide-in-from-bottom-3 duration-700 delay-200">
-                  <p className="text-[1.0625rem] font-normal leading-[1.7] text-foreground/80">
-                    A verified infrastructure connecting research institutions, government bodies, and enterprise organizations with student innovators through structured problem statements, transparent evaluation frameworks, and recognized credentials.
-                  </p>
-                  <p className="text-[0.9375rem] leading-[1.65] text-muted-foreground">
-                    From university participation to enterprise mentorship and recruitment—Zidio provides the complete lifecycle for national-scale innovation programs.
+                <div className="max-w-[42rem] opacity-0 animate-in fade-in slide-in-from-bottom-1 duration-400 delay-100">
+                  <p className="text-[1.125rem] font-normal leading-[1.65] text-foreground/75">
+                    Connecting research institutions, government bodies, and enterprise organizations with verified student innovators through structured evaluation, recognized credentials, and direct hiring pathways—operating at national scale.
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 opacity-0 animate-in fade-in slide-in-from-bottom-2 duration-600 delay-300">
+              <div className="flex flex-wrap items-center gap-4 opacity-0 animate-in fade-in duration-300 delay-150">
                 <Link href="/signup">
-                  <Button size="lg" className="h-12 px-9 text-[0.9375rem] font-semibold shadow-md transition-all duration-300 hover:shadow-xl" data-testid="button-get-started">
+                  <Button size="lg" className="h-[3.25rem] px-10 text-[0.9375rem] font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0" data-testid="button-get-started">
                     Sign Up
-                    <ArrowRight className="ml-2 h-[1.125rem] w-[1.125rem]" />
+                    <ArrowRight className="ml-2.5 h-[1.125rem] w-[1.125rem]" />
                   </Button>
                 </Link>
                 <Link href="/explore">
-                  <Button size="lg" variant="outline" className="h-12 border-2 px-9 text-[0.9375rem] font-semibold transition-all duration-300 hover:border-primary/80 hover:bg-primary/[0.03]" data-testid="button-explore">
+                  <Button size="lg" variant="outline" className="h-[3.25rem] border-[1.5px] px-10 text-[0.9375rem] font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/70 hover:bg-primary/[0.025] active:translate-y-0" data-testid="button-explore">
                     Explore Hackathons
                   </Button>
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center gap-10 border-l-[3px] border-primary/60 bg-card/40 py-7 pl-7 pr-5 opacity-0 animate-in fade-in slide-in-from-bottom-2 duration-600 delay-400 backdrop-blur-[2px]">
+              <div className="flex flex-wrap items-center gap-12 border-l-[2.5px] border-primary/50 bg-card/30 py-8 pl-8 pr-6 opacity-0 animate-in fade-in duration-400 delay-200">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-[3.75rem] w-[3.75rem] items-center justify-center rounded-full bg-primary/[0.08]">
-                    <Trophy className="h-[1.875rem] w-[1.875rem] text-primary" />
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/[0.06]">
+                    <Trophy className="h-8 w-8 text-primary" />
                   </div>
                   <div>
-                    <div className="text-[2rem] font-bold leading-none">50+</div>
-                    <div className="mt-1.5 text-[0.8125rem] font-medium text-muted-foreground">Active Programs</div>
+                    <div className="text-[2.125rem] font-bold leading-none tracking-tight">50+</div>
+                    <div className="mt-2 text-[0.8125rem] font-medium tracking-wide text-muted-foreground">Active Programs</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="flex h-[3.75rem] w-[3.75rem] items-center justify-center rounded-full bg-primary/[0.08]">
-                    <Users className="h-[1.875rem] w-[1.875rem] text-primary" />
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/[0.06]">
+                    <Users className="h-8 w-8 text-primary" />
                   </div>
                   <div>
-                    <div className="text-[2rem] font-bold leading-none">10,000+</div>
-                    <div className="mt-1.5 text-[0.8125rem] font-medium text-muted-foreground">Verified Participants</div>
+                    <div className="text-[2.125rem] font-bold leading-none tracking-tight">10,000+</div>
+                    <div className="mt-2 text-[0.8125rem] font-medium tracking-wide text-muted-foreground">Verified Participants</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="flex h-[3.75rem] w-[3.75rem] items-center justify-center rounded-full bg-primary/[0.08]">
-                    <Building2 className="h-[1.875rem] w-[1.875rem] text-primary" />
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/[0.06]">
+                    <Building2 className="h-8 w-8 text-primary" />
                   </div>
                   <div>
-                    <div className="text-[2rem] font-bold leading-none">100+</div>
-                    <div className="mt-1.5 text-[0.8125rem] font-medium text-muted-foreground">Institutional Partners</div>
+                    <div className="text-[2.125rem] font-bold leading-none tracking-tight">100+</div>
+                    <div className="mt-2 text-[0.8125rem] font-medium tracking-wide text-muted-foreground">Institutional Partners</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="relative hidden lg:block opacity-0 animate-in fade-in slide-in-from-right-6 duration-1000 delay-150">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
+            <div className="relative hidden lg:block opacity-0 animate-in fade-in slide-in-from-right-4 duration-800 delay-100">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-[0_12px_48px_rgba(0,0,0,0.15)] dark:shadow-[0_12px_48px_rgba(0,0,0,0.5)]">
+                <div className="absolute inset-0 z-10 bg-gradient-to-br from-background/5 via-transparent to-background/10"></div>
                 <img 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80" 
                   alt="Students collaborating on hackathon project" 
-                  className="h-full w-full object-cover transition-transform duration-[8000ms] ease-out hover:scale-105"
+                  className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-background/5"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-9">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-primary shadow-lg">
-                      <GraduationCap className="h-7 w-7 text-primary-foreground" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/[0.98] via-background/40 to-background/10"></div>
+                <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-background/95 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-10">
+                  <div className="flex items-start gap-5">
+                    <div className="flex h-[3.75rem] w-[3.75rem] flex-shrink-0 items-center justify-center rounded-lg bg-primary shadow-xl">
+                      <GraduationCap className="h-8 w-8 text-primary-foreground" />
                     </div>
-                    <div className="space-y-1.5">
-                      <div className="text-[1.0625rem] font-bold leading-tight text-foreground">Academic Collaboration</div>
-                      <div className="text-[0.8125rem] leading-relaxed text-muted-foreground">IITs, NITs, IIITs & 50+ Research Institutions</div>
+                    <div className="space-y-2">
+                      <div className="text-[1.125rem] font-bold leading-tight tracking-tight text-foreground">Academic Collaboration</div>
+                      <div className="text-[0.8125rem] leading-relaxed tracking-wide text-muted-foreground">IITs, NITs, IIITs & 50+ Research Institutions</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-primary/[0.08] blur-[80px]"></div>
-              <div className="absolute -bottom-8 -left-8 h-48 w-48 rounded-full bg-primary/[0.05] blur-[100px]"></div>
+              <div className="absolute -right-10 -top-10 h-44 w-44 rounded-full bg-primary/[0.06] blur-[100px]"></div>
+              <div className="absolute -bottom-10 -left-10 h-52 w-52 rounded-full bg-primary/[0.04] blur-[120px]"></div>
             </div>
           </div>
         </div>
