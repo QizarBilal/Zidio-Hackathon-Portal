@@ -171,7 +171,9 @@ export function AppSidebar() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <Button onClick={() => {}}>Sign In</Button>
+                <Link href="/login">
+                  <Button>Sign In</Button>
+                </Link>
               )}
               <Button
                 variant="ghost"

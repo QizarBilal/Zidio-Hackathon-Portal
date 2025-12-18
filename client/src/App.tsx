@@ -176,50 +176,86 @@ function SignupPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               {step === "role" && (
-                <div className="space-y-4">
-                  <Label>Select Your Role</Label>
-                  <Select value={role} onValueChange={setRole}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Choose your role" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="participant">
-                        <div className="flex items-center gap-2">
-                          <Trophy className="h-4 w-4" />
-                          <span>Participant</span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem value="mentor">
-                        <div className="flex items-center gap-2">
-                          <GraduationCap className="h-4 w-4" />
-                          <span>Mentor</span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem value="judge">
-                        <div className="flex items-center gap-2">
-                          <Code className="h-4 w-4" />
-                          <span>Judge</span>
-                        </div>
-                      </SelectItem>
-                      <SelectItem value="admin">
-                        <div className="flex items-center gap-2">
-                          <Shield className="h-4 w-4" />
-                          <span>Admin</span>
-                        </div>
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <div className="rounded-lg border bg-muted p-4">
-                    <p className="text-sm text-muted-foreground">
-                      {role === "participant" && "Build innovative solutions and win prizes"}
-                      {role === "mentor" && "Guide teams and share expertise"}
-                      {role === "judge" && "Evaluate submissions and provide feedback"}
-                      {role === "admin" && "Manage hackathons and coordinate events"}
-                      {!role && "Select a role to see details"}
-                    </p>
+                <div className="space-y-6">
+                  <div>
+                    <Label className="text-base font-semibold">Choose Your Role</Label>
+                    <p className="text-sm text-muted-foreground mt-1">Select how you want to participate in the hackathon ecosystem</p>
                   </div>
-                  <Button onClick={handleRoleSubmit} disabled={!role} className="w-full">
-                    Continue
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      onClick={() => setRole("participant")}
+                      className={`flex flex-col items-center gap-3 rounded-xl border-2 p-4 transition-all hover:border-primary/50 hover:bg-primary/5 ${
+                        role === "participant" ? "border-primary bg-primary/10" : "border-border"
+                      }`}
+                    >
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <Trophy className="h-6 w-6 text-primary" />
+                      </div>
+                      <div className="text-center">
+                        <div className="font-semibold">Participant</div>
+                        <div className="text-xs text-muted-foreground mt-1">Compete & innovate</div>
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => setRole("mentor")}
+                      className={`flex flex-col items-center gap-3 rounded-xl border-2 p-4 transition-all hover:border-primary/50 hover:bg-primary/5 ${
+                        role === "mentor" ? "border-primary bg-primary/10" : "border-border"
+                      }`}
+                    >
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <GraduationCap className="h-6 w-6 text-primary" />
+                      </div>
+                      <div className="text-center">
+                        <div className="font-semibold">Mentor</div>
+                        <div className="text-xs text-muted-foreground mt-1">Guide & support</div>
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => setRole("judge")}
+                      className={`flex flex-col items-center gap-3 rounded-xl border-2 p-4 transition-all hover:border-primary/50 hover:bg-primary/5 ${
+                        role === "judge" ? "border-primary bg-primary/10" : "border-border"
+                      }`}
+                    >
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <Code className="h-6 w-6 text-primary" />
+                      </div>
+                      <div className="text-center">
+                        <div className="font-semibold">Judge</div>
+                        <div className="text-xs text-muted-foreground mt-1">Evaluate & score</div>
+                      </div>
+                    </button>
+                    <button
+                      onClick={() => setRole("admin")}
+                      className={`flex flex-col items-center gap-3 rounded-xl border-2 p-4 transition-all hover:border-primary/50 hover:bg-primary/5 ${
+                        role === "admin" ? "border-primary bg-primary/10" : "border-border"
+                      }`}
+                    >
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <Shield className="h-6 w-6 text-primary" />
+                      </div>
+                      <div className="text-center">
+                        <div className="font-semibold">Admin</div>
+                        <div className="text-xs text-muted-foreground mt-1">Manage platform</div>
+                      </div>
+                    </button>
+                  </div>
+                  {role && (
+                    <div className="rounded-xl border bg-card p-4">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+                        <div>
+                          <p className="font-medium text-sm">
+                            {role === "participant" && "Build innovative solutions, compete with peers, and win prizes in national-level competitions"}
+                            {role === "mentor" && "Share your expertise, guide talented teams, and help shape the next generation of innovators"}
+                            {role === "judge" && "Evaluate submissions with structured criteria and provide valuable feedback to participants"}
+                            {role === "admin" && "Manage hackathons, coordinate events, and oversee the entire platform operations"}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  <Button onClick={handleRoleSubmit} disabled={!role} className="w-full" size="lg">
+                    Continue <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
               )}
