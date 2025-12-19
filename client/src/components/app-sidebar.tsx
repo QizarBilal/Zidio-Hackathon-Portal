@@ -115,39 +115,55 @@ export function AppSidebar() {
       <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
-            <div className="flex items-center gap-8">
+            {/* Left Side - Logo */}
+            <div className="flex items-center w-[180px] sm:w-[200px]">
               <Link href="/" className="flex items-center gap-2">
-                <img src="/logo.png" alt="Logo" className="h-8 w-8" />
-                <span className="text-lg font-bold">Hackathon Portal</span>
+                <img src="/logo.png" alt="Logo" className="h-7 w-7 sm:h-8 sm:w-8" />
+                <span className="text-base sm:text-lg font-bold">ZidioHacks</span>
               </Link>
-
-              <div className="hidden items-center gap-1 lg:flex">
-                {getNavItems().map((group) => (
-                  <DropdownMenu key={group.label}>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" className="gap-1">
-                        {group.label}
-                        <ChevronDown className="h-3 w-3" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start" className="w-48">
-                      <DropdownMenuLabel>{group.label}</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      {group.items.map((item) => (
-                        <DropdownMenuItem key={item.url} asChild>
-                          <Link href={item.url} className="flex items-center gap-2">
-                            <item.icon className="h-4 w-4" />
-                            <span>{item.title}</span>
-                          </Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                ))}
-              </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            {/* Center - Navigation Links */}
+            <div className="hidden md:flex items-center justify-center gap-1 flex-1">
+              <button
+                onClick={() => {
+                  if (location === '/') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/';
+                  }
+                }}
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+              >
+                Home
+              </button>
+              <Link href="/explore">
+                <Button variant="ghost" className="font-medium">
+                  Explore Hackathons
+                </Button>
+              </Link>
+              <button
+                onClick={() => {
+                  const section = document.getElementById('why-zidiohacks');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/#why-zidiohacks';
+                  }
+                }}
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+              >
+                Why ZidioHacks
+              </button>
+              <Link href="/contact">
+                <Button variant="ghost" className="font-medium">
+                  Contact
+                </Button>
+              </Link>
+            </div>
+
+            {/* Right Side - Auth & Theme Toggle */}
+            <div className="flex items-center justify-end gap-2 sm:gap-3 w-[180px] sm:w-[200px]">
               <ThemeToggle />
               {isAuthenticated && user ? (
                 <DropdownMenu>
@@ -172,13 +188,13 @@ export function AppSidebar() {
                 </DropdownMenu>
               ) : (
                 <Link href="/login">
-                  <Button>Sign In</Button>
+                  <Button className="text-xs sm:text-sm">Login/Signup</Button>
                 </Link>
               )}
               <Button
                 variant="ghost"
                 size="icon"
-                className="lg:hidden"
+                className="md:hidden"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -188,26 +204,51 @@ export function AppSidebar() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="border-t lg:hidden">
+          <div className="border-t md:hidden">
             <div className="container mx-auto px-4 py-4">
-              {getNavItems().map((group) => (
-                <div key={group.label} className="mb-4">
-                  <div className="mb-2 text-sm font-semibold text-muted-foreground">{group.label}</div>
-                  <div className="space-y-1">
-                    {group.items.map((item) => (
-                      <Link
-                        key={item.url}
-                        href={item.url}
-                        className="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        <item.icon className="h-4 w-4" />
-                        <span>{item.title}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
+              <div className="space-y-1">
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    if (location === '/') {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/';
+                    }
+                  }}
+                  className="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent text-left"
+                >
+                  Home
+                </button>
+                <Link
+                  href="/explore"
+                  className="flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Explore Hackathons
+                </Link>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    const section = document.getElementById('why-zidiohacks');
+                    if (section) {
+                      section.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/#why-zidiohacks';
+                    }
+                  }}
+                  className="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent text-left"
+                >
+                  Why ZidioHacks
+                </button>
+                <Link
+                  href="/contact"
+                  className="flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+              </div>
             </div>
           </div>
         )}

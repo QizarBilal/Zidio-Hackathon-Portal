@@ -1059,9 +1059,9 @@ export default function ExplorePage() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="border-b bg-card">
-        <div className="container mx-auto px-4 py-6">
-          <h1 className="mb-2 text-2xl font-bold sm:text-3xl">Explore Hackathons</h1>
-          <p className="text-muted-foreground">
+        <div className="container mx-auto px-4 py-4 sm:py-6">
+          <h1 className="mb-2 text-xl sm:text-2xl lg:text-3xl font-bold">Explore Hackathons</h1>
+          <p className="text-sm sm:text-base text-muted-foreground">
             Discover hackathons across categories, skill levels, and locations
           </p>
         </div>

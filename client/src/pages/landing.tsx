@@ -101,20 +101,20 @@ const features = [
 ];
 
 const partnerLogos = [
-  { name: "Ministry of Education", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/Ministry_of_Education.svg/200px-Ministry_of_Education.svg.png" },
-  { name: "NASSCOM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nasscom_logo.svg/200px-Nasscom_logo.svg.png" },
-  { name: "IIT Bombay", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Bombay_Logo.svg/150px-Indian_Institute_of_Technology_Bombay_Logo.svg.png" },
+  { name: "Ministry of Education", logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" },
+  { name: "LinkedIn", logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" },
+  { name: "IIT Bombay", logo: "https://upload.wikimedia.org/wikipedia/en/1/1d/Indian_Institute_of_Technology_Bombay_Logo.svg" },
   { name: "IIT Delhi", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Delhi_Logo.svg/150px-Indian_Institute_of_Technology_Delhi_Logo.svg.png" },
-  { name: "IIIT Hyderabad", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/IIIT_Hyderabad_Logo.svg/150px-IIIT_Hyderabad_Logo.svg.png" },
+  { name: "Tesla", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" },
   { name: "Infosys", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/200px-Infosys_logo.svg.png" },
-  { name: "TCS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/200px-Tata_Consultancy_Services_Logo.svg.png" },
+  { name: "Oracle", logo: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" },
   { name: "Wipro", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Primary_Logo_Color_RGB.svg/200px-Wipro_Primary_Logo_Color_RGB.svg.png" },
   { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/200px-Microsoft_logo_%282012%29.svg.png" },
   { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png" },
   { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.png" },
-  { name: "Flipkart", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flipkart-logo.svg/200px-Flipkart-logo.svg.png" },
+  { name: "Flipkart", logo: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg" },
   { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.png" },
-  { name: "Adobe", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Adobe_Corporate_Logo.svg/200px-Adobe_Corporate_Logo.svg.png" },
+  { name: "Adobe", logo: "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg" },
   { name: "Intel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Intel_logo_%282006-2020%29.svg/200px-Intel_logo_%282006-2020%29.svg.png" },
   { name: "NVIDIA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nvidia_logo.svg/200px-Nvidia_logo.svg.png" },
 ];
@@ -240,43 +240,43 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80"></div>
         
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative py-12 lg:py-14 min-h-[500px] flex items-center">
+          <div className="relative py-6 sm:py-12 lg:py-14 min-h-[450px] sm:min-h-[500px] flex items-center">
             
             {currentSlide === 0 && (
               <div className="w-full animate-in fade-in slide-in-from-bottom-4 duration-700 opacity-100">
-                <div className="grid items-center gap-10 lg:grid-cols-[1.2fr,0.8fr]">
-                  <div className="space-y-6 max-w-3xl">
+                <div className="grid items-center gap-6 sm:gap-8 lg:gap-10 lg:grid-cols-[1.2fr,0.8fr]">
+                  <div className="space-y-4 sm:space-y-6 max-w-3xl">
                     <div className="space-y-4">
                       <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 backdrop-blur-sm">
                         <div className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></div>
                         <span className="text-xs font-semibold tracking-wide text-primary uppercase">For Innovators & Builders</span>
                       </div>
                       
-                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
+                      <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight sm:leading-[1.05] tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
                         Where India's Best Minds Build Real Solutions
                       </h1>
                       
-                      <p className="text-lg leading-relaxed text-muted-foreground max-w-xl">
+                      <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-xl">
                         Participate in national and state-level hackathons, collaborate with top talent, and solve real-world challenges backed by institutions and industry.
                       </p>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-3">
                       <Link href="/signup">
-                        <Button className="h-11 px-6 text-sm font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300">
+                        <Button className="h-11 px-5 sm:px-6 text-sm font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300">
                           Sign Up <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </Link>
                       <Link href="/explore">
-                        <Button variant="outline" className="h-11 px-6 text-sm font-semibold rounded-xl border-2 hover:bg-primary/5 hover:border-primary/50 hover:scale-105 transition-all duration-300">
+                        <Button variant="outline" className="h-11 px-5 sm:px-6 text-sm font-semibold rounded-xl border-2 hover:bg-primary/5 hover:border-primary/50 hover:scale-105 transition-all duration-300">
                           Explore Hackathons
                         </Button>
                       </Link>
                     </div>
                   </div>
 
-                  <div className="relative">
-                    <div className="relative h-[380px] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
+                  <div className="relative hidden lg:block">
+                    <div className="relative h-[280px] sm:h-[320px] lg:h-[380px] overflow-hidden rounded-2xl border border-border/50 shadow-2xl">
                       <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80" alt="Students collaborating" className="h-full w-full object-cover brightness-100 dark:brightness-100" />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent dark:from-background/90 dark:via-background/20"></div>
                       <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/40 bg-white/95 dark:bg-background/80 backdrop-blur-xl p-4 shadow-lg">
@@ -298,35 +298,44 @@ export default function LandingPage() {
 
             {currentSlide === 1 && (
               <div className="w-full animate-in fade-in slide-in-from-left-4 duration-700 opacity-100">
-                <div className="grid items-center gap-8 lg:grid-cols-[1.3fr,0.7fr]">
-                  <div className="space-y-5">
-                    <div className="space-y-4">
+                <div className="grid items-center gap-6 lg:grid-cols-[1.3fr,0.7fr]">
+                  <div className="space-y-3">
+                    <div className="space-y-2">
                       <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1">
                         <GraduationCap className="h-3 w-3 text-primary" />
                         <span className="text-xs font-semibold tracking-wide text-primary uppercase">For Universities & Institutions</span>
                       </div>
                       
-                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
+                      <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
                         Powering Academic Innovation at Scale
                       </h1>
                       
-                      <p className="text-lg leading-relaxed text-muted-foreground max-w-xl">
-                        Enable students to innovate beyond classrooms through structured hackathons aligned with curriculum, research, and industry needs.
+                      <p className="text-sm sm:text-base leading-relaxed text-muted-foreground max-w-xl">
+                        Enable students to innovate beyond classrooms through structured hackathons.
                       </p>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-3">
-                      <div className="rounded-xl border bg-card p-3">
-                        <div className="text-2xl font-bold text-primary">50+</div>
-                        <div className="text-xs text-muted-foreground">Universities</div>
+                    <div className="space-y-2">
+                      <div className="flex items-start gap-2 rounded-xl border bg-card/50 p-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <div className="text-xs font-semibold">Curriculum Integration</div>
+                          <div className="text-[11px] text-muted-foreground">Integrate hackathons into academic programs</div>
+                        </div>
                       </div>
-                      <div className="rounded-xl border bg-card p-3">
-                        <div className="text-2xl font-bold text-primary">200+</div>
-                        <div className="text-xs text-muted-foreground">Events</div>
+                      <div className="flex items-start gap-2 rounded-xl border bg-card/50 p-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <div className="text-xs font-semibold">Industry Partnerships</div>
+                          <div className="text-[11px] text-muted-foreground">Connect students with companies and mentors</div>
+                        </div>
                       </div>
-                      <div className="rounded-xl border bg-card p-3">
-                        <div className="text-2xl font-bold text-primary">5k+</div>
-                        <div className="text-xs text-muted-foreground">Students</div>
+                      <div className="flex items-start gap-2 rounded-xl border bg-card/50 p-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <div className="text-xs font-semibold">End-to-End Management</div>
+                          <div className="text-[11px] text-muted-foreground">Complete platform for organizing events</div>
+                        </div>
                       </div>
                     </div>
 
@@ -389,11 +398,11 @@ export default function LandingPage() {
                         <span className="text-xs font-semibold tracking-wide text-primary uppercase">For Enterprises & Recruiters</span>
                       </div>
                       
-                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
+                      <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight sm:leading-[1.05] tracking-tight">
                         Discover Talent Through Real Innovation
                       </h1>
                       
-                      <p className="text-lg leading-relaxed text-muted-foreground">
+                      <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
                         Identify skilled candidates by evaluating real projects, not resumes — through enterprise-grade hackathons and challenges.
                       </p>
                     </div>
@@ -425,11 +434,11 @@ export default function LandingPage() {
                         <span className="text-xs font-semibold tracking-wide text-primary uppercase">For Mentors & Judges</span>
                       </div>
                       
-                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
+                      <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight sm:leading-[1.05] tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
                         Evaluate, Guide, and Shape Innovation
                       </h1>
                       
-                      <p className="text-lg leading-relaxed text-muted-foreground">
+                      <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
                         Mentor teams, review submissions, and uphold transparent, structured evaluation across national-level competitions.
                       </p>
                     </div>
@@ -448,23 +457,23 @@ export default function LandingPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div className="space-y-4">
-                      <div className="relative h-[180px] overflow-hidden rounded-xl border border-border/50 shadow-lg">
+                      <div className="relative h-[120px] sm:h-[150px] lg:h-[180px] overflow-hidden rounded-xl border border-border/50 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80" alt="Mentors" className="h-full w-full object-cover brightness-100 dark:brightness-100" />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent dark:from-background/70"></div>
                       </div>
-                      <div className="rounded-xl border bg-card p-4">
-                        <div className="text-2xl font-bold text-primary">500+</div>
+                      <div className="rounded-xl border bg-card p-3 sm:p-4">
+                        <div className="text-xl sm:text-2xl font-bold text-primary">500+</div>
                         <div className="text-xs text-muted-foreground">Expert Mentors</div>
                       </div>
                     </div>
                     <div className="space-y-4 pt-8">
-                      <div className="rounded-xl border bg-card p-4">
-                        <div className="text-2xl font-bold text-primary">1000+</div>
+                      <div className="rounded-xl border bg-card p-3 sm:p-4">
+                        <div className="text-xl sm:text-2xl font-bold text-primary">1000+</div>
                         <div className="text-xs text-muted-foreground">Reviews Completed</div>
                       </div>
-                      <div className="relative h-[180px] overflow-hidden rounded-xl border border-border/50 shadow-lg">
+                      <div className="relative h-[120px] sm:h-[150px] lg:h-[180px] overflow-hidden rounded-xl border border-border/50 shadow-lg">
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80" alt="Judging" className="h-full w-full object-cover brightness-100 dark:brightness-100" />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent dark:from-background/70"></div>
                       </div>
@@ -475,7 +484,7 @@ export default function LandingPage() {
             )}
           </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 z-30 rounded-full bg-background/60 backdrop-blur-md border border-border/50 px-4 py-2.5 shadow-lg">
+          <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 z-30 rounded-full bg-background/60 backdrop-blur-md border border-border/50 px-3 sm:px-4 py-2 sm:py-2.5 shadow-lg">
             {slides.map((_, index) => (
               <button
                 key={index}
@@ -495,9 +504,9 @@ export default function LandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="border-y bg-card py-12">
+      <section className="border-y bg-card py-6 sm:py-10 lg:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-4">
             {stats.map((stat) => (
               <StatCounter key={stat.label} stat={stat} />
             ))}
@@ -506,12 +515,12 @@ export default function LandingPage() {
       </section>
 
       {/* Featured Hackathons */}
-      <section className="py-16">
+      <section className="py-10 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4">
-          <div className="mb-10 flex flex-wrap items-center justify-between gap-4">
+          <div className="mb-6 sm:mb-10 flex flex-wrap items-center justify-between gap-3">
             <div>
-              <h2 className="text-2xl font-bold sm:text-3xl">Featured Hackathons</h2>
-              <p className="mt-1 text-muted-foreground">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">Featured Hackathons</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
                 Top opportunities handpicked for you
               </p>
             </div>
@@ -523,7 +532,7 @@ export default function LandingPage() {
             </Link>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuredHackathons.map((hackathon) => (
               <Link key={hackathon.id} href={`/hackathon/${hackathon.id}`}>
                 <Card className="group cursor-pointer overflow-hidden transition-all hover-elevate" data-testid={`card-hackathon-${hackathon.id}`}>
@@ -534,9 +543,9 @@ export default function LandingPage() {
                       className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
-                  <CardContent className="p-4">
-                    <div className="mb-2 flex flex-wrap items-center gap-2">
-                      <Badge variant="secondary" className="text-xs">
+                  <CardContent className="p-4 sm:p-5">
+                    <div className="mb-2 flex flex-wrap items-center gap-1.5 sm:gap-2">
+                      <Badge variant="secondary" className="text-[10px] sm:text-xs px-1.5 sm:px-2">
                         {hackathon.category}
                       </Badge>
                       <Badge
@@ -549,12 +558,12 @@ export default function LandingPage() {
                         {hackathon.status === "registration_open" ? "Open" : "Upcoming"}
                       </Badge>
                     </div>
-                    <h3 className="mb-1 font-semibold line-clamp-1">{hackathon.title}</h3>
-                    <p className="mb-3 text-sm text-muted-foreground">
+                    <h3 className="mb-1 text-sm sm:text-base font-semibold line-clamp-2">{hackathon.title}</h3>
+                    <p className="mb-3 text-xs sm:text-sm text-muted-foreground">
                       by {hackathon.organizer}
                     </p>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="font-medium text-primary">
+                    <div className="flex items-center justify-between text-xs sm:text-sm">
+                      <span className="font-medium text-primary text-xs sm:text-sm">
                         {new Intl.NumberFormat("en-IN", {
                           style: "currency",
                           currency: "INR",
@@ -573,50 +582,108 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="bg-card py-16">
+      <section id="why-zidiohacks" className="py-12 sm:py-16 lg:py-20 bg-card">
         <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="mb-3 text-2xl font-bold sm:text-3xl">
+          <div className="text-center mb-8 sm:mb-14 max-w-2xl mx-auto">
+            <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold mb-3">
               Everything You Need to Succeed
             </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               A complete ecosystem designed for hackathon participants, organizers, judges, and recruiters.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="rounded-lg border bg-background p-6"
-              >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-primary/10">
-                  <feature.icon className="h-5 w-5 text-primary" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 max-w-6xl mx-auto">
+            <div className="bg-background border p-5 sm:p-6 hover:shadow-md transition-shadow">
+              <div className="mb-3 sm:mb-4">
+                <div className="inline-flex p-2.5 sm:p-3 bg-primary/10 rounded-lg">
+                  <Target className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
-                <h3 className="mb-2 font-semibold">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
               </div>
-            ))}
+              <h3 className="font-semibold text-base sm:text-lg mb-2">Problem-Driven Innovation</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Access curated problem statements from government bodies, enterprises, and startups across sectors.
+              </p>
+            </div>
+
+            <div className="bg-background border p-5 sm:p-6 hover:shadow-md transition-shadow">
+              <div className="mb-3 sm:mb-4">
+                <div className="inline-flex p-2.5 sm:p-3 bg-primary/10 rounded-lg">
+                  <Users className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">Smart Team Matching</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Find the perfect teammates based on skills, experience, and project compatibility.
+              </p>
+            </div>
+
+            <div className="bg-background border p-5 sm:p-6 hover:shadow-md transition-shadow">
+              <div className="mb-3 sm:mb-4">
+                <div className="inline-flex p-2.5 sm:p-3 bg-primary/10 rounded-lg">
+                  <Award className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">Verified Credentials</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Earn blockchain-verified certificates and build your professional portfolio.
+              </p>
+            </div>
+
+            <div className="bg-background border p-5 sm:p-6 hover:shadow-md transition-shadow">
+              <div className="mb-3 sm:mb-4">
+                <div className="inline-flex p-2.5 sm:p-3 bg-primary/10 rounded-lg">
+                  <Briefcase className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">Direct Hiring Pipeline</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Get noticed by top recruiters and secure internships through your hackathon performance.
+              </p>
+            </div>
+
+            <div className="bg-background border p-5 sm:p-6 hover:shadow-md transition-shadow">
+              <div className="mb-3 sm:mb-4">
+                <div className="inline-flex p-2.5 sm:p-3 bg-primary/10 rounded-lg">
+                  <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">Fair Evaluation</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Transparent judging with structured scoring and multi-tier review process.
+              </p>
+            </div>
+
+            <div className="bg-background border p-5 sm:p-6 hover:shadow-md transition-shadow">
+              <div className="mb-3 sm:mb-4">
+                <div className="inline-flex p-2.5 sm:p-3 bg-primary/10 rounded-lg">
+                  <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">Real-Time Analytics</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Track your progress, submissions, and rankings with comprehensive dashboards.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* User Roles Section */}
-      <section className="py-16">
+      <section className="py-10 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="mb-3 text-2xl font-bold sm:text-3xl">For Everyone in the Ecosystem</h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
+          <div className="mb-6 sm:mb-10 lg:mb-12 text-center">
+            <h2 className="mb-3 text-xl sm:text-2xl lg:text-3xl font-bold">For Everyone in the Ecosystem</h2>
+            <p className="mx-auto max-w-2xl text-sm text-muted-foreground">
               Tailored experiences for every stakeholder in the hackathon journey.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Card className="p-6">
-              <Users className="mb-4 h-8 w-8 text-primary" />
-              <h3 className="mb-2 font-semibold">Participants</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+          <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <Card className="p-5 sm:p-6">
+              <Users className="mb-3 sm:mb-4 h-7 w-7 sm:h-8 sm:w-8 text-primary" />
+              <h3 className="mb-2 text-base sm:text-lg font-semibold">Participants</h3>
+              <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-500" />
                   Team formation & matching
@@ -632,10 +699,10 @@ export default function LandingPage() {
               </ul>
             </Card>
 
-            <Card className="p-6">
-              <GraduationCap className="mb-4 h-8 w-8 text-primary" />
-              <h3 className="mb-2 font-semibold">Universities</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+            <Card className="p-5 sm:p-6">
+              <GraduationCap className="mb-3 sm:mb-4 h-7 w-7 sm:h-8 sm:w-8 text-primary" />
+              <h3 className="mb-2 text-base sm:text-lg font-semibold">Universities</h3>
+              <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-500" />
                   Host branded hackathons
@@ -651,10 +718,10 @@ export default function LandingPage() {
               </ul>
             </Card>
 
-            <Card className="p-6">
-              <Building2 className="mb-4 h-8 w-8 text-primary" />
-              <h3 className="mb-2 font-semibold">Enterprises</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+            <Card className="p-5 sm:p-6">
+              <Building2 className="mb-3 sm:mb-4 h-7 w-7 sm:h-8 sm:w-8 text-primary" />
+              <h3 className="mb-2 text-base sm:text-lg font-semibold">Enterprises</h3>
+              <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-500" />
                   Sponsor hackathons
@@ -670,10 +737,10 @@ export default function LandingPage() {
               </ul>
             </Card>
 
-            <Card className="p-6">
-              <Briefcase className="mb-4 h-8 w-8 text-primary" />
-              <h3 className="mb-2 font-semibold">Recruiters</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+            <Card className="p-5 sm:p-6">
+              <Briefcase className="mb-3 sm:mb-4 h-7 w-7 sm:h-8 sm:w-8 text-primary" />
+              <h3 className="mb-2 text-base sm:text-lg font-semibold">Recruiters</h3>
+              <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-500" />
                   Browse talent pool
@@ -692,10 +759,10 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="border-t bg-background py-20 overflow-hidden">
+      <section className="border-t bg-background py-12 sm:py-16 lg:py-20 overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="mb-16 text-center">
-            <h2 className="text-2xl font-semibold text-foreground">
+          <div className="mb-8 sm:mb-16 text-center">
+            <h2 className="text-lg sm:text-2xl lg:text-3xl font-semibold text-foreground px-4 leading-tight">
               Identified 5000+ solutions for over 200+ organisations worldwide
             </h2>
           </div>
@@ -707,18 +774,18 @@ export default function LandingPage() {
                 100% { transform: translateX(-50%); }
               }
               .animate-scroll {
-                animation: scroll-left 40s linear infinite;
+                animation: scroll-left 20s linear infinite;
               }
               .animate-scroll:hover {
                 animation-play-state: paused;
               }
             `}</style>
             
-            <div className="flex items-center gap-12 animate-scroll">
+            <div className="flex items-center gap-6 sm:gap-10 lg:gap-12 animate-scroll">
               {[...partnerLogos, ...partnerLogos].map((partner, index) => (
                 <div
                   key={`${partner.name}-${index}`}
-                  className="flex-shrink-0 h-16 w-40 flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  className="flex-shrink-0 h-12 w-28 sm:h-14 sm:w-32 lg:h-16 lg:w-40 flex items-center justify-center opacity-90 hover:opacity-100 transition-opacity duration-300"
                 >
                   <img
                     src={partner.logo}
@@ -768,10 +835,10 @@ export default function LandingPage() {
             <div>
               <h3 className="mb-4 font-semibold">Company</h3>
               <ul className="space-y-2 text-sm text-slate-400">
-                <li><Link href="/" className="hover:text-slate-100">About Us</Link></li>
+                <li><Link href="/about" className="hover:text-slate-100">About Us</Link></li>
                 <li><Link href="/clientele" className="hover:text-slate-100">Our Clientele</Link></li>
-                <li><Link href="/" className="hover:text-slate-100">Careers</Link></li>
-                <li><Link href="/" className="hover:text-slate-100">Contact</Link></li>
+                <li><Link href="/careers" className="hover:text-slate-100">Careers</Link></li>
+                <li><Link href="/contact" className="hover:text-slate-100">Contact</Link></li>
               </ul>
             </div>
 
@@ -790,15 +857,15 @@ export default function LandingPage() {
               <ul className="space-y-3 text-sm text-slate-400">
                 <li className="flex items-center gap-2">
                   <Mail className="h-4 w-4" />
-                  <span>contact@hackathon.com</span>
+                  <span>support@zidiohacks.com</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  <span>+91 1234567890</span>
+                  <span>+91 123 456 7890</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-1" />
-                  <span>Innovation Hub, Tech Park<br />Bangalore, India</span>
+                  <span>Zidio Development<br />Bangalore, Karnataka, India</span>
                 </li>
               </ul>
             </div>
@@ -808,9 +875,9 @@ export default function LandingPage() {
             <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-slate-400">
               <p>&copy; 2025 Hackathon Portal. All rights reserved.</p>
               <div className="flex gap-6">
-                <a href="#" className="hover:text-slate-100">Privacy Policy</a>
-                <a href="#" className="hover:text-slate-100">Terms of Service</a>
-                <a href="#" className="hover:text-slate-100">Cookie Policy</a>
+                <Link href="/privacy-policy" className="hover:text-slate-100">Privacy Policy</Link>
+                <Link href="/terms-of-service" className="hover:text-slate-100">Terms of Service</Link>
+                <Link href="/cookie-policy" className="hover:text-slate-100">Cookie Policy</Link>
               </div>
             </div>
           </div>

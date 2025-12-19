@@ -26,38 +26,44 @@ import CertificatesPage from "@/pages/certificates";
 import PortfolioPage from "@/pages/portfolio";
 import JudgeDashboard from "@/pages/judge-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
+import ContactPage from "@/pages/contact";
+import AboutPage from "@/pages/about";
+import CareersPage from "@/pages/careers";
+import PrivacyPolicyPage from "@/pages/privacy-policy";
+import TermsOfServicePage from "@/pages/terms-of-service";
+import CookiePolicyPage from "@/pages/cookie-policy";
 
 function ClientelePage() {
   const clientLogos = [
-    { name: "Ministry of Education", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/Ministry_of_Education.svg/200px-Ministry_of_Education.svg.png" },
-    { name: "NASSCOM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Nasscom_logo.svg/200px-Nasscom_logo.svg.png" },
-    { name: "IIT Bombay", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Bombay_Logo.svg/150px-Indian_Institute_of_Technology_Bombay_Logo.svg.png" },
+    { name: "Ministry of Education", logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" },
+    { name: "LinkedIn", logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" },
+    { name: "IIT Bombay", logo: "https://upload.wikimedia.org/wikipedia/en/1/1d/Indian_Institute_of_Technology_Bombay_Logo.svg" },
     { name: "IIT Delhi", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Delhi_Logo.svg/150px-Indian_Institute_of_Technology_Delhi_Logo.svg.png" },
-    { name: "IIIT Hyderabad", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/IIIT_Hyderabad_Logo.svg/150px-IIIT_Hyderabad_Logo.svg.png" },
+    { name: "UC Berkeley", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Seal_of_University_of_California%2C_Berkeley.svg" },
     { name: "IIT Madras", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/150px-IIT_Madras_Logo.svg.png" },
-    { name: "IIT Kanpur", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/IIT_Kanpur_Logo.svg/150px-IIT_Kanpur_Logo.svg.png" },
+    { name: "MIT", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg" },
     { name: "IIT Kharagpur", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/IIT_Kharagpur_Logo.svg/150px-IIT_Kharagpur_Logo.svg.png" },
-    { name: "NIT Trichy", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/ef/NIT_Trichy_Logo.svg/150px-NIT_Trichy_Logo.svg.png" },
+    { name: "Stanford", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Seal_of_Leland_Stanford_Junior_University.svg" },
     { name: "BITS Pilani", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/BITS_Pilani-Logo.svg/150px-BITS_Pilani-Logo.svg.png" },
     { name: "Infosys", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/200px-Infosys_logo.svg.png" },
-    { name: "TCS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/200px-Tata_Consultancy_Services_Logo.svg.png" },
+    { name: "Oracle", logo: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" },
     { name: "Wipro", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Primary_Logo_Color_RGB.svg/200px-Wipro_Primary_Logo_Color_RGB.svg.png" },
-    { name: "Tech Mahindra", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Tech_Mahindra_New_Logo.svg/200px-Tech_Mahindra_New_Logo.svg.png" },
-    { name: "HCL Technologies", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/HCL_Technologies_logo.svg/200px-HCL_Technologies_logo.svg.png" },
-    { name: "Cognizant", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Cognizant_logo_2022.svg/200px-Cognizant_logo_2022.svg.png" },
+    { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
+    { name: "Salesforce", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
+    { name: "SAP", logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" },
     { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/200px-Microsoft_logo_%282012%29.svg.png" },
     { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/200px-Google_2015_logo.svg.png" },
     { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/200px-Amazon_logo.svg.png" },
     { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/200px-IBM_logo.svg.png" },
-    { name: "Flipkart", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flipkart-logo.svg/200px-Flipkart-logo.svg.png" },
+    { name: "Flipkart", logo: "https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg" },
     { name: "Paytm", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Paytm_Logo_%28standalone%29.svg/200px-Paytm_Logo_%28standalone%29.svg.png" },
     { name: "Zomato", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Zomato_logo.png/200px-Zomato_logo.png" },
-    { name: "Ola", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ola_Cabs_logo.svg/200px-Ola_Cabs_logo.svg.png" },
+    { name: "Uber", logo: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" },
     { name: "ISRO", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Indian_Space_Research_Organisation_Logo.svg/150px-Indian_Space_Research_Organisation_Logo.svg.png" },
-    { name: "DRDO", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/DRDO_logo.svg/150px-DRDO_logo.svg.png" },
-    { name: "Bharat Electronics", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bharat_Electronics_Logo.svg/200px-Bharat_Electronics_Logo.svg.png" },
-    { name: "HAL", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Hindustan_Aeronautics_Limited_Logo.svg/200px-Hindustan_Aeronautics_Limited_Logo.svg.png" },
-    { name: "Adobe", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Adobe_Corporate_Logo.svg/200px-Adobe_Corporate_Logo.svg.png" },
+    { name: "GitHub", logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" },
+    { name: "AWS", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+    { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
+    { name: "Adobe", logo: "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg" },
     { name: "Intel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Intel_logo_%282006-2020%29.svg/200px-Intel_logo.svg.png" },
     { name: "NVIDIA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nvidia_logo.svg/200px-Nvidia_logo.svg.png" },
     { name: "Oracle", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/200px-Oracle_logo.svg.png" },
@@ -744,6 +750,12 @@ function Router() {
         <Route path="/judge" component={JudgeDashboard} />
         <Route path="/admin" component={AdminDashboard} />
         <Route path="/clientele" component={ClientelePage} />
+        <Route path="/contact" component={ContactPage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/careers" component={CareersPage} />
+        <Route path="/privacy-policy" component={PrivacyPolicyPage} />
+        <Route path="/terms-of-service" component={TermsOfServicePage} />
+        <Route path="/cookie-policy" component={CookiePolicyPage} />
         <Route component={NotFound} />
       </Switch>
     </>

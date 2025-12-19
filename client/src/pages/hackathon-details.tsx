@@ -1551,24 +1551,24 @@ export default function HackathonDetailsPage() {
                     {prizes && (
                       <div className="grid gap-4 sm:grid-cols-3">
                         {prizes.first && (
-                          <div className="rounded-lg border bg-gradient-to-b from-yellow-500/10 to-transparent p-4 text-center">
-                            <div className="mb-2 text-3xl">1st</div>
-                            <div className="text-xl font-bold">{formatCurrency(prizes.first.amount)}</div>
-                            <div className="text-sm text-muted-foreground">{prizes.first.title}</div>
+                          <div className="rounded-lg border bg-gradient-to-b from-yellow-500/10 to-transparent p-3 sm:p-4 text-center">
+                            <div className="mb-2 text-2xl sm:text-3xl">1st</div>
+                            <div className="text-lg sm:text-xl font-bold">{formatCurrency(prizes.first.amount)}</div>
+                            <div className="text-xs sm:text-sm text-muted-foreground">{prizes.first.title}</div>
                           </div>
                         )}
                         {prizes.second && (
-                          <div className="rounded-lg border bg-gradient-to-b from-gray-400/10 to-transparent p-4 text-center">
-                            <div className="mb-2 text-3xl">2nd</div>
-                            <div className="text-xl font-bold">{formatCurrency(prizes.second.amount)}</div>
-                            <div className="text-sm text-muted-foreground">{prizes.second.title}</div>
+                          <div className="rounded-lg border bg-gradient-to-b from-gray-400/10 to-transparent p-3 sm:p-4 text-center">
+                            <div className="mb-2 text-2xl sm:text-3xl">2nd</div>
+                            <div className="text-lg sm:text-xl font-bold">{formatCurrency(prizes.second.amount)}</div>
+                            <div className="text-xs sm:text-sm text-muted-foreground">{prizes.second.title}</div>
                           </div>
                         )}
                         {prizes.third && (
-                          <div className="rounded-lg border bg-gradient-to-b from-orange-500/10 to-transparent p-4 text-center">
-                            <div className="mb-2 text-3xl">3rd</div>
-                            <div className="text-xl font-bold">{formatCurrency(prizes.third.amount)}</div>
-                            <div className="text-sm text-muted-foreground">{prizes.third.title}</div>
+                          <div className="rounded-lg border bg-gradient-to-b from-orange-500/10 to-transparent p-3 sm:p-4 text-center">
+                            <div className="mb-2 text-2xl sm:text-3xl">3rd</div>
+                            <div className="text-lg sm:text-xl font-bold">{formatCurrency(prizes.third.amount)}</div>
+                            <div className="text-xs sm:text-sm text-muted-foreground">{prizes.third.title}</div>
                           </div>
                         )}
                       </div>
