@@ -20,9 +20,9 @@ export function ThemeToggle() {
         }`}
       >
         {isDark ? (
-          <Moon className="h-3.5 w-3.5 text-white" />
+          <Moon className="h-3.5 w-3.5 text-[#1e40af] fill-[#1e40af]" />
         ) : (
-          <Sun className="h-3.5 w-3.5 text-[#60a5fa]" />
+          <Sun className="h-3.5 w-3.5 text-[#d97706] fill-[#d97706]" />
         )}
       </div>
     </button>
