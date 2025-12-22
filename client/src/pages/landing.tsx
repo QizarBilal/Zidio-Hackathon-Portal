@@ -774,7 +774,7 @@ export default function LandingPage() {
                 100% { transform: translateX(-50%); }
               }
               .animate-scroll {
-                animation: scroll-left 20s linear infinite;
+                animation: scroll-left 12s linear infinite;
               }
               .animate-scroll:hover {
                 animation-play-state: paused;

@@ -25,6 +25,7 @@ import LeaderboardPage from "@/pages/leaderboard";
 import CertificatesPage from "@/pages/certificates";
 import PortfolioPage from "@/pages/portfolio";
 import JudgeDashboard from "@/pages/judge-dashboard";
+import MentorDashboard from "@/pages/mentor-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
 import ContactPage from "@/pages/contact";
 import AboutPage from "@/pages/about";
@@ -490,19 +491,28 @@ function SignupPage() {
 
 function LoginPage() {
   const [, setLocation] = useLocation();
-  const { login } = useAuth();
+  const { authenticate } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState<"participant" | "judge" | "admin" | "mentor">("participant");
+  const [error, setError] = useState("");
 
   const handleLogin = () => {
-    login(role, email);
-    if (role === "judge") {
-      setLocation("/judge");
-    } else if (role === "admin") {
-      setLocation("/admin");
+    setError("");
+    const result = authenticate(email, password, role);
+    
+    if (result.success) {
+      if (role === "judge") {
+        setLocation("/judge");
+      } else if (role === "admin") {
+        setLocation("/admin");
+      } else if (role === "mentor") {
+        setLocation("/mentor");
+      } else {
+        setLocation("/dashboard");
+      }
     } else {
-      setLocation("/dashboard");
+      setError(result.error || "Invalid credentials");
     }
   };
 
@@ -618,6 +628,12 @@ function LoginPage() {
               </div>
 
             <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }} className="space-y-2 animate-in fade-in duration-500 delay-300">
+              {error && (
+                <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg p-2 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <p className="text-[10px] text-red-600 dark:text-red-400 font-medium">{error}</p>
+                </div>
+              )}
+              
               <div className="space-y-1 group">
                 <Label htmlFor="login-role" className="text-xs font-medium group-hover:text-primary transition-colors">Select Your Role</Label>
                 <Select value={role} onValueChange={(value: any) => setRole(value)}>
@@ -748,6 +764,7 @@ function Router() {
         <Route path="/certificates" component={CertificatesPage} />
         <Route path="/portfolio" component={PortfolioPage} />
         <Route path="/judge" component={JudgeDashboard} />
+        <Route path="/mentor" component={MentorDashboard} />
         <Route path="/admin" component={AdminDashboard} />
         <Route path="/clientele" component={ClientelePage} />
         <Route path="/contact" component={ContactPage} />

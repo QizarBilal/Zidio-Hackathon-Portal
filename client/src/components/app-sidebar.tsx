@@ -84,9 +84,14 @@ const adminNavItems: NavItem[] = [
 
 export function AppSidebar() {
   const [location] = useLocation();
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const userRole = user?.role || "participant";
+
+  const handleSignOut = () => {
+    logout();
+    window.location.href = '/';
+  };
 
   const getNavItems = () => {
     const items: { label: string; items: NavItem[] }[] = [
@@ -166,26 +171,14 @@ export function AppSidebar() {
             <div className="flex items-center justify-end gap-2 sm:gap-3 w-[180px] sm:w-[200px]">
               <ThemeToggle />
               {isAuthenticated && user ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="gap-2">
-                      <User className="h-4 w-4" />
-                      <span className="hidden md:inline">{user.username}</span>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-48">
-                    <DropdownMenuLabel>{user.email}</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem asChild>
-                      <Link href="/dashboard">Dashboard</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/portfolio">Portfolio</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => {}}>Sign Out</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <Button 
+                  variant="destructive" 
+                  size="sm"
+                  onClick={handleSignOut}
+                  className="bg-red-600 hover:bg-red-700 text-white font-medium"
+                >
+                  Sign Out
+                </Button>
               ) : (
                 <Link href="/login">
                   <Button className="text-xs sm:text-sm">Login/Signup</Button>

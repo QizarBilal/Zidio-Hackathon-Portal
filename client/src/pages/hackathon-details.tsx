@@ -1299,7 +1299,7 @@ export default function HackathonDetailsPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Banner */}
-      <div className="relative h-64 overflow-hidden bg-gradient-to-r from-primary/80 to-primary sm:h-80">
+      <div className="relative h-56 overflow-hidden bg-gradient-to-r from-primary/80 to-primary sm:h-72 lg:h-80">
         {hackathon.bannerImageUrl && (
           <img
             src={hackathon.bannerImageUrl}
@@ -1308,55 +1308,55 @@ export default function HackathonDetailsPage() {
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="container relative mx-auto flex h-full flex-col justify-end px-4 pb-6">
-          <Link href="/explore" className="mb-4 inline-flex items-center text-sm text-white/80 hover:text-white">
-            <ArrowLeft className="mr-1 h-4 w-4" />
+        <div className="container relative mx-auto flex h-full flex-col justify-end px-3 pb-4 sm:px-4 sm:pb-6">
+          <Link href="/explore" className="mb-3 inline-flex items-center text-xs sm:text-sm text-white/80 hover:text-white">
+            <ArrowLeft className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
             Back to Explore
           </Link>
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge className={getStatusColor(hackathon.status || "draft")}>
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <Badge className={`text-xs ${getStatusColor(hackathon.status || "draft")}`}>
               {getStatusLabel(hackathon.status || "draft")}
             </Badge>
-            <Badge variant="secondary">{hackathon.category}</Badge>
-            <Badge variant="outline" className="border-white/30 text-white capitalize">
+            <Badge variant="secondary" className="text-xs">{hackathon.category}</Badge>
+            <Badge variant="outline" className="border-white/30 text-white capitalize text-xs">
               {hackathon.mode}
             </Badge>
             {hackathon.level && (
-              <Badge variant="outline" className="border-white/30 text-white capitalize">
+              <Badge variant="outline" className="border-white/30 text-white capitalize text-xs">
                 {hackathon.level}
               </Badge>
             )}
           </div>
-          <h1 className="mt-2 text-2xl font-bold text-white sm:text-3xl lg:text-4xl" data-testid="text-hackathon-title">
+          <h1 className="mt-2 text-xl font-bold text-white leading-tight sm:text-2xl sm:leading-tight md:text-3xl lg:text-4xl" data-testid="text-hackathon-title">
             {hackathon.title}
           </h1>
-          <div className="mt-2 flex items-center gap-1 text-white/80">
+          <div className="mt-2 flex items-center gap-1 text-xs sm:text-sm text-white/80">
             {hackathon.organizerType === "government" ? (
-              <Building2 className="h-4 w-4" />
+              <Building2 className="h-3 w-3 sm:h-4 sm:w-4 shrink-0" />
             ) : hackathon.organizerType === "university" ? (
-              <GraduationCap className="h-4 w-4" />
+              <GraduationCap className="h-3 w-3 sm:h-4 sm:w-4 shrink-0" />
             ) : (
-              <Building2 className="h-4 w-4" />
+              <Building2 className="h-3 w-3 sm:h-4 sm:w-4 shrink-0" />
             )}
-            <span>{hackathon.organizerName}</span>
+            <span className="truncate">{hackathon.organizerName}</span>
           </div>
         </div>
       </div>
 
       {/* Timeline */}
       <div className="border-b bg-card">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between gap-2 overflow-x-auto">
+        <div className="container mx-auto px-3 py-3 sm:px-4 sm:py-4">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
             {timelineStages.map((stage, index) => (
-              <div key={stage.id} className="flex items-center">
-                <div className={`flex flex-col items-center ${stage.status === "active" ? "text-primary" : stage.status === "completed" ? "text-green-500" : "text-muted-foreground"}`}>
-                  <div className={`flex h-8 w-8 items-center justify-center rounded-full border-2 ${stage.status === "active" ? "border-primary bg-primary/10" : stage.status === "completed" ? "border-green-500 bg-green-500/10" : "border-muted"}`}>
-                    <stage.icon className="h-4 w-4" />
+              <div key={stage.id} className="flex items-center shrink-0">
+                <div className={`flex flex-col items-center min-w-[60px] sm:min-w-[70px] ${stage.status === "active" ? "text-primary" : stage.status === "completed" ? "text-green-500" : "text-muted-foreground"}`}>
+                  <div className={`flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border-2 ${stage.status === "active" ? "border-primary bg-primary/10" : stage.status === "completed" ? "border-green-500 bg-green-500/10" : "border-muted"}`}>
+                    <stage.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   </div>
-                  <span className="mt-1 whitespace-nowrap text-xs font-medium">{stage.label}</span>
+                  <span className="mt-1 text-center text-[10px] sm:text-xs font-medium leading-tight">{stage.label}</span>
                 </div>
                 {index < timelineStages.length - 1 && (
-                  <div className={`mx-2 h-0.5 w-8 sm:w-16 ${stage.status === "completed" ? "bg-green-500" : "bg-muted"}`} />
+                  <div className={`mx-1.5 sm:mx-2 h-0.5 w-6 sm:w-12 shrink-0 ${stage.status === "completed" ? "bg-green-500" : "bg-muted"}`} />
                 )}
               </div>
             ))}
@@ -1365,27 +1365,27 @@ export default function HackathonDetailsPage() {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid gap-6 lg:grid-cols-3">
+      <div className="container mx-auto px-3 py-4 sm:px-4 sm:py-6 lg:py-8">
+        <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
           {/* Left Column - Details */}
           <div className="lg:col-span-2">
             <Tabs value={activeTab} onValueChange={setActiveTab}>
-              <TabsList className="mb-6 w-full justify-start">
-                <TabsTrigger value="overview" data-testid="tab-overview">Overview</TabsTrigger>
-                <TabsTrigger value="problems" data-testid="tab-problems">Problem Statements</TabsTrigger>
-                <TabsTrigger value="rules" data-testid="tab-rules">Rules & Eligibility</TabsTrigger>
-                <TabsTrigger value="prizes" data-testid="tab-prizes">Prizes</TabsTrigger>
+              <TabsList className="mb-4 sm:mb-6 w-full justify-start overflow-x-auto flex-nowrap">
+                <TabsTrigger value="overview" data-testid="tab-overview" className="text-xs sm:text-sm px-2 sm:px-3">Overview</TabsTrigger>
+                <TabsTrigger value="problems" data-testid="tab-problems" className="text-xs sm:text-sm px-2 sm:px-3 whitespace-nowrap">Problems</TabsTrigger>
+                <TabsTrigger value="rules" data-testid="tab-rules" className="text-xs sm:text-sm px-2 sm:px-3">Rules</TabsTrigger>
+                <TabsTrigger value="prizes" data-testid="tab-prizes" className="text-xs sm:text-sm px-2 sm:px-3">Prizes</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="overview" className="space-y-6">
+              <TabsContent value="overview" className="space-y-4 sm:space-y-6">
                 <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">About the Hackathon</CardTitle>
+                  <CardHeader className="px-4 py-3 sm:px-6 sm:py-4">
+                    <CardTitle className="text-base sm:text-lg">About the Hackathon</CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="px-4 pb-4 sm:px-6 sm:pb-6">
                     <div className="prose prose-sm max-w-none dark:prose-invert">
                       {hackathon.description.split('\n\n').map((para, i) => (
-                        <p key={i} className="text-muted-foreground">{para}</p>
+                        <p key={i} className="text-sm sm:text-base text-muted-foreground mb-3">{para}</p>
                       ))}
                     </div>
                   </CardContent>
@@ -1393,10 +1393,10 @@ export default function HackathonDetailsPage() {
 
                 {judgingCriteria && (
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Judging Criteria</CardTitle>
+                    <CardHeader className="px-4 py-3 sm:px-6 sm:py-4">
+                      <CardTitle className="text-base sm:text-lg">Judging Criteria</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="space-y-3 sm:space-y-4 px-4 pb-4 sm:px-6 sm:pb-6">
                       {Object.entries(judgingCriteria).map(([key, value]) => (
                         <div key={key}>
                           <div className="mb-1 flex items-center justify-between text-sm">
@@ -1411,64 +1411,64 @@ export default function HackathonDetailsPage() {
                 )}
 
                 <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Important Dates</CardTitle>
+                  <CardHeader className="px-4 py-3 sm:px-6 sm:py-4">
+                    <CardTitle className="text-base sm:text-lg">Important Dates</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-muted-foreground">Registration Opens</span>
-                        <span className="font-medium">{formatDate(hackathon.registrationStartDate)}</span>
+                  <CardContent className="px-4 pb-4 sm:px-6 sm:pb-6">
+                    <div className="space-y-2.5 sm:space-y-3">
+                      <div className="flex items-start justify-between gap-2">
+                        <span className="text-xs sm:text-sm text-muted-foreground">Registration Opens</span>
+                        <span className="text-xs sm:text-sm font-medium text-right">{formatDate(hackathon.registrationStartDate)}</span>
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-muted-foreground">Registration Closes</span>
-                        <span className="font-medium">{formatDate(hackathon.registrationEndDate)}</span>
+                      <div className="flex items-start justify-between gap-2">
+                        <span className="text-xs sm:text-sm text-muted-foreground">Registration Closes</span>
+                        <span className="text-xs sm:text-sm font-medium text-right">{formatDate(hackathon.registrationEndDate)}</span>
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-muted-foreground">Hackathon Starts</span>
-                        <span className="font-medium">{formatDateTime(hackathon.hackathonStartDate)}</span>
+                      <div className="flex items-start justify-between gap-2">
+                        <span className="text-xs sm:text-sm text-muted-foreground">Hackathon Starts</span>
+                        <span className="text-xs sm:text-sm font-medium text-right">{formatDateTime(hackathon.hackathonStartDate)}</span>
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-muted-foreground">Submission Deadline</span>
-                        <span className="font-medium">{formatDateTime(hackathon.submissionDeadline)}</span>
+                      <div className="flex items-start justify-between gap-2">
+                        <span className="text-xs sm:text-sm text-muted-foreground">Submission Deadline</span>
+                        <span className="text-xs sm:text-sm font-medium text-right">{formatDateTime(hackathon.submissionDeadline)}</span>
                       </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-muted-foreground">Results Announcement</span>
-                        <span className="font-medium">{formatDate(hackathon.resultsDate)}</span>
+                      <div className="flex items-start justify-between gap-2">
+                        <span className="text-xs sm:text-sm text-muted-foreground">Results Announcement</span>
+                        <span className="text-xs sm:text-sm font-medium text-right">{formatDate(hackathon.resultsDate)}</span>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </TabsContent>
 
-              <TabsContent value="problems" className="space-y-4">
+              <TabsContent value="problems" className="space-y-3 sm:space-y-4">
                 {problemStatements && problemStatements.length > 0 ? (
                   problemStatements.map((ps) => (
                     <Card key={ps.id} data-testid={`card-problem-${ps.id}`}>
-                      <CardContent className="p-4">
-                        <div className="mb-2 flex flex-wrap items-center gap-2">
-                          <Badge variant="secondary">{ps.category}</Badge>
-                          <Badge variant="outline" className="capitalize">{ps.difficulty}</Badge>
+                      <CardContent className="p-3 sm:p-4">
+                        <div className="mb-2 flex flex-wrap items-center gap-1.5 sm:gap-2">
+                          <Badge variant="secondary" className="text-xs">{ps.category}</Badge>
+                          <Badge variant="outline" className="capitalize text-xs">{ps.difficulty}</Badge>
                           {ps.prizeAmount && (
-                            <Badge className="bg-yellow-500/10 text-yellow-600 dark:text-yellow-400">
+                            <Badge className="bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 text-xs">
                               <Trophy className="mr-1 h-3 w-3" />
                               {formatCurrency(ps.prizeAmount)}
                             </Badge>
                           )}
                         </div>
-                        <h3 className="mb-2 font-semibold">{ps.title}</h3>
-                        <p className="mb-3 text-sm text-muted-foreground">{ps.description}</p>
+                        <h3 className="mb-2 text-sm sm:text-base font-semibold">{ps.title}</h3>
+                        <p className="mb-3 text-xs sm:text-sm text-muted-foreground">{ps.description}</p>
                         {ps.expectedOutcome && (
-                          <div className="flex items-start gap-2 rounded-md bg-muted p-3">
-                            <Target className="mt-0.5 h-4 w-4 text-primary" />
+                          <div className="flex items-start gap-2 rounded-md bg-muted p-2.5 sm:p-3">
+                            <Target className="mt-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary shrink-0" />
                             <div>
-                              <p className="text-xs font-medium">Expected Outcome</p>
-                              <p className="text-sm text-muted-foreground">{ps.expectedOutcome}</p>
+                              <p className="text-[10px] sm:text-xs font-medium">Expected Outcome</p>
+                              <p className="text-xs sm:text-sm text-muted-foreground">{ps.expectedOutcome}</p>
                             </div>
                           </div>
                         )}
                         {ps.sponsorName && (
-                          <p className="mt-3 text-xs text-muted-foreground">
+                          <p className="mt-2.5 sm:mt-3 text-[10px] sm:text-xs text-muted-foreground">
                             Sponsored by: {ps.sponsorName}
                           </p>
                         )}
@@ -1488,29 +1488,29 @@ export default function HackathonDetailsPage() {
                 )}
               </TabsContent>
 
-              <TabsContent value="rules" className="space-y-6">
+              <TabsContent value="rules" className="space-y-4 sm:space-y-6">
                 {hackathon.eligibility && (
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Eligibility</CardTitle>
+                    <CardHeader className="px-4 py-3 sm:px-6 sm:py-4">
+                      <CardTitle className="text-base sm:text-lg">Eligibility</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">{hackathon.eligibility}</p>
+                    <CardContent className="px-4 pb-4 sm:px-6 sm:pb-6">
+                      <p className="text-xs sm:text-sm text-muted-foreground">{hackathon.eligibility}</p>
                     </CardContent>
                   </Card>
                 )}
 
                 {hackathon.rules && (
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Rules</CardTitle>
+                    <CardHeader className="px-4 py-3 sm:px-6 sm:py-4">
+                      <CardTitle className="text-base sm:text-lg">Rules</CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="px-4 pb-4 sm:px-6 sm:pb-6">
                       <ul className="space-y-2">
                         {hackathon.rules.split('\n').map((rule, i) => (
                           <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
-                            <span>{rule}</span>
+                            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-green-500" />
+                            <span className="text-xs sm:text-sm">{rule}</span>
                           </li>
                         ))}
                       </ul>
@@ -1519,19 +1519,19 @@ export default function HackathonDetailsPage() {
                 )}
 
                 <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Team Requirements</CardTitle>
+                  <CardHeader className="px-4 py-3 sm:px-6 sm:py-4">
+                    <CardTitle className="text-base sm:text-lg">Team Requirements</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
+                  <CardContent className="px-4 pb-4 sm:px-6 sm:pb-6">
+                    <div className="space-y-2.5 sm:space-y-3">
                       <div className="flex items-center gap-2">
-                        <Users className="h-4 w-4 text-primary" />
-                        <span>Team Size: {hackathon.minTeamSize} - {hackathon.maxTeamSize} members</span>
+                        <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary shrink-0" />
+                        <span className="text-xs sm:text-sm">Team Size: {hackathon.minTeamSize} - {hackathon.maxTeamSize} members</span>
                       </div>
                       {hackathon.isPaid && (
                         <div className="flex items-center gap-2">
-                          <Trophy className="h-4 w-4 text-primary" />
-                          <span>Entry Fee: {formatCurrency(hackathon.entryFee || 0)}</span>
+                          <Trophy className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary shrink-0" />
+                          <span className="text-xs sm:text-sm">Entry Fee: {formatCurrency(hackathon.entryFee || 0)}</span>
                         </div>
                       )}
                     </div>
@@ -1539,36 +1539,36 @@ export default function HackathonDetailsPage() {
                 </Card>
               </TabsContent>
 
-              <TabsContent value="prizes" className="space-y-6">
+              <TabsContent value="prizes" className="space-y-4 sm:space-y-6">
                 <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-lg">
-                      <Trophy className="h-5 w-5 text-yellow-500" />
-                      Total Prize Pool: {formatCurrency(hackathon.prizePool || 0)}
+                  <CardHeader className="px-4 py-3 sm:px-6 sm:py-4">
+                    <CardTitle className="flex items-center gap-2 text-base sm:text-lg">
+                      <Trophy className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-500 shrink-0" />
+                      <span className="text-sm sm:text-base md:text-lg">Total Prize Pool: {formatCurrency(hackathon.prizePool || 0)}</span>
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="px-4 pb-4 sm:px-6 sm:pb-6">
                     {prizes && (
-                      <div className="grid gap-4 sm:grid-cols-3">
+                      <div className="grid gap-3 sm:gap-4 grid-cols-3">
                         {prizes.first && (
-                          <div className="rounded-lg border bg-gradient-to-b from-yellow-500/10 to-transparent p-3 sm:p-4 text-center">
-                            <div className="mb-2 text-2xl sm:text-3xl">1st</div>
-                            <div className="text-lg sm:text-xl font-bold">{formatCurrency(prizes.first.amount)}</div>
-                            <div className="text-xs sm:text-sm text-muted-foreground">{prizes.first.title}</div>
+                          <div className="rounded-lg border bg-gradient-to-b from-yellow-500/10 to-transparent p-2.5 sm:p-3 md:p-4 text-center">
+                            <div className="mb-1.5 sm:mb-2 text-xl sm:text-2xl md:text-3xl font-bold">1st</div>
+                            <div className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">{formatCurrency(prizes.first.amount)}</div>
+                            <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground mt-1">{prizes.first.title}</div>
                           </div>
                         )}
                         {prizes.second && (
-                          <div className="rounded-lg border bg-gradient-to-b from-gray-400/10 to-transparent p-3 sm:p-4 text-center">
-                            <div className="mb-2 text-2xl sm:text-3xl">2nd</div>
-                            <div className="text-lg sm:text-xl font-bold">{formatCurrency(prizes.second.amount)}</div>
-                            <div className="text-xs sm:text-sm text-muted-foreground">{prizes.second.title}</div>
+                          <div className="rounded-lg border bg-gradient-to-b from-gray-400/10 to-transparent p-2.5 sm:p-3 md:p-4 text-center">
+                            <div className="mb-1.5 sm:mb-2 text-xl sm:text-2xl md:text-3xl font-bold">2nd</div>
+                            <div className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">{formatCurrency(prizes.second.amount)}</div>
+                            <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground mt-1">{prizes.second.title}</div>
                           </div>
                         )}
                         {prizes.third && (
-                          <div className="rounded-lg border bg-gradient-to-b from-orange-500/10 to-transparent p-3 sm:p-4 text-center">
-                            <div className="mb-2 text-2xl sm:text-3xl">3rd</div>
-                            <div className="text-lg sm:text-xl font-bold">{formatCurrency(prizes.third.amount)}</div>
-                            <div className="text-xs sm:text-sm text-muted-foreground">{prizes.third.title}</div>
+                          <div className="rounded-lg border bg-gradient-to-b from-orange-500/10 to-transparent p-2.5 sm:p-3 md:p-4 text-center">
+                            <div className="mb-1.5 sm:mb-2 text-xl sm:text-2xl md:text-3xl font-bold">3rd</div>
+                            <div className="text-sm sm:text-base md:text-lg lg:text-xl font-bold">{formatCurrency(prizes.third.amount)}</div>
+                            <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground mt-1">{prizes.third.title}</div>
                           </div>
                         )}
                       </div>
@@ -1578,17 +1578,17 @@ export default function HackathonDetailsPage() {
 
                 {prizes?.special && prizes.special.length > 0 && (
                   <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Special Awards</CardTitle>
+                    <CardHeader className="px-4 py-3 sm:px-6 sm:py-4">
+                      <CardTitle className="text-base sm:text-lg">Special Awards</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <div className="grid gap-4 sm:grid-cols-2">
+                    <CardContent className="px-4 pb-4 sm:px-6 sm:pb-6">
+                      <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
                         {prizes.special.map((award, i) => (
-                          <div key={i} className="flex items-center gap-3 rounded-lg border p-3">
-                            <Award className="h-8 w-8 text-primary" />
+                          <div key={i} className="flex items-center gap-2.5 sm:gap-3 rounded-lg border p-2.5 sm:p-3">
+                            <Award className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-primary shrink-0" />
                             <div>
-                              <div className="font-semibold">{award.title}</div>
-                              <div className="text-sm text-muted-foreground">
+                              <div className="text-xs sm:text-sm font-semibold">{award.title}</div>
+                              <div className="text-xs sm:text-sm text-muted-foreground">
                                 {formatCurrency(award.amount)}
                               </div>
                             </div>
@@ -1604,40 +1604,40 @@ export default function HackathonDetailsPage() {
 
           {/* Right Column - Registration Card */}
           <div className="lg:col-span-1">
-            <div className="sticky top-4 space-y-4">
+            <div className="lg:sticky lg:top-4 space-y-3 sm:space-y-4">
               <Card>
-                <CardContent className="p-6">
-                  <div className="mb-4 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Trophy className="h-5 w-5 text-yellow-500" />
-                      <span className="text-xl font-bold">
+                <CardContent className="p-4 sm:p-5 lg:p-6">
+                  <div className="mb-3 sm:mb-4 flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <Trophy className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-500 shrink-0" />
+                      <span className="text-base sm:text-lg lg:text-xl font-bold">
                         {formatCurrency(hackathon.prizePool || 0)}
                       </span>
                     </div>
                     {!hackathon.isPaid && (
-                      <Badge variant="secondary">Free Entry</Badge>
+                      <Badge variant="secondary" className="text-xs">Free Entry</Badge>
                     )}
                   </div>
 
-                  <div className="mb-6 space-y-3 text-sm">
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="h-4 w-4" />
-                      <span>{formatDate(hackathon.hackathonStartDate)} - {formatDate(hackathon.hackathonEndDate)}</span>
+                  <div className="mb-4 sm:mb-5 lg:mb-6 space-y-2 sm:space-y-2.5 lg:space-y-3 text-xs sm:text-sm">
+                    <div className="flex items-start gap-2 text-muted-foreground">
+                      <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 mt-0.5 shrink-0" />
+                      <span className="break-words">{formatDate(hackathon.hackathonStartDate)} - {formatDate(hackathon.hackathonEndDate)}</span>
                     </div>
                     {hackathon.city && (
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <MapPin className="h-4 w-4" />
-                        <span>{hackathon.city}, {hackathon.country}</span>
+                      <div className="flex items-start gap-2 text-muted-foreground">
+                        <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 mt-0.5 shrink-0" />
+                        <span className="break-words">{hackathon.city}, {hackathon.country}</span>
                       </div>
                     )}
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Users className="h-4 w-4" />
+                    <div className="flex items-start gap-2 text-muted-foreground">
+                      <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 mt-0.5 shrink-0" />
                       <span>{hackathon.minTeamSize}-{hackathon.maxTeamSize} members per team</span>
                     </div>
                     {hackathon.registrationEndDate && (
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Clock className="h-4 w-4" />
-                        <span>{getTimeRemaining(hackathon.registrationEndDate)}</span>
+                      <div className="flex items-start gap-2 text-muted-foreground">
+                        <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 mt-0.5 shrink-0" />
+                        <span className="break-words">{getTimeRemaining(hackathon.registrationEndDate)}</span>
                       </div>
                     )}
                   </div>
@@ -1656,15 +1656,15 @@ export default function HackathonDetailsPage() {
                     </a>
                   )}
 
-                  <div className="mt-4 flex gap-2">
-                    <Button variant="outline" size="sm" className="flex-1" data-testid="button-share">
-                      <Share2 className="mr-1 h-4 w-4" />
+                  <div className="mt-3 sm:mt-4 flex gap-2">
+                    <Button variant="outline" size="sm" className="flex-1 text-xs sm:text-sm" data-testid="button-share">
+                      <Share2 className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
                       Share
                     </Button>
                     {hackathon.websiteUrl && (
                       <a href={hackathon.websiteUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
-                        <Button variant="outline" size="sm" className="w-full">
-                          <ExternalLink className="mr-1 h-4 w-4" />
+                        <Button variant="outline" size="sm" className="w-full text-xs sm:text-sm">
+                          <ExternalLink className="mr-1 h-3 w-3 sm:h-4 sm:w-4" />
                           Website
                         </Button>
                       </a>
@@ -1675,16 +1675,16 @@ export default function HackathonDetailsPage() {
 
               {/* Contact Card */}
               <Card>
-                <CardContent className="p-4">
-                  <h3 className="mb-3 font-semibold">Contact Organizers</h3>
-                  <div className="space-y-2 text-sm">
+                <CardContent className="p-3 sm:p-4">
+                  <h3 className="mb-2.5 sm:mb-3 text-sm sm:text-base font-semibold">Contact Organizers</h3>
+                  <div className="space-y-2 text-xs sm:text-sm">
                     {hackathon.contactEmail && (
                       <a
                         href={`mailto:${hackathon.contactEmail}`}
-                        className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+                        className="flex items-center gap-2 text-muted-foreground hover:text-foreground break-all"
                       >
-                        <Mail className="h-4 w-4" />
-                        <span>{hackathon.contactEmail}</span>
+                        <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
+                        <span className="break-all">{hackathon.contactEmail}</span>
                       </a>
                     )}
                     {hackathon.websiteUrl && (
@@ -1694,7 +1694,7 @@ export default function HackathonDetailsPage() {
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                       >
-                        <Globe className="h-4 w-4" />
+                        <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
                         <span>Official Website</span>
                       </a>
                     )}
